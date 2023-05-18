@@ -4,7 +4,7 @@ This code uses the structure of camikura's atemCHOP as a starting point. While c
 
 The development is still in the beginning stages and only building for Windows is supported. The following features have been implemented:
 
-- set ip adress of the atem switcher with the atem IP parameter.
+- set ip address of the atem switcher you want to connect to with the atem IP parameter.
 - set program input for a Mixer Effect(ME) by inputting the message cpgi* into the atemCHOP, where * = the number of the ME.
 - set preview input for an ME by inputting cpvi* into the atemCHOP, where * = the number of the ME.
 - cut from program input to preview input (and swap them) by inputting dcut* into the atemCHOP. This should be input as a momentary value.
