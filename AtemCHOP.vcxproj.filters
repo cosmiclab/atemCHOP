@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\atem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\AtemCHOP.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\udp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BMDSwitcherAPI_i.c">
+      <Filter>BMDSwitcherAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SwitcherMonitor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\atem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AtemCHOP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CPlusPlus_Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CHOP_CPlusPlusBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\udp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\wglew.h">
+      <Filter>GLEW</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\glew.c">
+      <Filter>GLEW</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\glew.h">
+      <Filter>GLEW</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\glewinfo.c">
+      <Filter>GLEW</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL_Extensions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BMDSwitcherAPI.h">
+      <Filter>BMDSwitcherAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SwitcherMonitor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f8cc17c0-abdb-48b0-b2db-ee45ca8ff0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{dd0ac1c6-c8c3-423f-887c-2201be82e6ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLEW">
+      <UniqueIdentifier>{6ca94d80-7f6e-4464-a744-00f89a8fef02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BMDSwitcherAPI">
+      <UniqueIdentifier>{00cf7f58-18e3-4d51-a0d0-91d80abb2305}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="atemSDK\BMDSwitcherAPI.idl">
+      <Filter>BMDSwitcherAPI</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>
