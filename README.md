@@ -4,14 +4,14 @@ This code uses the structure of camikura's atemCHOP as a starting point. While c
 
 Requirements:
 
--Windows 10 (probably works on 11)
--sdk files you need are included in the atemSDK folder but you can get newer versions at https://www.blackmagicdesign.com/developer/product/atem
+- Windows 10 (probably works on 11)
+- sdk files you need are included in the atemSDK folder but you can get newer versions at https://www.blackmagicdesign.com/developer/product/atem
 
 Usage:
 
--Copy Release/AtemCHOP.dll into a folder called Plugins in the same directory as your toe.
--Select it from the Custom Operators menu.
--Set ip address.
+- Copy Release/AtemCHOP.dll into a folder called Plugins in the same directory as your toe.
+- Select it from the Custom Operators menu.
+- Set ip address.
 
 The development is still in the beginning stages and only building for Windows is supported. The following features have been implemented:
 
