@@ -3,10 +3,12 @@ TouchDesigner plugin for controlling bmd atem switchers
 This code uses the structure of camikura's atemCHOP as a starting point. While camikura's code uses the UDP protocol from Skaarhoj, which is old and unmaintained, we've started replacing that protocol with functions from the official BlackMagicDesign Switcher SDK, which should hopefully be more stable with new releases of BMD switcher firmware.
 
 Requirements:
+
 -Windows 10 (probably works on 11)
 -sdk files you need are included in the atemSDK folder but you can get newer versions at https://www.blackmagicdesign.com/developer/product/atem
 
 Usage:
+
 -Copy Release/AtemCHOP.dll into a folder called Plugins in the same directory as your toe.
 -Select it from the Custom Operators menu.
 -Set ip address.
