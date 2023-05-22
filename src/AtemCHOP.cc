@@ -41,14 +41,6 @@ void AtemCHOP::getGeneralInfo(CHOP_GeneralInfo* ginfo, const OP_Inputs* inputs,
 
 bool AtemCHOP::getOutputInfo(CHOP_OutputInfo* info, const OP_Inputs* inputs,
                              void* reserved1) {
-  //info->numSamples = 1;
-  //if (atem->isConnected()) {
-  //  info->numChannels = int32_t(atem->chan_names.size());
-  //} else {
-  //  info->numChannels = 0;
-  //}  
-  //return true;
-
     if (atem->isConnected())
     {
         info->numSamples = 1;
@@ -60,7 +52,6 @@ bool AtemCHOP::getOutputInfo(CHOP_OutputInfo* info, const OP_Inputs* inputs,
         info->numChannels = 0;
         info->numSamples = 0;
     }
-  
   
   return true;
 }
@@ -74,44 +65,21 @@ void AtemCHOP::getChannelName(int32_t index, OP_String* name,
 void AtemCHOP::execute(CHOP_Output* output, const OP_Inputs* inputs,
                        void* reserved) { //this is called every frame
   executeHandleParameters(inputs);
-  executeHandleInputs(inputs);
-
- 
+  executeHandleInputs(inputs); 
 
   time_t now_t = time(NULL);
 
   if (atem->isClosed())
   {
-      //if (output->numChannels > 0)
-      //{
-      //}
-
       if (reconnectTimer++ > connectTimerDur /*&& !conThr.joinable()*/)
       {          
           threadedConnect();
           reconnectTimer = 0;
       }
   }
-  //// auto close
-  //if (int(now_t) - checkCloseTerm > int(atem->last_recv_packet_t) &&
-  //    atem->isConnected()) {
-  //  atem->init();
-  //}
 
-  //// auto reconnect
-  //if (int(now_t) - checkReconnTerm > int(atem->last_send_packet_t) &&
-  //    !atem->isConnected()) {
-  //  atem->sendPacketStart();
-  //}
-
-  // provide data
-  //if (atem->isConnected()) {
   else if (atem->isConnected())
   {
-      //if (atem->chan_values.size() != output->numChannels)
-      //{          
-      //    return; //this shouldn't be needed...
-      //}
       for (int i = 0; i < atem->chan_values.size(); i++) 
       {          
           for (int j = 0; j < output->numSamples; j++) {      
@@ -119,7 +87,6 @@ void AtemCHOP::execute(CHOP_Output* output, const OP_Inputs* inputs,
           }
       }
   }
-  //}
 }
 
 int32_t AtemCHOP::getNumInfoCHOPChans(void* reserved1) {
@@ -129,7 +96,7 @@ int32_t AtemCHOP::getNumInfoCHOPChans(void* reserved1) {
 
 void AtemCHOP::getInfoCHOPChan(int32_t index, OP_InfoCHOPChan* chan,
                                void* reserved1) {
-  if (index == 0) {
+  /*if (index == 0) {
     chan->name->setString("atemSessionID");
     chan->value = (float)atem->session_id;
   }
@@ -146,7 +113,7 @@ void AtemCHOP::getInfoCHOPChan(int32_t index, OP_InfoCHOPChan* chan,
         atem->topology_names[int(static_cast<__int64>(index) - 3)].c_str());
     chan->value =
         (float)atem->topology_values[int(static_cast<__int64>(index) - 3)];
-  }
+  }*/
 }
 
 bool AtemCHOP::getInfoDATSize(OP_InfoDATSize* infoSize, void* reserved1) {
@@ -195,13 +162,97 @@ void AtemCHOP::getInfoDATEntries(int32_t index, int32_t nEntries,
   }
 }
 
+void AtemCHOP::appendParameter(OP_NumericParameter& par, OP_ParameterManager* manager, ParameterType type)
+{
+    OP_ParAppendResult res;
+    switch (type)
+    {
+    case IntParam:
+        res = manager->appendInt(par);
+        break;
+    case FloatParam:
+        res = manager->appendFloat(par);
+        break;
+    case PulseParam:
+        res = manager->appendPulse(par);
+        break;
+    case FaderParam:
+        par.minSliders[0] = 0.0;
+        par.maxSliders[0] = 1.0;// 000;
+        par.clampMins[0] = true;
+        par.clampMaxes[0] = true;
+        par.minValues[0] = 0.0;
+        par.maxValues[0] = 1.0;// 000;
+        res = manager->appendFloat(par);
+        break;
+    case ToggleParam:
+        res = manager->appendToggle(par);
+        break;
+    }
+    par.name;
+    assert(res == OP_ParAppendResult::Success);
+}
+
+void AtemCHOP::addGeneralParameter(std::string page, std::string name, std::string label, OP_ParameterManager* manager, ParameterType type)
+{
+    std::string n = name;
+    std::string l = label;
+    std::string p = page;
+
+    if (type == StringParam)
+    {
+        OP_StringParameter par;
+        par.name = n.c_str();
+        par.label = l.c_str();
+        par.page = p.c_str();
+        OP_ParAppendResult res = manager->appendString(par);
+        assert(res == OP_ParAppendResult::Success);
+    }
+    else
+    {
+        OP_NumericParameter par;
+        par.name = n.c_str();
+        par.label = l.c_str();
+        par.page = p.c_str();
+        appendParameter(par, manager, type);
+    }    
+}
+
+
+void AtemCHOP::addMixerParameter(std::string page, std::string name, std::string label, int ind, OP_ParameterManager* manager, ParameterType type)
+{
+    OP_NumericParameter pa;
+    std::string n = name + std::to_string(ind + 1);
+    pa.name = n.c_str();
+    std::string l = label + " " + std::to_string(ind + 1);
+    pa.label = l.c_str();
+    std::string p = page;
+    pa.page = p.c_str();
+    appendParameter(pa, manager, type);
+   
+}
+
 void AtemCHOP::setupParameters(OP_ParameterManager* manager, void* reserved1) {
   {
-    OP_StringParameter sp;
-    sp.name = "Atemip";
-    sp.label = "Atem IP";
-    OP_ParAppendResult res = manager->appendString(sp);
-    assert(res == OP_ParAppendResult::Success);
+    addGeneralParameter("General", "Atemip", "Atem IP", manager, StringParam);
+    addGeneralParameter("General", "Fadermirroring", "Fader Mirroring", manager, ToggleParam);
+    
+    for (int i = 0; i < maxMEs; ++i) //assuming max four MEs for now...
+    {
+        //auto* f = manager->appendInt;
+        std::string page = "ME " + std::to_string(i + 1);
+        addMixerParameter(page, "Program", "Program", i, manager, IntParam);
+        addMixerParameter(page, "Preview", "Preview", i, manager, IntParam);
+        addMixerParameter(page, "Fader", "Fader", i, manager, FaderParam);
+        addMixerParameter(page, "Cut", "Cut", i, manager, PulseParam);
+        addMixerParameter(page, "Auto", "Auto", i, manager, PulseParam);
+    }
+
+    for (int i = 0; i < maxDSKs; ++i)
+    {
+        addMixerParameter("DSK", "Onair", "On Air", i, manager, ToggleParam);
+        //addMixerParameter(page, "Dskauto", "DSK Auto", i, manager, PulseParam);
+    }
   }
 }
 
@@ -217,9 +268,29 @@ void AtemCHOP::setOutputs()
     }
 }
 
-void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs) {
+void AtemCHOP::pulsePressed(const char* name, void* reserved1)
+{    
+    if (std::string(name).find("Cut") != std::string::npos)
+    {
+        int me = std::stoi(std::string(name).substr(3, 1)) - 1;
+        atem->performCut(me);
+    }
 
-   // if (!atem->isConnected()) return;
+    if (std::string(name).find("Auto") != std::string::npos)
+    {
+        int me = std::stoi(std::string(name).substr(4, 1)) - 1;
+        atem->performAuto(me);
+    }
+
+    //if (std::string(name).find("Dskauto") != std::string::npos)
+    //{
+    //    int k = std::stoi(std::string(name).substr(7, 1)) - 1;
+    //    atem->performDownstreamKeyerAuto(k);
+    //}    
+}
+
+void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs) 
+{
   std::string ip = inputs->getParString("Atemip");
   if (atem->atem_ip != ip || atem->active == -1) 
   {
@@ -229,69 +300,38 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs) {
 
     threadedConnect();
   }
+
+  for (int i = 0; i < atem->nofMEs; ++i)
+  {
+      int pg = inputs->getParInt(("Program" + std::to_string(i+1)).c_str());
+      atem->changeProgramInput(i, pg);
+      
+      int pv = inputs->getParInt(("Preview" + std::to_string(i + 1)).c_str());
+      atem->changePreviewInput(i, pv);
+      
+      double pf = inputs->getParDouble(("Fader" + std::to_string(i + 1)).c_str());
+      bool mir = inputs->getParInt("Fadermirroring");
+      pf = meFaderDirections[i] == 1 || !mir ? pf : pf * meFaderDirections[i] + 1.0;
+      if(pf >= 0.0 && pf <= 1.0) atem->changeFaderPosition(i, pf, meFaderDirections[i]);
+  }  
+  for (int i = 0; i < atem->nofDSKs; ++i)
+  {
+      bool on = inputs->getParInt(("Onair" + std::to_string(i + 1)).c_str()) == 1;
+      atem->changeDownstreamKeyer(i, on);
+  }
 }
 
-void AtemCHOP::executeHandleInputs(const OP_Inputs* inputs) {
+void AtemCHOP::executeHandleInputs(const OP_Inputs* inputs) { //these remaining functions are to be replaced with params
   for (int i = 0; i < inputs->getNumInputs(); i++) {
     const OP_CHOPInput* cinput = inputs->getInputCHOP(i);
     for (int j = 0; j < cinput->numChannels; j++) {
       std::string cname = cinput->getChannelName(j);
-
-      if (!strncmp(cname.c_str(), "ctps", 4)) { //***
-          int me = stoi(cname.substr(4, 1)) - 1;
-          uint16_t source = uint16_t(cinput->getChannelData(j)[0]);
-          if (atem->nofMEs > me && atem->ctps[me] != source) {
-              atem->changeFaderPosition(me, source);
-          }
-      }
-
-      if (!strncmp(cname.c_str(), "dcut", 4)) {
-        int me = stoi(cname.substr(4, 1)) - 1;
-        bool flag = cinput->getChannelData(j)[0] >= 1;
-        if (atem->nofMEs > me && atem->dcut[me] != flag) {
-          atem->dcut[me] = flag;
-          if (flag) atem->performCut(me);
-        }
-      }
-
-      if (!strncmp(cname.c_str(), "daut", 4)) {
-        int me = stoi(cname.substr(4, 1)) - 1;
-        bool flag = cinput->getChannelData(j)[0] >= 1;
-        if (atem->nofMEs > me && atem->daut[me] != flag) {
-          atem->daut[me] = flag;
-          if (flag) atem->performAuto(me);
-        }
-      }
-
-      if (!strncmp(cname.c_str(), "cpgi", 4)) {
-        int me = stoi(cname.substr(4, 1)) - 1;
-        uint16_t source = uint16_t(cinput->getChannelData(j)[0]);
-        if (atem->nofMEs > me && atem->cpgi[me] != source) {
-          atem->changeProgramInput(me, source);
-        }
-      }
-
-      if (!strncmp(cname.c_str(), "cpvi", 4)) {
-        int me = stoi(cname.substr(4, 1)) - 1;
-        uint16_t source = uint16_t(cinput->getChannelData(j)[0]);
-        if (atem->nofMEs > me && atem->cpvi[me] != source) {
-          atem->changePreviewInput(me, source);
-        }
-      }
 
       if (!strncmp(cname.c_str(), "caus", 4)) {
         int index = stoi(cname.substr(4, 1)) - 1;
         uint16_t source = uint16_t(cinput->getChannelData(j)[0]);
         if (atem->nofAuxs > index && atem->caus[index] != source) {
           atem->changeAuxSource(index, source);
-        }
-      }
-
-      if (!strncmp(cname.c_str(), "cdsl", 4)) {
-        int keyer = stoi(cname.substr(4, 1)) - 1;
-        bool onair = cinput->getChannelData(j)[0] >= 1;
-        if (atem->nofDSKs > keyer && atem->cdsl[keyer] != onair) {
-          atem->changeDownstreamKeyer(keyer, onair);
         }
       }
 
@@ -312,8 +352,8 @@ DLLEXPORT void FillCHOPPluginInfo(CHOP_PluginInfo* info) {
   info->apiVersion = CHOPCPlusPlusAPIVersion;
   info->customOPInfo.opType->setString("Atem");
   info->customOPInfo.opLabel->setString("Atem");
-  info->customOPInfo.authorName->setString("Akira Kamikura");
-  info->customOPInfo.authorEmail->setString("akira.kamikura@gmail.com");
+  info->customOPInfo.authorName->setString("Cosmic Lab");
+  info->customOPInfo.authorEmail->setString("stephan@cosmiclab.jp");
 
   info->customOPInfo.opIcon->setString("ATM");
 
