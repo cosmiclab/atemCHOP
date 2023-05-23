@@ -312,9 +312,9 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
       double pf = inputs->getParDouble(("Fader" + std::to_string(i + 1)).c_str());
       bool mir = inputs->getParInt("Fadermirroring");
       pf = meFaderDirections[i] == 1 || !mir ? pf : pf * meFaderDirections[i] + 1.0;
-      if(pf >= 0.0 && pf <= 1.0) atem->changeFaderPosition(i, pf, meFaderDirections[i]);
+      atem->changeFaderPosition(i, pf, meFaderDirections[i]);
   }  
-  for (int i = 0; i < atem->nofDSKs; ++i)
+  for (int i = 0; i < maxDSKs; ++i)
   {
       bool on = inputs->getParInt(("Onair" + std::to_string(i + 1)).c_str()) == 1;
       atem->changeDownstreamKeyer(i, on);

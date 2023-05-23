@@ -26,7 +26,7 @@ class AtemCHOP : public CHOP_CPlusPlusBase {
   int maxMEs = 4; //since we seemingly can't dynamically change parameters based on switcher type...
   int maxDSKs = 2; //""
 
-  int meFaderDirections[4] = { 1 };
+  int meFaderDirections[4] = { 1, 1, 1, 1 };
 
   int reconnectTimer = 0;
   int connectTimerDur = 30; //try to reconnect once every 30 frames
