@@ -225,25 +225,32 @@ void Atem::changeAuxSource(uint8_t index, uint16_t source) {
   //sendCommand("CAuS", data);
 }
 
-void Atem::changeDownstreamKeyer(uint8_t keyer, bool onair) { //perform a dsk cut
+void Atem::changeDownstreamKeyer(uint8_t keyer/*, bool onair*/) { //perform a dsk cut
 
     if (keyer >= 0 && keyer < nofDSKs)
     {
         BOOL onFlag;
         downstreamKeys[keyer]->GetOnAir(&onFlag);
-        if (onair == onFlag)
-        {
-            return;
-        }
-        downstreamKeys[keyer]->SetOnAir(onair);
-        cdsl[keyer] = onair;
+        downstreamKeys[keyer]->SetOnAir(!onFlag);
+        cdsl[keyer] = !onFlag;
     }
 }
 
 void Atem::performDownstreamKeyerAuto(uint8_t keyer) { //not quite working yet
   //std::vector<uint8_t> data{keyer, 0, 0, 0};
   //sendCommand("DDsA", data);
-    downstreamKeys[keyer]->SetRate(60);
-    downstreamKeys[keyer]->PerformAutoTransition();
-   
+         
+
+    if (keyer >= 0 && keyer < nofDSKs)
+    {
+        downstreamKeys[keyer]->SetRate(60);
+        downstreamKeys[keyer]->PerformAutoTransition();
+
+        BOOL on;
+        downstreamKeys[keyer]->GetOnAir(&on);
+        cdsl[keyer] = !on;
+        chan_values[nofMEs * 2 + keyer] = !on ? 1 : 0;
+        //chan_values[me * 2] = pvw; //swap
+        //chan_values[me * 2 + 1] = pgm;
+    }
 }

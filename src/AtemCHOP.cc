@@ -250,8 +250,8 @@ void AtemCHOP::setupParameters(OP_ParameterManager* manager, void* reserved1) {
 
     for (int i = 0; i < maxDSKs; ++i)
     {
-        addMixerParameter("DSK", "Onair", "On Air", i, manager, ToggleParam);
-        //addMixerParameter(page, "Dskauto", "DSK Auto", i, manager, PulseParam);
+        addMixerParameter("DSK", "Dskcut", "Cut", i, manager, PulseParam);
+        addMixerParameter("DSK", "Dskauto", "Auto", i, manager, PulseParam);
     }
   }
 }
@@ -261,9 +261,16 @@ void AtemCHOP::setOutputs()
     outputs.clear();
     for (size_t i = 0; i < atem->mixEffectBlocks.size(); ++i)
     {
-        for (size_t j = 0; j < oneOutput.size(); ++j)
+        for (size_t j = 0; j < oneMEOutput.size(); ++j)
         {
-            outputs.push_back(oneOutput[j]+ std::to_string(i+1));
+            outputs.push_back(oneMEOutput[j]+ std::to_string(i+1));
+        }
+    }
+    for (size_t i = 0; i < maxDSKs; ++i)
+    {
+        for (size_t j = 0; j < oneDSKOutput.size(); ++j)
+        {
+            outputs.push_back(oneDSKOutput[j] + std::to_string(i + 1));
         }
     }
 }
@@ -282,11 +289,18 @@ void AtemCHOP::pulsePressed(const char* name, void* reserved1)
         atem->performAuto(me);
     }
 
-    //if (std::string(name).find("Dskauto") != std::string::npos)
-    //{
-    //    int k = std::stoi(std::string(name).substr(7, 1)) - 1;
-    //    atem->performDownstreamKeyerAuto(k);
-    //}    
+    if (std::string(name).find("Dskauto") != std::string::npos)
+    {
+        int k = std::stoi(std::string(name).substr(7, 1)) - 1;
+        atem->performDownstreamKeyerAuto(k);
+    }
+
+    if (std::string(name).find("Dskcut") != std::string::npos)
+    {
+        int k = std::stoi(std::string(name).substr(6, 1)) - 1;
+        atem->changeDownstreamKeyer(k);
+    }
+
 }
 
 void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs) 
@@ -303,6 +317,7 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
 
   for (int i = 0; i < atem->nofMEs; ++i)
   {
+
       int pg = inputs->getParInt(("Program" + std::to_string(i+1)).c_str());
       atem->changeProgramInput(i, pg);
       
@@ -314,11 +329,6 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
       pf = meFaderDirections[i] == 1 || !mir ? pf : pf * meFaderDirections[i] + 1.0;
       atem->changeFaderPosition(i, pf, meFaderDirections[i]);
   }  
-  for (int i = 0; i < maxDSKs; ++i)
-  {
-      bool on = inputs->getParInt(("Onair" + std::to_string(i + 1)).c_str()) == 1;
-      atem->changeDownstreamKeyer(i, on);
-  }
 }
 
 void AtemCHOP::executeHandleInputs(const OP_Inputs* inputs) { //these remaining functions are to be replaced with params

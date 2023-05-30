@@ -95,7 +95,7 @@ struct Atem {
   void changeProgramInput(uint8_t me, uint16_t source);
   void changePreviewInput(uint8_t me, uint16_t source);
   void changeAuxSource(uint8_t index, uint16_t source);
-  void changeDownstreamKeyer(uint8_t keyer, bool onair);
+  void changeDownstreamKeyer(uint8_t keyer/*, bool onair*/);
   void performDownstreamKeyerAuto(uint8_t keyer);
 
   void updateOutput(uint8_t me);
