@@ -80,6 +80,7 @@ void Atem::init() {
               conn_state = connStateConnected;
   
               mixEffectBlocks.clear();
+              downstreamKeys.clear();
 
               CComPtr<IBMDSwitcherMixEffectBlockIterator> mixEffectBlockIterator;
               if (switcher->CreateIterator(IID_IBMDSwitcherMixEffectBlockIterator, (void**)&mixEffectBlockIterator) == S_OK)
@@ -101,6 +102,7 @@ void Atem::init() {
           else
           {
               mixEffectBlocks.clear();
+              downstreamKeys.clear();
               switcher = nullptr;
               std::cout << failure << std::endl;
           }

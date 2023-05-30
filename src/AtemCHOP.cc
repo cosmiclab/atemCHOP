@@ -266,7 +266,7 @@ void AtemCHOP::setOutputs()
             outputs.push_back(oneMEOutput[j]+ std::to_string(i+1));
         }
     }
-    for (size_t i = 0; i < maxDSKs; ++i)
+    for (size_t i = 0; i < atem->nofDSKs; ++i)
     {
         for (size_t j = 0; j < oneDSKOutput.size(); ++j)
         {
