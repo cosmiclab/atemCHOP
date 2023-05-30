@@ -22,7 +22,8 @@ class AtemCHOP : public CHOP_CPlusPlusBase {
   void setOutputs();
 
   std::vector<std::string> outputs;
-  std::vector<std::string> oneOutput = { "prgi", "prvi" };
+  std::vector<std::string> oneMEOutput = { "prgi", "prvi" };
+  std::vector<std::string> oneDSKOutput = { "dsks" };
   int maxMEs = 4; //since we seemingly can't dynamically change parameters based on switcher type...
   int maxDSKs = 2; //""
 
