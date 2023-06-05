@@ -13,7 +13,6 @@ void AtemCHOP::connect()
     atem->init();
     setOutputs();
     atem->initChannels(outputs);
-
     //std::this_thread::sleep_for(std::chrono::seconds(2));
 }
 
@@ -44,8 +43,7 @@ bool AtemCHOP::getOutputInfo(CHOP_OutputInfo* info, const OP_Inputs* inputs,
     if (atem->isConnected())
     {
         info->numSamples = 1;
-        info->numChannels = int32_t(atem->chan_names.size());
-        //info->numChannels = int32_t(outputs.size());
+        info->numChannels = int32_t(outputs.size());
     }
     else
     {
@@ -62,31 +60,67 @@ void AtemCHOP::getChannelName(int32_t index, OP_String* name,
     name->setString(atem->chan_names[index].c_str());
 }
 
+void AtemCHOP::enableParameters(const OP_Inputs* inputs)
+{
+    for (int i = 0; i < maxMEs; ++i)
+    {
+        bool enable = i < atem->nofMEs;
+        std::string par = "Program" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+        par = "Preview" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+        par = "Fader" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+        par = "Cut" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+        par = "Auto" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+    }
+
+    for (int i = 0; i < maxDSKs; ++i)
+    {
+        bool enable = i < atem->nofDSKs;
+        std::string par = "Dskcut" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+        par = "Dskauto" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+        par = "Dskrate" + std::to_string(i + 1);
+        inputs->enablePar(par.c_str(), enable);
+    }
+
+}
+
 void AtemCHOP::execute(CHOP_Output* output, const OP_Inputs* inputs,
                        void* reserved) { //this is called every frame
-  executeHandleParameters(inputs);
-  executeHandleInputs(inputs); 
+    
+   // if (atem->isMixerAmountChanged(outputs.size()))
+    //{
+        enableParameters(inputs);
+        setOutputs();
+    //}
+    executeHandleParameters(inputs);
+    executeHandleInputs(inputs); 
 
-  time_t now_t = time(NULL);
+    time_t now_t = time(NULL);
 
-  if (atem->isClosed())
-  {
-      if (reconnectTimer++ > connectTimerDur /*&& !conThr.joinable()*/)
-      {          
-          threadedConnect();
-          reconnectTimer = 0;
-      }
-  }
+    if (atem->isClosed())
+    {
+        if (reconnectTimer++ > connectTimerDur /*&& !conThr.joinable()*/)
+        {          
+            threadedConnect();
+            reconnectTimer = 0;
+        }
+    }
 
-  else if (atem->isConnected())
-  {
-      for (int i = 0; i < atem->chan_values.size(); i++) 
-      {          
-          for (int j = 0; j < output->numSamples; j++) {      
-              output->channels[i][j] = atem->chan_values[i];
-          }
-      }
-  }
+    else if (atem->isConnected())
+    {
+        for (int i = 0; i < atem->chan_values.size(); i++) 
+        {          
+            for (int j = 0; j < output->numSamples; j++) {      
+                output->channels[i][j] = atem->chan_values[i];
+            }
+        }
+    }
 }
 
 int32_t AtemCHOP::getNumInfoCHOPChans(void* reserved1) {
@@ -239,7 +273,6 @@ void AtemCHOP::setupParameters(OP_ParameterManager* manager, void* reserved1) {
     
     for (int i = 0; i < maxMEs; ++i) //assuming max four MEs for now...
     {
-        //auto* f = manager->appendInt;
         std::string page = "ME " + std::to_string(i + 1);
         addMixerParameter(page, "Program", "Program", i, manager, IntParam);
         addMixerParameter(page, "Preview", "Preview", i, manager, IntParam);
@@ -252,6 +285,7 @@ void AtemCHOP::setupParameters(OP_ParameterManager* manager, void* reserved1) {
     {
         addMixerParameter("DSK", "Dskcut", "Cut", i, manager, PulseParam);
         addMixerParameter("DSK", "Dskauto", "Auto", i, manager, PulseParam);
+        addMixerParameter("DSK", "Dskrate", "Auto Rate", i, manager, IntParam);
     }
   }
 }
@@ -259,16 +293,16 @@ void AtemCHOP::setupParameters(OP_ParameterManager* manager, void* reserved1) {
 void AtemCHOP::setOutputs()
 {
     outputs.clear();
-    for (size_t i = 0; i < atem->mixEffectBlocks.size(); ++i)
+    for (int i = 0; i < atem->mixEffectBlocks.size(); ++i)
     {
-        for (size_t j = 0; j < oneMEOutput.size(); ++j)
+        for (int j = 0; j < oneMEOutput.size(); ++j)
         {
             outputs.push_back(oneMEOutput[j]+ std::to_string(i+1));
         }
     }
-    for (size_t i = 0; i < atem->nofDSKs; ++i)
+    for (int i = 0; i < atem->downstreamKeys.size(); ++i)
     {
-        for (size_t j = 0; j < oneDSKOutput.size(); ++j)
+        for (int j = 0; j < oneDSKOutput.size(); ++j)
         {
             outputs.push_back(oneDSKOutput[j] + std::to_string(i + 1));
         }
@@ -317,7 +351,6 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
 
   for (int i = 0; i < atem->nofMEs; ++i)
   {
-
       int pg = inputs->getParInt(("Program" + std::to_string(i+1)).c_str());
       atem->changeProgramInput(i, pg);
       
@@ -329,6 +362,12 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
       pf = meFaderDirections[i] == 1 || !mir ? pf : pf * meFaderDirections[i] + 1.0;
       atem->changeFaderPosition(i, pf, meFaderDirections[i]);
   }  
+
+  for (int i = 0; i < atem->nofDSKs; ++i)
+  {
+      int rt = inputs->getParInt(("Dskrate" + std::to_string(i + 1)).c_str());
+      atem->dskRates[i] = rt;
+  }
 }
 
 void AtemCHOP::executeHandleInputs(const OP_Inputs* inputs) { //these remaining functions are to be replaced with params

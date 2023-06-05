@@ -32,7 +32,8 @@ struct Atem {
   int nofSSrcs = 0;
   int nofInputs = 0;
   int nofMacros = 0;
-  int lastFaderPos[4];
+  double lastFaderPos[4];
+  int dskRates[4] = { 60, 60, 60, 60 };
 
   std::vector<std::string> chan_names;
   std::vector<float> chan_values;
@@ -99,6 +100,7 @@ struct Atem {
   void performDownstreamKeyerAuto(uint8_t keyer);
 
   void updateOutput(uint8_t me);
+  bool isMixerAmountChanged(int amount);
 
   void OnDisconnect();
 

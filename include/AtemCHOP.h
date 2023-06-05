@@ -18,7 +18,6 @@ class AtemCHOP : public CHOP_CPlusPlusBase {
   void addGeneralParameter(std::string page, std::string name, std::string label, OP_ParameterManager* manager, ParameterType type);
 
   void appendParameter(OP_NumericParameter& par, OP_ParameterManager* manager, ParameterType type);
-
   void setOutputs();
 
   std::vector<std::string> outputs;
@@ -55,4 +54,6 @@ class AtemCHOP : public CHOP_CPlusPlusBase {
                          OP_InfoDATEntries* entries, void* reserved1);
   void setupParameters(OP_ParameterManager* manager, void* reserved1);
   void pulsePressed(const char* name, void* reserved1);
+
+  void enableParameters(const OP_Inputs* inputs);
 };

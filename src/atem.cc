@@ -55,6 +55,15 @@ void Atem::initChannels(std::vector<std::string>& outputs) //initialize output c
     }
 }
 
+bool Atem::isMixerAmountChanged(int amount)
+{
+    if (amount != chan_values.size())
+    {
+        return true;
+    }
+    return false;
+}
+
 void Atem::init() {
 
   conn_state = connStateClosed;
@@ -106,6 +115,7 @@ void Atem::init() {
               switcher = nullptr;
               std::cout << failure << std::endl;
           }
+
       }
 
       if (switcherDiscovery != NULL) { switcherDiscovery->Release(); }
@@ -181,7 +191,9 @@ void Atem::performAuto(uint8_t me) {
 
 void Atem::changeFaderPosition(uint8_t me, double pos, int& dir) //changed pos to double 
 {
-    if (pos == lastFaderPos[me])
+    //double curPos;
+    //mixEffectBlocks[me]->GetTransitionPosition(&curPos);
+    if (pos == lastFaderPos[me])// && pos == curPos)
     {
     }
     else if (me >= 0 && me < nofMEs)
@@ -227,25 +239,23 @@ void Atem::changeAuxSource(uint8_t index, uint16_t source) {
   //sendCommand("CAuS", data);
 }
 
-void Atem::changeDownstreamKeyer(uint8_t keyer/*, bool onair*/) { //perform a dsk cut
+void Atem::changeDownstreamKeyer(uint8_t keyer) { //perform a dsk cut
 
     if (keyer >= 0 && keyer < nofDSKs)
     {
-        BOOL onFlag;
-        downstreamKeys[keyer]->GetOnAir(&onFlag);
-        downstreamKeys[keyer]->SetOnAir(!onFlag);
-        cdsl[keyer] = !onFlag;
+        BOOL on;
+        downstreamKeys[keyer]->GetOnAir(&on);
+        downstreamKeys[keyer]->SetOnAir(!on);
+        cdsl[keyer] = !on;
+        chan_values[nofMEs * 2 + keyer] = !on ? 1 : 0;
     }
 }
 
 void Atem::performDownstreamKeyerAuto(uint8_t keyer) { //not quite working yet
-  //std::vector<uint8_t> data{keyer, 0, 0, 0};
-  //sendCommand("DDsA", data);
-         
 
     if (keyer >= 0 && keyer < nofDSKs)
     {
-        downstreamKeys[keyer]->SetRate(60);
+        downstreamKeys[keyer]->SetRate(dskRates[keyer]);
         downstreamKeys[keyer]->PerformAutoTransition();
 
         BOOL on;
