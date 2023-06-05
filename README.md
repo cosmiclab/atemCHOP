@@ -21,6 +21,6 @@ Some features are still in developmemt and only building for Windows is supporte
 - fade between program and preview input (and swap them) with ME#>Fader# (0.0-1.0). With General>FaderMirroring, you can toggle whether the swap point alternates between 0.0 and 1.0 or not.
 - cut from program input to preview input (and swap them) with ME#>Cut#
 - auto-fade from program input to preview input (and swap them) with ME#>Auto#
-- cut and auto for up to two DownstreamKeys on the DSK page
+- cut and auto (with adjustable rate in frames) for up to two DownstreamKeys on the DSK page
 - see CHOP output values for the program and preview inputs and the DSK status (as 0 or 1)
 - tries to reconnect periodically when disconnected
