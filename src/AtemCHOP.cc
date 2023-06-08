@@ -300,7 +300,7 @@ void AtemCHOP::setOutputs()
             outputs.push_back(oneMEOutput[j]+ std::to_string(i+1));
         }
     }
-    for (int i = 0; i < atem->downstreamKeys.size(); ++i)
+    for (int i = 0; i < maxDSKs; ++i)
     {
         for (int j = 0; j < oneDSKOutput.size(); ++j)
         {
@@ -363,7 +363,7 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
       atem->changeFaderPosition(i, pf, meFaderDirections[i]);
   }  
 
-  for (int i = 0; i < atem->nofDSKs; ++i)
+  for (int i = 0; i < maxDSKs; ++i)
   {
       int rt = inputs->getParInt(("Dskrate" + std::to_string(i + 1)).c_str());
       atem->dskRates[i] = rt;
