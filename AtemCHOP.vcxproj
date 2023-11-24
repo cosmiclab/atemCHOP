@@ -97,21 +97,21 @@
     <ClInclude Include="include\SwitcherMonitor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\atem.h" />
+    <ClInclude Include="include\Atem.h" />
     <ClInclude Include="include\AtemCHOP.h" />
     <ClInclude Include="include\CHOP_CPlusPlusBase.h" />
     <ClInclude Include="include\CPlusPlus_Common.h" />
     <ClInclude Include="include\GL_Extensions.h" />
-    <ClInclude Include="include\udp.h" />
+    <ClInclude Include="include\Udp.h" />
     <ClInclude Include="include\GL\glew.c" />
     <ClInclude Include="include\GL\glew.h" />
     <ClInclude Include="include\GL\glewinfo.c" />
     <ClInclude Include="include\GL\wglew.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\atem.cc" />
+    <ClCompile Include="src\Atem.cpp" />
     <ClCompile Include="src\AtemCHOP.cc" />
-    <ClCompile Include="src\udp.cc" />
+    <ClCompile Include="src\Udp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="atemSDK\BMDSwitcherAPI.idl">

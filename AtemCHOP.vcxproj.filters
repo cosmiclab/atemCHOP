@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="src\atem.cc">
+    <ClCompile Include="src\Atem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\AtemCHOP.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\udp.cc">
+    <ClCompile Include="src\Udp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\BMDSwitcherAPI_i.c">
@@ -18,7 +18,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\atem.h">
+    <ClInclude Include="include\Atem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\AtemCHOP.h">
@@ -30,7 +30,7 @@
     <ClInclude Include="include\CHOP_CPlusPlusBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\udp.h">
+    <ClInclude Include="include\Udp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\GL\wglew.h">

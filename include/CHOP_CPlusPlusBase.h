@@ -50,7 +50,7 @@ class CHOP_CPlusPlusBase;
 // the new API requirements
 const int CHOPCPlusPlusAPIVersion = 8;
 
-struct CHOP_PluginInfo
+class CHOP_PluginInfo
 {
 public:
 

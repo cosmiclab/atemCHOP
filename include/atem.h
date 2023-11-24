@@ -13,97 +13,97 @@
 
 #include "BMDSwitcherAPI.h"
 
-#define connStateClosed 0x01
-#define connStateConnecting 0x02
-#define connStateConnected 0x03
-
 class SwitcherMonitor;
-class IBMDSwitcherMixEffectBlockCallback;
+struct IBMDSwitcherMixEffectBlockCallback;
 
 struct Atem {
- public:
-  int nofMEs = 0;
-  int nofSources = 0;
-  int nofCGs = 0;
-  int nofAuxs = 0;
-  int nofDSKs = 0;
-  int nofStingers = 0;
-  int nofDVEs = 0;
-  int nofSSrcs = 0;
-  int nofInputs = 0;
-  int nofMacros = 0;
-  double lastFaderPos[4];
-  int dskRates[4] = { 60, 60, 60, 60 };
+    public:
+        enum class EConnectionState
+        {
+            Closed = 0x01,
+            Connecting = 0x02,
+            Connected = 0x03
+        };
 
-  std::vector<std::string> chan_names;
-  std::vector<float> chan_values;
+        //size_t mixerEffectCount = 0;
+        //int nofSources = 0;
+        //int nofCGs = 0;
+        //int nofAuxs = 0;
+        //size_t downstreamKeyCount = 0;
+        //int nofStingers = 0;
+        //int nofDVEs = 0;
+        //int nofSSrcs = 0;
+        //int nofInputs = 0;
+        //int nofMacros = 0;
 
-  std::vector<std::string> topology_names{
-      "atemNofMEs",    "atemNofSources",   "atemNofCGs",  "atemNofAuxs",
-      "atemNofDSKs",   "atemNofStingers", "atemNofDVEs", "atemNofSSrcs",
-      "atemNofInputs", "atemNofMacros"};
-  std::vector<float> topology_values{0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-                                0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
+        std::vector<double> mixerEffectTransitionPositionsOld;
+        int downstreamKeyRates[4] = { 60, 60, 60, 60 };
 
-  std::vector<std::string> atem_input_names{};
-  std::vector<std::string> atem_input_labels{};
+        std::vector<std::string> atem_input_names{};
+        std::vector<std::string> atem_input_labels{};
 
-  std::vector<std::string> atem_macro_names{};
-  std::vector<int> atem_macro_run_status{};
+        std::vector<std::string> atem_macro_names{};
+        std::vector<int> atem_macro_run_status{};
 
-  uint8_t conn_state;
+        Atem::EConnectionState connectionState = Atem::EConnectionState::Closed;
+        
+        std::vector<BMDSwitcherInputId> mixerEffectProgramIds;
+        std::vector<BMDSwitcherInputId> mixerEffectPreviewIds;
+        std::vector<double> mixerEffectTransitionPositions;
+        std::vector<BOOL> downstreamKeysOnAir;
 
-  std::vector<bool> dcut{false};
-  std::vector<bool> daut{false};
-  std::vector<uint16_t> cpgi{0};
-  std::vector<uint16_t> cpvi{0};
-  std::vector<uint16_t> caus{0};
-  std::vector<uint16_t> ctps{ 0, 0, 0, 0 }; //***
-  std::vector<bool> cdsl{false};
-  std::vector<bool> ddsa{false};
+        std::vector<CComPtr<IBMDSwitcherMixEffectBlock>> mixerEffectBlocks;
+        std::vector<CComPtr<IBMDSwitcherDownstreamKey>> downstreamKeys;
+        std::vector<CComPtr<IBMDSwitcherInput>> inputs;
 
-  std::vector<CComPtr<IBMDSwitcherMixEffectBlock>> mixEffectBlocks;
-  std::vector<CComPtr<IBMDSwitcherDownstreamKey>> downstreamKeys;
+        
+        int active = -1;
 
-  std::string atem_ip = "";
-  int active = -1;
+        //std::ostringstream oss;
 
-  std::string atem_product_id;
-  std::string atem_warning;
+        IBMDSwitcher* switcher;
+        BMDSwitcherConnectToFailure failure;
+        SwitcherMonitor* switcherMonitor;
+        //IBMDSwitcherMixEffectBlockCallback* meCallbacks;
 
-//  std::ostringstream oss;
+        bool isClosed();
+        bool isConnected();
+        bool isConnecting();
 
+        void Connect(std::string ipAddress);
 
-  IBMDSwitcher* switcher;
-  BMDSwitcherConnectToFailure failure;
-  SwitcherMonitor* monitor;
-  IBMDSwitcherMixEffectBlockCallback* meCallbacks;
+        void start();
+        void stop();
 
+        void PerformCut(uint8_t me);
+        void PerformAutoTransition(uint8_t me);
+        void ChangeFaderPosition(uint8_t me, double pos); //***
+        void SetProgramInput(uint8_t me, uint16_t source);
+        void SetPreviewInput(uint8_t me, uint16_t source);
 
-  bool isClosed();
-  bool isConnected();
-  bool isConnecting();
+        void ToggleDownstreamKey(uint8_t keyer/*, bool onair*/);
+        void PerformDownstreamKeyAutoTransition(uint8_t keyer);
 
-  void init();
-  void initChannels(std::vector<std::string>& outputs);
+        void SwitchProgramToPreview(uint8_t mixerEffectId);
 
-  void start();
-  void stop();
+        void OnDisconnect();
 
-  void performCut(uint8_t me);
-  void performAuto(uint8_t me);
-  void changeFaderPosition(uint8_t me, double pos, int& dir); //***
-  void changeProgramInput(uint8_t me, uint16_t source);
-  void changePreviewInput(uint8_t me, uint16_t source);
-  void changeAuxSource(uint8_t index, uint16_t source);
-  void changeDownstreamKeyer(uint8_t keyer/*, bool onair*/);
-  void performDownstreamKeyerAuto(uint8_t keyer);
+        Atem();
+        virtual ~Atem();
 
-  void updateOutput(uint8_t me);
-  bool isMixerAmountChanged(int amount);
+        size_t GetDownstreamKeyCount() { return downstreamKeys.size(); }
+        size_t GetInputCount() { return inputs.size(); }
+        size_t GetMixerEffectCount() { return mixerEffectBlocks.size(); }
 
-  void OnDisconnect();
+        std::string GetIpAddress() { return ipAddress; }
+        std::string GetProductName() { return productName; }
 
-  Atem();
-  virtual ~Atem();
+    private:
+        std::string ipAddress;
+
+        std::string productName;
+
+        void LoadDownstreamKeys();
+        void LoadInputs();
+        void LoadMixerEffects();
 };

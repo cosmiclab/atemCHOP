@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0622 */
+ /* File created by MIDL compiler version 8.01.0628 */
 /* at Tue Jan 19 12:14:07 2038
  */
 /* Compiler settings for atemSDK\BMDSwitcherAPI.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -36,6 +36,14 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
+#endif
+
+#ifndef DECLSPEC_XFGVIRT
+#if defined(_CONTROL_FLOW_GUARD_XFG)
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
 #endif
 
 /* Forward Declarations */ 
@@ -3630,22 +3638,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMonitorOutputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMonitorOutputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMonitorOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMonitorOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioMonitorOutputCallback * This,
             /* [in] */ BMDSwitcherAudioMonitorOutputEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutputCallback, LevelNotification)
         HRESULT ( STDMETHODCALLTYPE *LevelNotification )( 
             IBMDSwitcherAudioMonitorOutputCallback * This,
             /* [in] */ double left,
@@ -3767,81 +3780,101 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMonitorOutput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMonitorOutput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMonitorOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetMonitorEnable)
         HRESULT ( STDMETHODCALLTYPE *GetMonitorEnable )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ BOOL *enable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetMonitorEnable)
         HRESULT ( STDMETHODCALLTYPE *SetMonitorEnable )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ BOOL enable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetMute)
         HRESULT ( STDMETHODCALLTYPE *GetMute )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ BOOL *mute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetMute)
         HRESULT ( STDMETHODCALLTYPE *SetMute )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ BOOL mute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetSolo)
         HRESULT ( STDMETHODCALLTYPE *GetSolo )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ BOOL *solo);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetSolo)
         HRESULT ( STDMETHODCALLTYPE *SetSolo )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ BOOL solo);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetSoloInput)
         HRESULT ( STDMETHODCALLTYPE *GetSoloInput )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ BMDSwitcherAudioInputId *audioInput);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetSoloInput)
         HRESULT ( STDMETHODCALLTYPE *SetSoloInput )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ BMDSwitcherAudioInputId audioInput);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetDim)
         HRESULT ( STDMETHODCALLTYPE *GetDim )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ BOOL *dim);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetDim)
         HRESULT ( STDMETHODCALLTYPE *SetDim )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ BOOL dim);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, GetDimLevel)
         HRESULT ( STDMETHODCALLTYPE *GetDimLevel )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, SetDimLevel)
         HRESULT ( STDMETHODCALLTYPE *SetDimLevel )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, ResetLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetLevelNotificationPeaks )( 
             IBMDSwitcherAudioMonitorOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ IBMDSwitcherAudioMonitorOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioMonitorOutput * This,
             /* [in] */ IBMDSwitcherAudioMonitorOutputCallback *callback);
@@ -3964,22 +3997,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioInputCallback * This,
             /* [in] */ BMDSwitcherAudioInputEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputCallback, LevelNotification)
         HRESULT ( STDMETHODCALLTYPE *LevelNotification )( 
             IBMDSwitcherAudioInputCallback * This,
             /* [in] */ double left,
@@ -4089,65 +4127,81 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, GetType)
         HRESULT ( STDMETHODCALLTYPE *GetType )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ BMDSwitcherAudioInputType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, GetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentExternalPortType )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ BMDSwitcherExternalPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, GetMixOption)
         HRESULT ( STDMETHODCALLTYPE *GetMixOption )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ BMDSwitcherAudioMixOption *mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, SetMixOption)
         HRESULT ( STDMETHODCALLTYPE *SetMixOption )( 
             IBMDSwitcherAudioInput * This,
             /* [in] */ BMDSwitcherAudioMixOption mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherAudioInput * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, GetBalance)
         HRESULT ( STDMETHODCALLTYPE *GetBalance )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ double *balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, SetBalance)
         HRESULT ( STDMETHODCALLTYPE *SetBalance )( 
             IBMDSwitcherAudioInput * This,
             /* [in] */ double balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, IsMixedIn)
         HRESULT ( STDMETHODCALLTYPE *IsMixedIn )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ BOOL *mixedIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, GetAudioInputId)
         HRESULT ( STDMETHODCALLTYPE *GetAudioInputId )( 
             IBMDSwitcherAudioInput * This,
             /* [out] */ BMDSwitcherAudioInputId *audioInputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, ResetLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetLevelNotificationPeaks )( 
             IBMDSwitcherAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioInput * This,
             /* [in] */ IBMDSwitcherAudioInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioInput * This,
             /* [in] */ IBMDSwitcherAudioInputCallback *callback);
@@ -4258,22 +4312,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMixerCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMixerCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMixerCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMixerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixerCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioMixerCallback * This,
             /* [in] */ BMDSwitcherAudioMixerEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixerCallback, ProgramOutLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *ProgramOutLevelNotification )( 
             IBMDSwitcherAudioMixerCallback * This,
             /* [in] */ double left,
@@ -4386,68 +4445,85 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMixer;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, GetProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutGain )( 
             IBMDSwitcherAudioMixer * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, SetProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutGain )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, GetProgramOutBalance)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutBalance )( 
             IBMDSwitcherAudioMixer * This,
             /* [out] */ double *balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, SetProgramOutBalance)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutBalance )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ double balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, GetProgramOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutFollowFadeToBlack )( 
             IBMDSwitcherAudioMixer * This,
             /* [out] */ BOOL *follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, SetProgramOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutFollowFadeToBlack )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ BOOL follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, GetAudioFollowVideoCrossfadeTransition)
         HRESULT ( STDMETHODCALLTYPE *GetAudioFollowVideoCrossfadeTransition )( 
             IBMDSwitcherAudioMixer * This,
             /* [out] */ BOOL *transition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, SetAudioFollowVideoCrossfadeTransition)
         HRESULT ( STDMETHODCALLTYPE *SetAudioFollowVideoCrossfadeTransition )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ BOOL transition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, SetAllLevelNotificationsEnable)
         HRESULT ( STDMETHODCALLTYPE *SetAllLevelNotificationsEnable )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ BOOL enable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, ResetProgramOutLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetProgramOutLevelNotificationPeaks )( 
             IBMDSwitcherAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, ResetAllLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetAllLevelNotificationPeaks )( 
             IBMDSwitcherAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ IBMDSwitcherAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ IBMDSwitcherAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherAudioMixer * This,
             /* [in] */ REFIID iid,
@@ -4557,18 +4633,22 @@ EXTERN_C const IID IID_IBMDSwitcherTalkbackCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkbackCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkbackCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkbackCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkbackCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTalkbackCallback * This,
             /* [in] */ BMDSwitcherTalkbackEventType eventType,
@@ -4675,66 +4755,81 @@ EXTERN_C const IID IID_IBMDSwitcherTalkback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherTalkback * This,
             /* [out] */ BMDSwitcherTalkbackId *talkbackId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, GetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetMuteSDI )( 
             IBMDSwitcherTalkback * This,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, SetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetMuteSDI )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, InputCanMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *InputCanMuteSDI )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *canMuteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, CurrentInputSupportsMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsMuteSDI )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *supportsMuteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, GetInputMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetInputMuteSDI )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, SetInputMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetInputMuteSDI )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, GetMicrophoneMuted)
         HRESULT ( STDMETHODCALLTYPE *GetMicrophoneMuted )( 
             IBMDSwitcherTalkback * This,
             /* [out] */ BOOL *muted);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, SetMicrophoneMuted)
         HRESULT ( STDMETHODCALLTYPE *SetMicrophoneMuted )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ BOOL muted);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, CanMuteMicrophone)
         HRESULT ( STDMETHODCALLTYPE *CanMuteMicrophone )( 
             IBMDSwitcherTalkback * This,
             /* [out] */ BOOL *canMuteMicrophone);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ IBMDSwitcherTalkbackCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTalkback * This,
             /* [in] */ IBMDSwitcherTalkbackCallback *callback);
@@ -4863,54 +4958,67 @@ EXTERN_C const IID IID_IBMDSwitcherAudioHeadphoneOutput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioHeadphoneOutput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioHeadphoneOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, GetInputProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputProgramOutGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, SetInputProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputProgramOutGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, GetInputTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputTalkbackGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, SetInputTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputTalkbackGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, GetInputSidetoneGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputSidetoneGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, SetInputSidetoneGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputSidetoneGain )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ IBMDSwitcherAudioHeadphoneOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioHeadphoneOutput * This,
             /* [in] */ IBMDSwitcherAudioHeadphoneOutputCallback *callback);
@@ -5006,18 +5114,22 @@ EXTERN_C const IID IID_IBMDSwitcherAudioHeadphoneOutputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioHeadphoneOutputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioHeadphoneOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioHeadphoneOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioHeadphoneOutputCallback * This,
             /* [in] */ BMDSwitcherAudioHeadphoneOutputEventType eventType);
@@ -5090,22 +5202,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioLimiterCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioLimiterCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioLimiterCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioLimiterCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiterCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioLimiterCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioLimiterEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiterCallback, GainReductionLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *GainReductionLevelNotification )( 
             IBMDSwitcherFairlightAudioLimiterCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -5213,65 +5330,81 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioLimiter;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioLimiter * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioLimiter * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, GetThreshold)
         HRESULT ( STDMETHODCALLTYPE *GetThreshold )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, SetThreshold)
         HRESULT ( STDMETHODCALLTYPE *SetThreshold )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, GetAttack)
         HRESULT ( STDMETHODCALLTYPE *GetAttack )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, SetAttack)
         HRESULT ( STDMETHODCALLTYPE *SetAttack )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, GetHold)
         HRESULT ( STDMETHODCALLTYPE *GetHold )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, SetHold)
         HRESULT ( STDMETHODCALLTYPE *SetHold )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, GetRelease)
         HRESULT ( STDMETHODCALLTYPE *GetRelease )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, SetRelease)
         HRESULT ( STDMETHODCALLTYPE *SetRelease )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherFairlightAudioLimiter * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ IBMDSwitcherFairlightAudioLimiterCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioLimiter, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioLimiter * This,
             /* [in] */ IBMDSwitcherFairlightAudioLimiterCallback *callback);
@@ -5380,22 +5513,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioCompressorCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioCompressorCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioCompressorCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioCompressorCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressorCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioCompressorCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioCompressorEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressorCallback, GainReductionLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *GainReductionLevelNotification )( 
             IBMDSwitcherFairlightAudioCompressorCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -5509,73 +5647,91 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioCompressor;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioCompressor * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioCompressor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, GetThreshold)
         HRESULT ( STDMETHODCALLTYPE *GetThreshold )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, SetThreshold)
         HRESULT ( STDMETHODCALLTYPE *SetThreshold )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, GetRatio)
         HRESULT ( STDMETHODCALLTYPE *GetRatio )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [out] */ double *ratio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, SetRatio)
         HRESULT ( STDMETHODCALLTYPE *SetRatio )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ double ratio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, GetAttack)
         HRESULT ( STDMETHODCALLTYPE *GetAttack )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, SetAttack)
         HRESULT ( STDMETHODCALLTYPE *SetAttack )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, GetHold)
         HRESULT ( STDMETHODCALLTYPE *GetHold )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, SetHold)
         HRESULT ( STDMETHODCALLTYPE *SetHold )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, GetRelease)
         HRESULT ( STDMETHODCALLTYPE *GetRelease )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, SetRelease)
         HRESULT ( STDMETHODCALLTYPE *SetRelease )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherFairlightAudioCompressor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ IBMDSwitcherFairlightAudioCompressorCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioCompressor, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioCompressor * This,
             /* [in] */ IBMDSwitcherFairlightAudioCompressorCallback *callback);
@@ -5690,22 +5846,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioExpanderCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioExpanderCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioExpanderCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioExpanderCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpanderCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioExpanderCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioExpanderEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpanderCallback, GainReductionLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *GainReductionLevelNotification )( 
             IBMDSwitcherFairlightAudioExpanderCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -5831,89 +5992,111 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioExpander;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioExpander * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioExpander * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetGateMode)
         HRESULT ( STDMETHODCALLTYPE *GetGateMode )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ BOOL *gateMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetGateMode)
         HRESULT ( STDMETHODCALLTYPE *SetGateMode )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ BOOL gateMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetThreshold)
         HRESULT ( STDMETHODCALLTYPE *GetThreshold )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetThreshold)
         HRESULT ( STDMETHODCALLTYPE *SetThreshold )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetRange)
         HRESULT ( STDMETHODCALLTYPE *GetRange )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ double *range);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetRange)
         HRESULT ( STDMETHODCALLTYPE *SetRange )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ double range);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetRatio)
         HRESULT ( STDMETHODCALLTYPE *GetRatio )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ double *ratio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetRatio)
         HRESULT ( STDMETHODCALLTYPE *SetRatio )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ double ratio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetAttack)
         HRESULT ( STDMETHODCALLTYPE *GetAttack )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetAttack)
         HRESULT ( STDMETHODCALLTYPE *SetAttack )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetHold)
         HRESULT ( STDMETHODCALLTYPE *GetHold )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetHold)
         HRESULT ( STDMETHODCALLTYPE *SetHold )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, GetRelease)
         HRESULT ( STDMETHODCALLTYPE *GetRelease )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [out] */ double *ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, SetRelease)
         HRESULT ( STDMETHODCALLTYPE *SetRelease )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ double ms);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherFairlightAudioExpander * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ IBMDSwitcherFairlightAudioExpanderCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioExpander, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioExpander * This,
             /* [in] */ IBMDSwitcherFairlightAudioExpanderCallback *callback);
@@ -6048,22 +6231,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioDynamicsProcessorCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioDynamicsProcessorCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioDynamicsProcessorCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioDynamicsProcessorCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessorCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioDynamicsProcessorCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioDynamicsProcessorEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessorCallback, InputLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *InputLevelNotification )( 
             IBMDSwitcherFairlightAudioDynamicsProcessorCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -6071,6 +6259,7 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioDynamicsProcessorCallback;
             /* [in] */ unsigned int numPeakLevels,
             /* [in] */ const double *peakLevels);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessorCallback, OutputLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *OutputLevelNotification )( 
             IBMDSwitcherFairlightAudioDynamicsProcessorCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -6167,44 +6356,55 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioDynamicsProcessor;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, GetProcessor)
         HRESULT ( STDMETHODCALLTYPE *GetProcessor )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, GetMakeupGain)
         HRESULT ( STDMETHODCALLTYPE *GetMakeupGain )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, SetMakeupGain)
         HRESULT ( STDMETHODCALLTYPE *SetMakeupGain )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, ResetInputPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetInputPeakLevels )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, ResetOutputPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetOutputPeakLevels )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This,
             /* [in] */ IBMDSwitcherFairlightAudioDynamicsProcessorCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioDynamicsProcessor, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioDynamicsProcessor * This,
             /* [in] */ IBMDSwitcherFairlightAudioDynamicsProcessorCallback *callback);
@@ -6294,18 +6494,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioEqualizerBandCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioEqualizerBandCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioEqualizerBandCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioEqualizerBandCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBandCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioEqualizerBandCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioEqualizerBandEventType eventType);
@@ -6426,87 +6630,108 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioEqualizerBand;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetSupportedShapes)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedShapes )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ BMDSwitcherFairlightAudioEqualizerBandShape *shapes);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetShape)
         HRESULT ( STDMETHODCALLTYPE *GetShape )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ BMDSwitcherFairlightAudioEqualizerBandShape *shape);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, SetShape)
         HRESULT ( STDMETHODCALLTYPE *SetShape )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ BMDSwitcherFairlightAudioEqualizerBandShape shape);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetSupportedFrequencyRanges)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedFrequencyRanges )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ BMDSwitcherFairlightAudioEqualizerBandFrequencyRange *ranges);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetFrequencyRange)
         HRESULT ( STDMETHODCALLTYPE *GetFrequencyRange )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ BMDSwitcherFairlightAudioEqualizerBandFrequencyRange *range);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, SetFrequencyRange)
         HRESULT ( STDMETHODCALLTYPE *SetFrequencyRange )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ BMDSwitcherFairlightAudioEqualizerBandFrequencyRange range);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetFrequencyRangeMinMax)
         HRESULT ( STDMETHODCALLTYPE *GetFrequencyRangeMinMax )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ BMDSwitcherFairlightAudioEqualizerBandFrequencyRange range,
             /* [out] */ unsigned int *minFreq,
             /* [out] */ unsigned int *maxFreq);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetFrequency)
         HRESULT ( STDMETHODCALLTYPE *GetFrequency )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ unsigned int *freq);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, SetFrequency)
         HRESULT ( STDMETHODCALLTYPE *SetFrequency )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ unsigned int freq);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, GetQFactor)
         HRESULT ( STDMETHODCALLTYPE *GetQFactor )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [out] */ double *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, SetQFactor)
         HRESULT ( STDMETHODCALLTYPE *SetQFactor )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ double value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ IBMDSwitcherFairlightAudioEqualizerBandCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBand, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioEqualizerBand * This,
             /* [in] */ IBMDSwitcherFairlightAudioEqualizerBandCallback *callback);
@@ -6626,18 +6851,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioEqualizerBandIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioEqualizerBandIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioEqualizerBandIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioEqualizerBandIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerBandIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioEqualizerBandIterator * This,
             /* [out] */ IBMDSwitcherFairlightAudioEqualizerBand **audioEqualizerBand);
@@ -6706,18 +6935,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioEqualizerCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioEqualizerCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioEqualizerCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioEqualizerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizerCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioEqualizerCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioEqualizerEventType eventType);
@@ -6807,46 +7040,57 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioEqualizer;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioEqualizer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioEqualizer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherFairlightAudioEqualizer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [in] */ IBMDSwitcherFairlightAudioEqualizerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioEqualizer, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioEqualizer * This,
             /* [in] */ IBMDSwitcherFairlightAudioEqualizerCallback *callback);
@@ -6942,22 +7186,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSourceCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSourceCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSourceCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioSourceCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioSourceEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSourceCallback, OutputLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *OutputLevelNotification )( 
             IBMDSwitcherFairlightAudioSourceCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -7101,110 +7350,137 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSource;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSource * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSource * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, IsActive)
         HRESULT ( STDMETHODCALLTYPE *IsActive )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BOOL *active);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetSourceType)
         HRESULT ( STDMETHODCALLTYPE *GetSourceType )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BMDSwitcherFairlightAudioSourceType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetMaxDelayFrames)
         HRESULT ( STDMETHODCALLTYPE *GetMaxDelayFrames )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ unsigned short *maxDelay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetDelayFrames)
         HRESULT ( STDMETHODCALLTYPE *GetDelayFrames )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ unsigned short *delay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, SetDelayFrames)
         HRESULT ( STDMETHODCALLTYPE *SetDelayFrames )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ unsigned short delay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetMaxInputGain)
         HRESULT ( STDMETHODCALLTYPE *GetMaxInputGain )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetInputGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputGain )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, SetInputGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputGain )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, HasStereoSimulation)
         HRESULT ( STDMETHODCALLTYPE *HasStereoSimulation )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BOOL *hasStereoSimulation);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetStereoSimulationIntensity)
         HRESULT ( STDMETHODCALLTYPE *GetStereoSimulationIntensity )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ double *intensity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, SetStereoSimulationIntensity)
         HRESULT ( STDMETHODCALLTYPE *SetStereoSimulationIntensity )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ double intensity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetEffect)
         HRESULT ( STDMETHODCALLTYPE *GetEffect )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetPan)
         HRESULT ( STDMETHODCALLTYPE *GetPan )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ double *pan);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, SetPan)
         HRESULT ( STDMETHODCALLTYPE *SetPan )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ double pan);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetFaderGain)
         HRESULT ( STDMETHODCALLTYPE *GetFaderGain )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, SetFaderGain)
         HRESULT ( STDMETHODCALLTYPE *SetFaderGain )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetSupportedMixOptions)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedMixOptions )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BMDSwitcherFairlightAudioMixOption *mixOptions);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetMixOption)
         HRESULT ( STDMETHODCALLTYPE *GetMixOption )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BMDSwitcherFairlightAudioMixOption *mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, SetMixOption)
         HRESULT ( STDMETHODCALLTYPE *SetMixOption )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ BMDSwitcherFairlightAudioMixOption mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, IsMixedIn)
         HRESULT ( STDMETHODCALLTYPE *IsMixedIn )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BOOL *mixedIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, ResetOutputPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetOutputPeakLevels )( 
             IBMDSwitcherFairlightAudioSource * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [out] */ BMDSwitcherFairlightAudioSourceId *sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ IBMDSwitcherFairlightAudioSourceCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioSource * This,
             /* [in] */ IBMDSwitcherFairlightAudioSourceCallback *callback);
@@ -7346,22 +7622,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSourceIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSourceIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSourceIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSourceIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSourceIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioSourceIterator * This,
             /* [out] */ IBMDSwitcherFairlightAudioSource **audioSource);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSourceIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherFairlightAudioSourceIterator * This,
             /* [in] */ BMDSwitcherFairlightAudioSourceId audioSourceId,
@@ -7434,18 +7715,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAnalogAudioInputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAnalogAudioInputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAnalogAudioInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAnalogAudioInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAnalogAudioInputCallback * This,
             /* [in] */ BMDSwitcherFairlightAnalogAudioInputEventType eventType);
@@ -7535,46 +7820,57 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAnalogAudioInput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAnalogAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAnalogAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, GetSupportedInputLevels)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedInputLevels )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioAnalogInputLevel *levels);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, GetInputLevel)
         HRESULT ( STDMETHODCALLTYPE *GetInputLevel )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioAnalogInputLevel *level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, SetInputLevel)
         HRESULT ( STDMETHODCALLTYPE *SetInputLevel )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [in] */ BMDSwitcherFairlightAudioAnalogInputLevel level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, GetSupportedMicPowerModes)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedMicPowerModes )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioAnalogInputMicPowerMode *powerModes);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, GetMicPowerMode)
         HRESULT ( STDMETHODCALLTYPE *GetMicPowerMode )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioAnalogInputMicPowerMode *powerMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, SetMicPowerMode)
         HRESULT ( STDMETHODCALLTYPE *SetMicPowerMode )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [in] */ BMDSwitcherFairlightAudioAnalogInputMicPowerMode powerMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [in] */ IBMDSwitcherFairlightAnalogAudioInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAnalogAudioInput * This,
             /* [in] */ IBMDSwitcherFairlightAnalogAudioInputCallback *callback);
@@ -7664,18 +7960,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioInputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioInputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioInputCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioInputEventType eventType);
@@ -7769,51 +8069,63 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioInput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, GetType)
         HRESULT ( STDMETHODCALLTYPE *GetType )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioInputType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, GetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentExternalPortType )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [out] */ BMDSwitcherExternalPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, GetSupportedConfigurations)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedConfigurations )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioInputConfiguration *supportedConfigurations);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, GetConfiguration)
         HRESULT ( STDMETHODCALLTYPE *GetConfiguration )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [out] */ BMDSwitcherFairlightAudioInputConfiguration *configuration);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, SetConfiguration)
         HRESULT ( STDMETHODCALLTYPE *SetConfiguration )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [in] */ BMDSwitcherFairlightAudioInputConfiguration configuration);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [out] */ BMDSwitcherAudioInputId *id);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [in] */ IBMDSwitcherFairlightAudioInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioInput * This,
             /* [in] */ IBMDSwitcherFairlightAudioInputCallback *callback);
@@ -7910,22 +8222,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioInputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioInputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioInputIterator * This,
             /* [out] */ IBMDSwitcherFairlightAudioInput **audioInput);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherFairlightAudioInputIterator * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
@@ -7998,18 +8315,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioHeadphoneOutputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioHeadphoneOutputEventType eventType);
@@ -8129,86 +8450,107 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioHeadphoneOutput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, DoesSupportSolo)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportSolo )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ BOOL *supportsSolo);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, DoesSupportMute)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMute )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ BOOL *supportsMute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, GetInputMasterOutGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputMasterOutGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, SetInputMasterOutGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputMasterOutGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, GetInputMasterOutMute)
         HRESULT ( STDMETHODCALLTYPE *GetInputMasterOutMute )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ BOOL *muteMaster);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, SetInputMasterOutMute)
         HRESULT ( STDMETHODCALLTYPE *SetInputMasterOutMute )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ BOOL muteMaster);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, DoesSupportTalkback)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportTalkback )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ BOOL *supportsTalkback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, GetInputTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputTalkbackGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, SetInputTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputTalkbackGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, GetInputTalkbackMute)
         HRESULT ( STDMETHODCALLTYPE *GetInputTalkbackMute )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ BOOL *muteTalkback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, SetInputTalkbackMute)
         HRESULT ( STDMETHODCALLTYPE *SetInputTalkbackMute )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ BOOL muteTalkback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, DoesSupportSidetone)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportSidetone )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ BOOL *supportsSidetone);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, GetInputSidetoneGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputSidetoneGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, SetInputSidetoneGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputSidetoneGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ IBMDSwitcherFairlightAudioHeadphoneOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput * This,
             /* [in] */ IBMDSwitcherFairlightAudioHeadphoneOutputCallback *callback);
@@ -8328,18 +8670,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioHeadphoneOutputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator * This,
             /* [out] */ IBMDSwitcherFairlightAudioHeadphoneOutput **audioHeadphoneOutput);
@@ -8408,18 +8754,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioAuxOutputInputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioAuxOutputInputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioAuxOutputInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioAuxOutputInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioAuxOutputInputCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioAuxOutputInputEventType eventType);
@@ -8509,46 +8859,57 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioAuxOutputInput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, GetInputId)
         HRESULT ( STDMETHODCALLTYPE *GetInputId )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [out] */ BMDSwitcherFairlightAudioAuxOutputInputId *inputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, DoesSupportMute)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMute )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [out] */ BOOL *supportsMute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, GetMute)
         HRESULT ( STDMETHODCALLTYPE *GetMute )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [out] */ BOOL *mute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, SetMute)
         HRESULT ( STDMETHODCALLTYPE *SetMute )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [in] */ BOOL mute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [in] */ IBMDSwitcherFairlightAudioAuxOutputInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioAuxOutputInput * This,
             /* [in] */ IBMDSwitcherFairlightAudioAuxOutputInputCallback *callback);
@@ -8638,18 +8999,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioAuxOutputInputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioAuxOutputInputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioAuxOutputInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioAuxOutputInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputInputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioAuxOutputInputIterator * This,
             /* [out] */ IBMDSwitcherFairlightAudioAuxOutputInput **auxOutputInput);
@@ -8718,18 +9083,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioAuxOutputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioAuxOutputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioAuxOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioAuxOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioAuxOutputCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioAuxOutputEventType eventType);
@@ -8838,71 +9207,88 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioAuxOutput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioAuxOutput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioAuxOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, GetOutputId)
         HRESULT ( STDMETHODCALLTYPE *GetOutputId )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ BMDSwitcherFairlightAudioAuxOutputId *outputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, DoesSupportMute)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMute )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ BOOL *supportsMute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, DoesSupportDim)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDim )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ BOOL *supportsDim);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, GetDimOn)
         HRESULT ( STDMETHODCALLTYPE *GetDimOn )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ BOOL *dimOn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, SetDimOn)
         HRESULT ( STDMETHODCALLTYPE *SetDimOn )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ BOOL dimOn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, GetDimLevel)
         HRESULT ( STDMETHODCALLTYPE *GetDimLevel )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ double *dimLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, SetDimLevel)
         HRESULT ( STDMETHODCALLTYPE *SetDimLevel )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ double dimLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, GetMute)
         HRESULT ( STDMETHODCALLTYPE *GetMute )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [out] */ BOOL *mute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, SetMute)
         HRESULT ( STDMETHODCALLTYPE *SetMute )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ BOOL mute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ IBMDSwitcherFairlightAudioAuxOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioAuxOutput * This,
             /* [in] */ IBMDSwitcherFairlightAudioAuxOutputCallback *callback);
@@ -9010,18 +9396,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioAuxOutputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioAuxOutputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioAuxOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioAuxOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioAuxOutputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioAuxOutputIterator * This,
             /* [out] */ IBMDSwitcherFairlightAudioAuxOutput **audioAuxOutput);
@@ -9096,22 +9486,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioMixerCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioMixerCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioMixerCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioMixerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixerCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioMixerCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioMixerEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixerCallback, MasterOutLevelNotification)
         HRESULT ( STDMETHODCALLTYPE *MasterOutLevelNotification )( 
             IBMDSwitcherFairlightAudioMixerCallback * This,
             /* [in] */ unsigned int numLevels,
@@ -9231,78 +9626,97 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioMixer;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, GetMasterOutEffect)
         HRESULT ( STDMETHODCALLTYPE *GetMasterOutEffect )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, GetMasterOutFaderGain)
         HRESULT ( STDMETHODCALLTYPE *GetMasterOutFaderGain )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, SetMasterOutFaderGain)
         HRESULT ( STDMETHODCALLTYPE *SetMasterOutFaderGain )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, DoesSupportMicTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMicTalkbackGain )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [out] */ BOOL *supportsMicTalkbackGain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, GetMicTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *GetMicTalkbackGain )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, SetMicTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *SetMicTalkbackGain )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, GetMasterOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *GetMasterOutFollowFadeToBlack )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [out] */ BOOL *follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, SetMasterOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *SetMasterOutFollowFadeToBlack )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ BOOL follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, GetAudioFollowVideoCrossfadeTransition)
         HRESULT ( STDMETHODCALLTYPE *GetAudioFollowVideoCrossfadeTransition )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [out] */ BOOL *transition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, SetAudioFollowVideoCrossfadeTransition)
         HRESULT ( STDMETHODCALLTYPE *SetAudioFollowVideoCrossfadeTransition )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ BOOL transition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, SetAllLevelNotificationsEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetAllLevelNotificationsEnabled )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, ResetMasterOutPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetMasterOutPeakLevels )( 
             IBMDSwitcherFairlightAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, ResetAllPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetAllPeakLevels )( 
             IBMDSwitcherFairlightAudioMixer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ IBMDSwitcherFairlightAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioMixer * This,
             /* [in] */ IBMDSwitcherFairlightAudioMixerCallback *callback);
@@ -9416,18 +9830,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSoloCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSoloCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSoloCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSoloCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSoloCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioSoloCallback * This,
             /* [in] */ BMDSwitcherFairlightAudioSoloEventType eventType);
@@ -9513,40 +9931,49 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSolo;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSolo * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSolo * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSolo, GetSolo)
         HRESULT ( STDMETHODCALLTYPE *GetSolo )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [out] */ BOOL *solo);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSolo, SetSolo)
         HRESULT ( STDMETHODCALLTYPE *SetSolo )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [in] */ BOOL solo);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSolo, GetSoloInput)
         HRESULT ( STDMETHODCALLTYPE *GetSoloInput )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [out] */ BMDSwitcherAudioInputId *audioInput,
             /* [out] */ BMDSwitcherFairlightAudioSourceId *audioSource);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSolo, SetSoloInput)
         HRESULT ( STDMETHODCALLTYPE *SetSoloInput )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [in] */ BMDSwitcherAudioInputId audioInput,
             /* [in] */ BMDSwitcherFairlightAudioSourceId audioSource);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSolo, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [in] */ IBMDSwitcherFairlightAudioSoloCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSolo, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioSolo * This,
             /* [in] */ IBMDSwitcherFairlightAudioSoloCallback *callback);
@@ -9630,18 +10057,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyLumaParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyLumaParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyLumaParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyLumaParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyLumaParametersCallback * This,
             /* [in] */ BMDSwitcherKeyLumaParametersEventType eventType);
@@ -9737,54 +10168,67 @@ EXTERN_C const IID IID_IBMDSwitcherKeyLumaParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyLumaParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyLumaParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ IBMDSwitcherKeyLumaParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyLumaParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyLumaParameters * This,
             /* [in] */ IBMDSwitcherKeyLumaParametersCallback *callback);
@@ -9880,18 +10324,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyChromaParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyChromaParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyChromaParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyChromaParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyChromaParametersCallback * This,
             /* [in] */ BMDSwitcherKeyChromaParametersEventType eventType);
@@ -9993,62 +10441,77 @@ EXTERN_C const IID IID_IBMDSwitcherKeyChromaParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, GetHue)
         HRESULT ( STDMETHODCALLTYPE *GetHue )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, SetHue)
         HRESULT ( STDMETHODCALLTYPE *SetHue )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, GetYSuppress)
         HRESULT ( STDMETHODCALLTYPE *GetYSuppress )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [out] */ double *ySuppress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, SetYSuppress)
         HRESULT ( STDMETHODCALLTYPE *SetYSuppress )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ double ySuppress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, GetLift)
         HRESULT ( STDMETHODCALLTYPE *GetLift )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [out] */ double *lift);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, SetLift)
         HRESULT ( STDMETHODCALLTYPE *SetLift )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ double lift);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, GetNarrow)
         HRESULT ( STDMETHODCALLTYPE *GetNarrow )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [out] */ BOOL *narrow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, SetNarrow)
         HRESULT ( STDMETHODCALLTYPE *SetNarrow )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ BOOL narrow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ IBMDSwitcherKeyChromaParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyChromaParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyChromaParameters * This,
             /* [in] */ IBMDSwitcherKeyChromaParametersCallback *callback);
@@ -10150,18 +10613,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyAdvancedChromaParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyAdvancedChromaParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyAdvancedChromaParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyAdvancedChromaParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyAdvancedChromaParametersCallback * This,
             /* [in] */ BMDSwitcherKeyAdvancedChromaParametersEventType eventType);
@@ -10345,171 +10812,213 @@ EXTERN_C const IID IID_IBMDSwitcherKeyAdvancedChromaParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetForegroundLevel)
         HRESULT ( STDMETHODCALLTYPE *GetForegroundLevel )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetForegroundLevel)
         HRESULT ( STDMETHODCALLTYPE *SetForegroundLevel )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetBackgroundLevel)
         HRESULT ( STDMETHODCALLTYPE *GetBackgroundLevel )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetBackgroundLevel)
         HRESULT ( STDMETHODCALLTYPE *SetBackgroundLevel )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetKeyEdge)
         HRESULT ( STDMETHODCALLTYPE *GetKeyEdge )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *keyEdge);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetKeyEdge)
         HRESULT ( STDMETHODCALLTYPE *SetKeyEdge )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double keyEdge);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetSpillSuppress)
         HRESULT ( STDMETHODCALLTYPE *GetSpillSuppress )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *spillSuppress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetSpillSuppress)
         HRESULT ( STDMETHODCALLTYPE *SetSpillSuppress )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double spillSuppress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetFlareSuppress)
         HRESULT ( STDMETHODCALLTYPE *GetFlareSuppress )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *flareSuppress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetFlareSuppress)
         HRESULT ( STDMETHODCALLTYPE *SetFlareSuppress )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double flareSuppress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetBrightness)
         HRESULT ( STDMETHODCALLTYPE *GetBrightness )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *brightness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetBrightness)
         HRESULT ( STDMETHODCALLTYPE *SetBrightness )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double brightness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetContrast)
         HRESULT ( STDMETHODCALLTYPE *GetContrast )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *contrast);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetContrast)
         HRESULT ( STDMETHODCALLTYPE *SetContrast )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double contrast);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetSaturation )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *saturation);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetSaturation )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double saturation);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetRed)
         HRESULT ( STDMETHODCALLTYPE *GetRed )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *red);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetRed)
         HRESULT ( STDMETHODCALLTYPE *SetRed )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double red);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetGreen)
         HRESULT ( STDMETHODCALLTYPE *GetGreen )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *green);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetGreen)
         HRESULT ( STDMETHODCALLTYPE *SetGreen )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double green);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetBlue)
         HRESULT ( STDMETHODCALLTYPE *GetBlue )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *blue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetBlue)
         HRESULT ( STDMETHODCALLTYPE *SetBlue )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double blue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetSamplingModeEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetSamplingModeEnabled )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetSamplingModeEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetSamplingModeEnabled )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetPreviewEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetPreviewEnabled )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetPreviewEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetPreviewEnabled )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetCursorXPosition)
         HRESULT ( STDMETHODCALLTYPE *GetCursorXPosition )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *position);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetCursorXPosition)
         HRESULT ( STDMETHODCALLTYPE *SetCursorXPosition )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double position);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetCursorYPosition)
         HRESULT ( STDMETHODCALLTYPE *GetCursorYPosition )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *position);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetCursorYPosition)
         HRESULT ( STDMETHODCALLTYPE *SetCursorYPosition )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double position);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetCursorSize)
         HRESULT ( STDMETHODCALLTYPE *GetCursorSize )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetCursorSize)
         HRESULT ( STDMETHODCALLTYPE *SetCursorSize )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, GetSampledColor)
         HRESULT ( STDMETHODCALLTYPE *GetSampledColor )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [out] */ double *y,
             /* [out] */ double *cb,
             /* [out] */ double *cr);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, SetSampledColor)
         HRESULT ( STDMETHODCALLTYPE *SetSampledColor )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ double y,
             /* [in] */ double cb,
             /* [in] */ double cr);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, ResetKeyAdjustments)
         HRESULT ( STDMETHODCALLTYPE *ResetKeyAdjustments )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, ResetChromaCorrection)
         HRESULT ( STDMETHODCALLTYPE *ResetChromaCorrection )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, ResetColorAdjustments)
         HRESULT ( STDMETHODCALLTYPE *ResetColorAdjustments )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ IBMDSwitcherKeyAdvancedChromaParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyAdvancedChromaParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyAdvancedChromaParameters * This,
             /* [in] */ IBMDSwitcherKeyAdvancedChromaParametersCallback *callback);
@@ -10692,18 +11201,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyPatternParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyPatternParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyPatternParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyPatternParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyPatternParametersCallback * This,
             /* [in] */ BMDSwitcherKeyPatternParametersEventType eventType);
@@ -10817,78 +11330,97 @@ EXTERN_C const IID IID_IBMDSwitcherKeyPatternParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyPatternParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyPatternParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetPattern)
         HRESULT ( STDMETHODCALLTYPE *GetPattern )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ BMDSwitcherPatternStyle *pattern);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetPattern)
         HRESULT ( STDMETHODCALLTYPE *SetPattern )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ BMDSwitcherPatternStyle pattern);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetSize)
         HRESULT ( STDMETHODCALLTYPE *GetSize )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ double *size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetSize)
         HRESULT ( STDMETHODCALLTYPE *SetSize )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ double size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetSymmetry)
         HRESULT ( STDMETHODCALLTYPE *GetSymmetry )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ double *symmetry);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetSymmetry)
         HRESULT ( STDMETHODCALLTYPE *SetSymmetry )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ double symmetry);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetSoftness )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ double *softness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetSoftness )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ double softness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetHorizontalOffset)
         HRESULT ( STDMETHODCALLTYPE *GetHorizontalOffset )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ double *hOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetHorizontalOffset)
         HRESULT ( STDMETHODCALLTYPE *SetHorizontalOffset )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ double hOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetVerticalOffset)
         HRESULT ( STDMETHODCALLTYPE *GetVerticalOffset )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ double *vOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetVerticalOffset)
         HRESULT ( STDMETHODCALLTYPE *SetVerticalOffset )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ double vOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ IBMDSwitcherKeyPatternParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyPatternParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyPatternParameters * This,
             /* [in] */ IBMDSwitcherKeyPatternParametersCallback *callback);
@@ -11002,18 +11534,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyKeyFrameParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyKeyFrameParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyKeyFrameParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyKeyFrameParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyFlyKeyFrameParametersCallback * This,
             /* [in] */ BMDSwitcherKeyFlyKeyFrameParametersEventType eventType);
@@ -11217,198 +11753,247 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyKeyFrameParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetCanScaleUp)
         HRESULT ( STDMETHODCALLTYPE *GetCanScaleUp )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ BOOL *canScaleUp);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetCanRotate)
         HRESULT ( STDMETHODCALLTYPE *GetCanRotate )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ BOOL *canRotate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetBorderOpacity )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetBorderOpacity )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceDirection )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceDirection )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceAltitude )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceAltitude )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ IBMDSwitcherKeyFlyKeyFrameParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyKeyFrameParameters * This,
             /* [in] */ IBMDSwitcherKeyFlyKeyFrameParametersCallback *callback);
@@ -11613,18 +12198,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyFlyParametersCallback * This,
             /* [in] */ BMDSwitcherKeyFlyParametersEventType eventType,
@@ -11778,130 +12367,162 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetFly)
         HRESULT ( STDMETHODCALLTYPE *GetFly )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ BOOL *isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetFly)
         HRESULT ( STDMETHODCALLTYPE *SetFly )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ BOOL isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetCanFly)
         HRESULT ( STDMETHODCALLTYPE *GetCanFly )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ BOOL *canFly);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetCanScaleUp)
         HRESULT ( STDMETHODCALLTYPE *GetCanScaleUp )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ BOOL *canScaleUp);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetCanRotate)
         HRESULT ( STDMETHODCALLTYPE *GetCanRotate )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ BOOL *canRotate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, ResetRotation)
         HRESULT ( STDMETHODCALLTYPE *ResetRotation )( 
             IBMDSwitcherKeyFlyParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, ResetDVE)
         HRESULT ( STDMETHODCALLTYPE *ResetDVE )( 
             IBMDSwitcherKeyFlyParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, ResetDVEFull)
         HRESULT ( STDMETHODCALLTYPE *ResetDVEFull )( 
             IBMDSwitcherKeyFlyParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, IsKeyFrameStored)
         HRESULT ( STDMETHODCALLTYPE *IsKeyFrameStored )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ BOOL *stored);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, StoreAsKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *StoreAsKeyFrame )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, ClearKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *ClearKeyFrame )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, RunToKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *RunToKeyFrame )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ BMDSwitcherFlyKeyFrame destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, IsAtKeyFrames)
         HRESULT ( STDMETHODCALLTYPE *IsAtKeyFrames )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ BMDSwitcherFlyKeyFrame *keyFrames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, GetKeyFrameParameters)
         HRESULT ( STDMETHODCALLTYPE *GetKeyFrameParameters )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ IBMDSwitcherKeyFlyKeyFrameParameters **keyFrameParameters);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, IsRunning)
         HRESULT ( STDMETHODCALLTYPE *IsRunning )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [out] */ BOOL *isRunning,
             /* [out] */ BMDSwitcherFlyKeyFrame *destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyParameters * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
@@ -12054,18 +12675,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyDVEParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyDVEParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyDVEParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyDVEParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyDVEParametersCallback * This,
             /* [in] */ BMDSwitcherKeyDVEParametersEventType eventType);
@@ -12259,185 +12884,231 @@ EXTERN_C const IID IID_IBMDSwitcherKeyDVEParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyDVEParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyDVEParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetShadow)
         HRESULT ( STDMETHODCALLTYPE *GetShadow )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ BOOL *shadowOn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetShadow)
         HRESULT ( STDMETHODCALLTYPE *SetShadow )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ BOOL shadowOn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetLightSourceDirection )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetLightSourceDirection )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetLightSourceAltitude )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetLightSourceAltitude )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetBorderEnabled )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ BOOL *on);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetBorderEnabled )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ BOOL on);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevel )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ BMDSwitcherBorderBevelOption *bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevel )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ BMDSwitcherBorderBevelOption bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetBorderOpacity )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetBorderOpacity )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherKeyDVEParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ IBMDSwitcherKeyDVEParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyDVEParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyDVEParameters * This,
             /* [in] */ IBMDSwitcherKeyDVEParametersCallback *callback);
@@ -12632,18 +13303,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherKeyCallback * This,
             /* [in] */ BMDSwitcherKeyEventType eventType);
@@ -12786,117 +13461,146 @@ EXTERN_C const IID IID_IBMDSwitcherKey;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKey * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKey * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKey * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, DoesSupportAdvancedChroma)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportAdvancedChroma )( 
             IBMDSwitcherKey * This,
             /* [out] */ BOOL *supportsAdvancedChroma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetType)
         HRESULT ( STDMETHODCALLTYPE *GetType )( 
             IBMDSwitcherKey * This,
             /* [out] */ BMDSwitcherKeyType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetType)
         HRESULT ( STDMETHODCALLTYPE *SetType )( 
             IBMDSwitcherKey * This,
             /* [in] */ BMDSwitcherKeyType type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherKey * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherKey * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherKey * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherKey * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherKey * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherKey * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetOnAir)
         HRESULT ( STDMETHODCALLTYPE *GetOnAir )( 
             IBMDSwitcherKey * This,
             /* [out] */ BOOL *onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetOnAir)
         HRESULT ( STDMETHODCALLTYPE *SetOnAir )( 
             IBMDSwitcherKey * This,
             /* [in] */ BOOL onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, CanBeDVEKey)
         HRESULT ( STDMETHODCALLTYPE *CanBeDVEKey )( 
             IBMDSwitcherKey * This,
             /* [out] */ BOOL *canDVE);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherKey * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherKey * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKey * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKey * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKey * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKey * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKey * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKey * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKey * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKey * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherKey * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, GetTransitionSelectionMask)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionSelectionMask )( 
             IBMDSwitcherKey * This,
             /* [out] */ BMDSwitcherTransitionSelection *selectionMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKey * This,
             /* [in] */ IBMDSwitcherKeyCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKey * This,
             /* [in] */ IBMDSwitcherKeyCallback *callback);
@@ -13047,30 +13751,38 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPlayerCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPlayerCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayerCallback, SourceChanged)
         HRESULT ( STDMETHODCALLTYPE *SourceChanged )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayerCallback, PlayingChanged)
         HRESULT ( STDMETHODCALLTYPE *PlayingChanged )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayerCallback, LoopChanged)
         HRESULT ( STDMETHODCALLTYPE *LoopChanged )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayerCallback, AtBeginningChanged)
         HRESULT ( STDMETHODCALLTYPE *AtBeginningChanged )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayerCallback, ClipFrameChanged)
         HRESULT ( STDMETHODCALLTYPE *ClipFrameChanged )( 
             IBMDSwitcherMediaPlayerCallback * This);
         
@@ -13184,63 +13896,78 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPlayer;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPlayer * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPlayer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, GetSource)
         HRESULT ( STDMETHODCALLTYPE *GetSource )( 
             IBMDSwitcherMediaPlayer * This,
             /* [out] */ BMDSwitcherMediaPlayerSourceType *type,
             /* [out] */ unsigned int *index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, SetSource)
         HRESULT ( STDMETHODCALLTYPE *SetSource )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ BMDSwitcherMediaPlayerSourceType type,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, GetPlaying)
         HRESULT ( STDMETHODCALLTYPE *GetPlaying )( 
             IBMDSwitcherMediaPlayer * This,
             /* [out] */ BOOL *playing);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, SetPlaying)
         HRESULT ( STDMETHODCALLTYPE *SetPlaying )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ BOOL playing);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, GetLoop)
         HRESULT ( STDMETHODCALLTYPE *GetLoop )( 
             IBMDSwitcherMediaPlayer * This,
             /* [out] */ BOOL *loop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, SetLoop)
         HRESULT ( STDMETHODCALLTYPE *SetLoop )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ BOOL loop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, GetAtBeginning)
         HRESULT ( STDMETHODCALLTYPE *GetAtBeginning )( 
             IBMDSwitcherMediaPlayer * This,
             /* [out] */ BOOL *atBegining);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, SetAtBeginning)
         HRESULT ( STDMETHODCALLTYPE *SetAtBeginning )( 
             IBMDSwitcherMediaPlayer * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, GetClipFrame)
         HRESULT ( STDMETHODCALLTYPE *GetClipFrame )( 
             IBMDSwitcherMediaPlayer * This,
             /* [out] */ unsigned int *clipFrameIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, SetClipFrame)
         HRESULT ( STDMETHODCALLTYPE *SetClipFrame )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ unsigned int clipFrameIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ IBMDSwitcherMediaPlayerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayer, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMediaPlayer * This,
             /* [in] */ IBMDSwitcherMediaPlayerCallback *callback);
@@ -13342,18 +14069,22 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionMixParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionMixParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionMixParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionMixParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionMixParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTransitionMixParametersCallback * This,
             /* [in] */ BMDSwitcherTransitionMixParametersEventType eventType);
@@ -13431,30 +14162,37 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionMixParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionMixParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionMixParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionMixParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionMixParameters, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherTransitionMixParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionMixParameters, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherTransitionMixParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionMixParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionMixParameters * This,
             /* [in] */ IBMDSwitcherTransitionMixParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionMixParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionMixParameters * This,
             /* [in] */ IBMDSwitcherTransitionMixParametersCallback *callback);
@@ -13532,18 +14270,22 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionDipParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionDipParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionDipParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionDipParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTransitionDipParametersCallback * This,
             /* [in] */ BMDSwitcherTransitionDipParametersEventType eventType);
@@ -13627,38 +14369,47 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionDipParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionDipParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionDipParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParameters, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParameters, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParameters, GetInputDip)
         HRESULT ( STDMETHODCALLTYPE *GetInputDip )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParameters, SetInputDip)
         HRESULT ( STDMETHODCALLTYPE *SetInputDip )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [in] */ IBMDSwitcherTransitionDipParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDipParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionDipParameters * This,
             /* [in] */ IBMDSwitcherTransitionDipParametersCallback *callback);
@@ -13742,18 +14493,22 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionWipeParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionWipeParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionWipeParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionWipeParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTransitionWipeParametersCallback * This,
             /* [in] */ BMDSwitcherTransitionWipeParametersEventType eventType);
@@ -13885,102 +14640,127 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionWipeParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionWipeParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionWipeParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetPattern)
         HRESULT ( STDMETHODCALLTYPE *GetPattern )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ BMDSwitcherPatternStyle *pattern);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetPattern)
         HRESULT ( STDMETHODCALLTYPE *SetPattern )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ BMDSwitcherPatternStyle pattern);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetBorderSize)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSize )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ double *size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetBorderSize)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSize )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ double size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetInputBorder)
         HRESULT ( STDMETHODCALLTYPE *GetInputBorder )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetInputBorder)
         HRESULT ( STDMETHODCALLTYPE *SetInputBorder )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetSymmetry)
         HRESULT ( STDMETHODCALLTYPE *GetSymmetry )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ double *symmetry);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetSymmetry)
         HRESULT ( STDMETHODCALLTYPE *SetSymmetry )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ double symmetry);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetSoftness )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ double *soft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetSoftness )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ double soft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetHorizontalOffset)
         HRESULT ( STDMETHODCALLTYPE *GetHorizontalOffset )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ double *hOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetHorizontalOffset)
         HRESULT ( STDMETHODCALLTYPE *SetHorizontalOffset )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ double hOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetVerticalOffset)
         HRESULT ( STDMETHODCALLTYPE *GetVerticalOffset )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ double *vOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetVerticalOffset)
         HRESULT ( STDMETHODCALLTYPE *SetVerticalOffset )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ double vOffset);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetReverse)
         HRESULT ( STDMETHODCALLTYPE *GetReverse )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ BOOL *reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetReverse)
         HRESULT ( STDMETHODCALLTYPE *SetReverse )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ BOOL reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, GetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *GetFlipFlop )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [out] */ BOOL *flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, SetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *SetFlipFlop )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ BOOL flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ IBMDSwitcherTransitionWipeParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionWipeParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionWipeParameters * This,
             /* [in] */ IBMDSwitcherTransitionWipeParametersCallback *callback);
@@ -14112,18 +14892,22 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionDVEParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionDVEParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionDVEParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionDVEParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTransitionDVEParametersCallback * This,
             /* [in] */ BMDSwitcherTransitionDVEParametersEventType eventType);
@@ -14284,140 +15068,174 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionDVEParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionDVEParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionDVEParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetLogoRate)
         HRESULT ( STDMETHODCALLTYPE *GetLogoRate )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetLogoRate)
         HRESULT ( STDMETHODCALLTYPE *SetLogoRate )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetReverse)
         HRESULT ( STDMETHODCALLTYPE *GetReverse )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BOOL *reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetReverse)
         HRESULT ( STDMETHODCALLTYPE *SetReverse )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BOOL reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *GetFlipFlop )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BOOL *flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *SetFlipFlop )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BOOL flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetStyle)
         HRESULT ( STDMETHODCALLTYPE *GetStyle )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BMDSwitcherDVETransitionStyle *style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetStyle)
         HRESULT ( STDMETHODCALLTYPE *SetStyle )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BMDSwitcherDVETransitionStyle style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, DoesSupportStyle)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportStyle )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BMDSwitcherDVETransitionStyle style,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetNumSupportedStyles)
         HRESULT ( STDMETHODCALLTYPE *GetNumSupportedStyles )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ unsigned int *numSupportedStyles);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetSupportedStyles)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedStyles )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BMDSwitcherDVETransitionStyle *supportedStyles,
             /* [in] */ unsigned int supportedStylesMaxCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetEnableKey)
         HRESULT ( STDMETHODCALLTYPE *GetEnableKey )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BOOL *enableKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetEnableKey)
         HRESULT ( STDMETHODCALLTYPE *SetEnableKey )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BOOL enableKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ IBMDSwitcherTransitionDVEParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionDVEParameters * This,
             /* [in] */ IBMDSwitcherTransitionDVEParametersCallback *callback);
@@ -14576,18 +15394,22 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionStingerParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionStingerParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionStingerParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionStingerParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTransitionStingerParametersCallback * This,
             /* [in] */ BMDSwitcherTransitionStingerParametersEventType eventType);
@@ -14713,94 +15535,117 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionStingerParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionStingerParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionStingerParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetSource)
         HRESULT ( STDMETHODCALLTYPE *GetSource )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ BMDSwitcherStingerTransitionSource *src);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetSource)
         HRESULT ( STDMETHODCALLTYPE *SetSource )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ BMDSwitcherStingerTransitionSource src);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetPreroll)
         HRESULT ( STDMETHODCALLTYPE *GetPreroll )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetPreroll)
         HRESULT ( STDMETHODCALLTYPE *SetPreroll )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetClipDuration)
         HRESULT ( STDMETHODCALLTYPE *GetClipDuration )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetClipDuration)
         HRESULT ( STDMETHODCALLTYPE *SetClipDuration )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetTriggerPoint)
         HRESULT ( STDMETHODCALLTYPE *GetTriggerPoint )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetTriggerPoint)
         HRESULT ( STDMETHODCALLTYPE *SetTriggerPoint )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, GetMixRate)
         HRESULT ( STDMETHODCALLTYPE *GetMixRate )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, SetMixRate)
         HRESULT ( STDMETHODCALLTYPE *SetMixRate )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ IBMDSwitcherTransitionStingerParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionStingerParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionStingerParameters * This,
             /* [in] */ IBMDSwitcherTransitionStingerParametersCallback *callback);
@@ -14926,18 +15771,22 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionParametersCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionParametersCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionParametersCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParametersCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTransitionParametersCallback * This,
             /* [in] */ BMDSwitcherTransitionParametersEventType eventType);
@@ -15027,46 +15876,57 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionParameters;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionParameters * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionParameters * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionParameters * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, GetTransitionStyle)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionStyle )( 
             IBMDSwitcherTransitionParameters * This,
             /* [out] */ BMDSwitcherTransitionStyle *style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, GetNextTransitionStyle)
         HRESULT ( STDMETHODCALLTYPE *GetNextTransitionStyle )( 
             IBMDSwitcherTransitionParameters * This,
             /* [out] */ BMDSwitcherTransitionStyle *style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, SetNextTransitionStyle)
         HRESULT ( STDMETHODCALLTYPE *SetNextTransitionStyle )( 
             IBMDSwitcherTransitionParameters * This,
             /* [in] */ BMDSwitcherTransitionStyle style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, GetTransitionSelection)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionSelection )( 
             IBMDSwitcherTransitionParameters * This,
             /* [out] */ BMDSwitcherTransitionSelection *selection);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, SetNextTransitionSelection)
         HRESULT ( STDMETHODCALLTYPE *SetNextTransitionSelection )( 
             IBMDSwitcherTransitionParameters * This,
             /* [in] */ BMDSwitcherTransitionSelection selection);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, GetNextTransitionSelection)
         HRESULT ( STDMETHODCALLTYPE *GetNextTransitionSelection )( 
             IBMDSwitcherTransitionParameters * This,
             /* [out] */ BMDSwitcherTransitionSelection *selection);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionParameters * This,
             /* [in] */ IBMDSwitcherTransitionParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionParameters, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionParameters * This,
             /* [in] */ IBMDSwitcherTransitionParametersCallback *callback);
@@ -15156,18 +16016,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixEffectBlockCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixEffectBlockCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixEffectBlockCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixEffectBlockCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlockCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherMixEffectBlockCallback * This,
             /* [in] */ BMDSwitcherMixEffectBlockEventType eventType);
@@ -15306,112 +16170,140 @@ EXTERN_C const IID IID_IBMDSwitcherMixEffectBlock;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixEffectBlock * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixEffectBlock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetProgramInput)
         HRESULT ( STDMETHODCALLTYPE *GetProgramInput )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BMDSwitcherInputId *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, SetProgramInput)
         HRESULT ( STDMETHODCALLTYPE *SetProgramInput )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ BMDSwitcherInputId value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetPreviewInput)
         HRESULT ( STDMETHODCALLTYPE *GetPreviewInput )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BMDSwitcherInputId *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, SetPreviewInput)
         HRESULT ( STDMETHODCALLTYPE *SetPreviewInput )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ BMDSwitcherInputId value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetPreviewLive)
         HRESULT ( STDMETHODCALLTYPE *GetPreviewLive )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetPreviewTransition)
         HRESULT ( STDMETHODCALLTYPE *GetPreviewTransition )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, SetPreviewTransition)
         HRESULT ( STDMETHODCALLTYPE *SetPreviewTransition )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ BOOL value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, PerformAutoTransition)
         HRESULT ( STDMETHODCALLTYPE *PerformAutoTransition )( 
             IBMDSwitcherMixEffectBlock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, PerformCut)
         HRESULT ( STDMETHODCALLTYPE *PerformCut )( 
             IBMDSwitcherMixEffectBlock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetInTransition)
         HRESULT ( STDMETHODCALLTYPE *GetInTransition )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetTransitionPosition)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionPosition )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ double *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, SetTransitionPosition)
         HRESULT ( STDMETHODCALLTYPE *SetTransitionPosition )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ double value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetTransitionFramesRemaining)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionFramesRemaining )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ unsigned int *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, PerformFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *PerformFadeToBlack )( 
             IBMDSwitcherMixEffectBlock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetFadeToBlackRate)
         HRESULT ( STDMETHODCALLTYPE *GetFadeToBlackRate )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ unsigned int *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, SetFadeToBlackRate)
         HRESULT ( STDMETHODCALLTYPE *SetFadeToBlackRate )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ unsigned int value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetFadeToBlackFramesRemaining)
         HRESULT ( STDMETHODCALLTYPE *GetFadeToBlackFramesRemaining )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ unsigned int *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetFadeToBlackFullyBlack)
         HRESULT ( STDMETHODCALLTYPE *GetFadeToBlackFullyBlack )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, SetFadeToBlackFullyBlack)
         HRESULT ( STDMETHODCALLTYPE *SetFadeToBlackFullyBlack )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ BOOL value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetInFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *GetInFadeToBlack )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetFadeToBlackInTransition)
         HRESULT ( STDMETHODCALLTYPE *GetFadeToBlackInTransition )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [out] */ BMDSwitcherInputAvailability *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ IBMDSwitcherMixEffectBlockCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMixEffectBlock * This,
             /* [in] */ IBMDSwitcherMixEffectBlockCallback *callback);
@@ -15552,18 +16444,22 @@ EXTERN_C const IID IID_IBMDSwitcherInputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherInputCallback * This,
             /* [in] */ BMDSwitcherInputEventType eventType);
@@ -15685,89 +16581,111 @@ EXTERN_C const IID IID_IBMDSwitcherInput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetPortType)
         HRESULT ( STDMETHODCALLTYPE *GetPortType )( 
             IBMDSwitcherInput * This,
             /* [out] */ BMDSwitcherPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetInputAvailability)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailability )( 
             IBMDSwitcherInput * This,
             /* [out] */ BMDSwitcherInputAvailability *availability);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, SetShortName)
         HRESULT ( STDMETHODCALLTYPE *SetShortName )( 
             IBMDSwitcherInput * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetShortName)
         HRESULT ( STDMETHODCALLTYPE *GetShortName )( 
             IBMDSwitcherInput * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, SetLongName)
         HRESULT ( STDMETHODCALLTYPE *SetLongName )( 
             IBMDSwitcherInput * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetLongName)
         HRESULT ( STDMETHODCALLTYPE *GetLongName )( 
             IBMDSwitcherInput * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, AreNamesDefault)
         HRESULT ( STDMETHODCALLTYPE *AreNamesDefault )( 
             IBMDSwitcherInput * This,
             /* [in] */ BOOL *isDefault);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, ResetNames)
         HRESULT ( STDMETHODCALLTYPE *ResetNames )( 
             IBMDSwitcherInput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, IsProgramTallied)
         HRESULT ( STDMETHODCALLTYPE *IsProgramTallied )( 
             IBMDSwitcherInput * This,
             /* [out] */ BOOL *isTallied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, IsPreviewTallied)
         HRESULT ( STDMETHODCALLTYPE *IsPreviewTallied )( 
             IBMDSwitcherInput * This,
             /* [out] */ BOOL *isTallied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetAvailableExternalPortTypes)
         HRESULT ( STDMETHODCALLTYPE *GetAvailableExternalPortTypes )( 
             IBMDSwitcherInput * This,
             /* [out] */ BMDSwitcherExternalPortType *types);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, SetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentExternalPortType )( 
             IBMDSwitcherInput * This,
             /* [in] */ BMDSwitcherExternalPortType value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentExternalPortType )( 
             IBMDSwitcherInput * This,
             /* [out] */ BMDSwitcherExternalPortType *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, SetCameraModel)
         HRESULT ( STDMETHODCALLTYPE *SetCameraModel )( 
             IBMDSwitcherInput * This,
             /* [in] */ unsigned int cameraId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetCameraModel)
         HRESULT ( STDMETHODCALLTYPE *GetCameraModel )( 
             IBMDSwitcherInput * This,
             /* [out] */ unsigned int *cameraId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, DoesSupportCameraModel)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportCameraModel )( 
             IBMDSwitcherInput * This,
             /* [out] */ BOOL *doesSupportCameraModel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, GetInputId)
         HRESULT ( STDMETHODCALLTYPE *GetInputId )( 
             IBMDSwitcherInput * This,
             /* [out] */ BMDSwitcherInputId *inputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInput * This,
             /* [in] */ IBMDSwitcherInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInput * This,
             /* [in] */ IBMDSwitcherInputCallback *callback);
@@ -15890,18 +16808,22 @@ EXTERN_C const IID IID_IBMDSwitcherInputColorCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputColorCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputColorCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputColorCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColorCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherInputColorCallback * This,
             /* [in] */ BMDSwitcherInputColorEventType eventType);
@@ -15991,46 +16913,57 @@ EXTERN_C const IID IID_IBMDSwitcherInputColor;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputColor * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputColor * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputColor * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, GetHue)
         HRESULT ( STDMETHODCALLTYPE *GetHue )( 
             IBMDSwitcherInputColor * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, SetHue)
         HRESULT ( STDMETHODCALLTYPE *SetHue )( 
             IBMDSwitcherInputColor * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, GetSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetSaturation )( 
             IBMDSwitcherInputColor * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, SetSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetSaturation )( 
             IBMDSwitcherInputColor * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, GetLuma)
         HRESULT ( STDMETHODCALLTYPE *GetLuma )( 
             IBMDSwitcherInputColor * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, SetLuma)
         HRESULT ( STDMETHODCALLTYPE *SetLuma )( 
             IBMDSwitcherInputColor * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInputColor * This,
             /* [in] */ IBMDSwitcherInputColorCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputColor, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInputColor * This,
             /* [in] */ IBMDSwitcherInputColorCallback *callback);
@@ -16120,18 +17053,22 @@ EXTERN_C const IID IID_IBMDSwitcherInputAuxCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputAuxCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputAuxCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputAuxCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputAuxCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherInputAuxCallback * This,
             /* [in] */ BMDSwitcherInputAuxEventType eventType);
@@ -16212,34 +17149,42 @@ EXTERN_C const IID IID_IBMDSwitcherInputAux;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputAux * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputAux * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputAux * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputAux, GetInputSource)
         HRESULT ( STDMETHODCALLTYPE *GetInputSource )( 
             IBMDSwitcherInputAux * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputAux, SetInputSource)
         HRESULT ( STDMETHODCALLTYPE *SetInputSource )( 
             IBMDSwitcherInputAux * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputAux, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherInputAux * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputAux, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInputAux * This,
             /* [in] */ IBMDSwitcherInputAuxCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputAux, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInputAux * This,
             /* [in] */ IBMDSwitcherInputAuxCallback *callback);
@@ -16320,18 +17265,22 @@ EXTERN_C const IID IID_IBMDSwitcherSuperSourceBoxCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSuperSourceBoxCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSuperSourceBoxCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSuperSourceBoxCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBoxCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherSuperSourceBoxCallback * This,
             /* [in] */ BMDSwitcherSuperSourceBoxEventType eventType);
@@ -16468,109 +17417,136 @@ EXTERN_C const IID IID_IBMDSwitcherSuperSourceBox;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSuperSourceBox * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSuperSourceBox * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetInputSource)
         HRESULT ( STDMETHODCALLTYPE *GetInputSource )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetInputSource)
         HRESULT ( STDMETHODCALLTYPE *SetInputSource )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *positionX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double positionX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *positionY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double positionY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetSize)
         HRESULT ( STDMETHODCALLTYPE *GetSize )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetSize)
         HRESULT ( STDMETHODCALLTYPE *SetSize )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetCropped)
         HRESULT ( STDMETHODCALLTYPE *GetCropped )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ BOOL *cropped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetCropped)
         HRESULT ( STDMETHODCALLTYPE *SetCropped )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ BOOL cropped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetCropTop)
         HRESULT ( STDMETHODCALLTYPE *GetCropTop )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetCropTop)
         HRESULT ( STDMETHODCALLTYPE *SetCropTop )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetCropBottom)
         HRESULT ( STDMETHODCALLTYPE *GetCropBottom )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetCropBottom)
         HRESULT ( STDMETHODCALLTYPE *SetCropBottom )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetCropLeft)
         HRESULT ( STDMETHODCALLTYPE *GetCropLeft )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetCropLeft)
         HRESULT ( STDMETHODCALLTYPE *SetCropLeft )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetCropRight)
         HRESULT ( STDMETHODCALLTYPE *GetCropRight )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, SetCropRight)
         HRESULT ( STDMETHODCALLTYPE *SetCropRight )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, ResetCrop)
         HRESULT ( STDMETHODCALLTYPE *ResetCrop )( 
             IBMDSwitcherSuperSourceBox * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ IBMDSwitcherSuperSourceBoxCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBox, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherSuperSourceBox * This,
             /* [in] */ IBMDSwitcherSuperSourceBoxCallback *callback);
@@ -16708,18 +17684,22 @@ EXTERN_C const IID IID_IBMDSwitcherSuperSourceBorderCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSuperSourceBorderCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSuperSourceBorderCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSuperSourceBorderCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorderCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherSuperSourceBorderCallback * This,
             /* [in] */ BMDSwitcherSuperSourceBorderEventType eventType);
@@ -16869,126 +17849,157 @@ EXTERN_C const IID IID_IBMDSwitcherSuperSourceBorder;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSuperSourceBorder * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSuperSourceBorder * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetBorderEnabled )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetBorderEnabled )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevel )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ BMDSwitcherBorderBevelOption *bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevel )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ BMDSwitcherBorderBevelOption bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *softnessOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double softnessOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *softnessIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double softnessIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *bevelSoftness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double bevelSoftness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceDirection )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceDirection )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, GetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceAltitude )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, SetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceAltitude )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ IBMDSwitcherSuperSourceBorderCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBorder, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherSuperSourceBorder * This,
             /* [in] */ IBMDSwitcherSuperSourceBorderCallback *callback);
@@ -17138,18 +18149,22 @@ EXTERN_C const IID IID_IBMDSwitcherInputSuperSourceCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputSuperSourceCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputSuperSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputSuperSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSourceCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherInputSuperSourceCallback * This,
             /* [in] */ BMDSwitcherInputSuperSourceEventType eventType);
@@ -17276,94 +18291,117 @@ EXTERN_C const IID IID_IBMDSwitcherInputSuperSource;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputSuperSource * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputSuperSource * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetArtOption)
         HRESULT ( STDMETHODCALLTYPE *GetArtOption )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BMDSwitcherSuperSourceArtOption *artOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetArtOption)
         HRESULT ( STDMETHODCALLTYPE *SetArtOption )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ BMDSwitcherSuperSourceArtOption artOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, SupportsBorder)
         HRESULT ( STDMETHODCALLTYPE *SupportsBorder )( 
             IBMDSwitcherInputSuperSource * This,
             /* [out] */ BOOL *supportsBorder);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ IBMDSwitcherInputSuperSourceCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ IBMDSwitcherInputSuperSourceCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherInputSuperSource * This,
             /* [in] */ REFIID iid,
@@ -17491,18 +18529,22 @@ EXTERN_C const IID IID_IBMDSwitcherMultiViewCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiViewCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiViewCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiViewCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiViewCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherMultiViewCallback * This,
             /* [in] */ BMDSwitcherMultiViewEventType eventType,
@@ -17652,122 +18694,150 @@ EXTERN_C const IID IID_IBMDSwitcherMultiView;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiView * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiView * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, CanChangeLayout)
         HRESULT ( STDMETHODCALLTYPE *CanChangeLayout )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *canChangeLayout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetLayout)
         HRESULT ( STDMETHODCALLTYPE *GetLayout )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BMDSwitcherMultiViewLayout *layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SetLayout)
         HRESULT ( STDMETHODCALLTYPE *SetLayout )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ BMDSwitcherMultiViewLayout layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SupportsQuadrantLayout)
         HRESULT ( STDMETHODCALLTYPE *SupportsQuadrantLayout )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *supportsQuadrantLayout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *GetWindowInput )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *SetWindowInput )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetWindowCount)
         HRESULT ( STDMETHODCALLTYPE *GetWindowCount )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ unsigned int *windowCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, CanRouteInputs)
         HRESULT ( STDMETHODCALLTYPE *CanRouteInputs )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *canRoute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SupportsVuMeters)
         HRESULT ( STDMETHODCALLTYPE *SupportsVuMeters )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *supportsVuMeters);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, CurrentInputSupportsVuMeter)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsVuMeter )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *supportsVuMeter);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetVuMeterEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetVuMeterEnabled )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SetVuMeterEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetVuMeterEnabled )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, CanAdjustVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *CanAdjustVuMeterOpacity )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *canAdjustVuMeterOpacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetVuMeterOpacity )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SetVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetVuMeterOpacity )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, CanToggleSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *CanToggleSafeAreaEnabled )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *canToggleSafeAreaEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, CurrentInputSupportsSafeArea)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsSafeArea )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *supportsSafeArea);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetSafeAreaEnabled )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SetSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetSafeAreaEnabled )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ unsigned int window,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SupportsProgramPreviewSwap)
         HRESULT ( STDMETHODCALLTYPE *SupportsProgramPreviewSwap )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *supportsProgramPreviewSwap);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, GetProgramPreviewSwapped)
         HRESULT ( STDMETHODCALLTYPE *GetProgramPreviewSwapped )( 
             IBMDSwitcherMultiView * This,
             /* [out] */ BOOL *swapped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, SetProgramPreviewSwapped)
         HRESULT ( STDMETHODCALLTYPE *SetProgramPreviewSwapped )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ BOOL swapped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMultiView * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
@@ -17908,18 +18978,22 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKeyCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKeyCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKeyCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKeyCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKeyCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherDownstreamKeyCallback * This,
             /* [in] */ BMDSwitcherDownstreamKeyEventType eventType);
@@ -18100,168 +19174,210 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKey;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKey * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKey * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetTie)
         HRESULT ( STDMETHODCALLTYPE *GetTie )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *tie);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetTie)
         HRESULT ( STDMETHODCALLTYPE *SetTie )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BOOL tie);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetOnAir)
         HRESULT ( STDMETHODCALLTYPE *GetOnAir )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetOnAir)
         HRESULT ( STDMETHODCALLTYPE *SetOnAir )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BOOL onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, PerformAutoTransition)
         HRESULT ( STDMETHODCALLTYPE *PerformAutoTransition )( 
             IBMDSwitcherDownstreamKey * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, PerformAutoTransitionInDirection)
         HRESULT ( STDMETHODCALLTYPE *PerformAutoTransitionInDirection )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BOOL towardsOnAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, IsTransitioning)
         HRESULT ( STDMETHODCALLTYPE *IsTransitioning )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *isTransitioning);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, IsAutoTransitioning)
         HRESULT ( STDMETHODCALLTYPE *IsAutoTransitioning )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *isAutoTransitioning);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, IsTransitionTowardsOnAir)
         HRESULT ( STDMETHODCALLTYPE *IsTransitionTowardsOnAir )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *isTransitionTowardsOnAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetFramesRemaining)
         HRESULT ( STDMETHODCALLTYPE *GetFramesRemaining )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ unsigned int *framesRemaining);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherDownstreamKey * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherDownstreamKey * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ IBMDSwitcherDownstreamKeyCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherDownstreamKey * This,
             /* [in] */ IBMDSwitcherDownstreamKeyCallback *callback);
@@ -18448,22 +19564,27 @@ EXTERN_C const IID IID_IBMDSwitcherInputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherInputIterator * This,
             /* [out] */ IBMDSwitcherInput **input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherInputIterator * This,
             /* [in] */ BMDSwitcherInputId inputId,
@@ -18536,18 +19657,22 @@ EXTERN_C const IID IID_IBMDSwitcherSuperSourceBoxIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSuperSourceBoxIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSuperSourceBoxIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSuperSourceBoxIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSuperSourceBoxIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherSuperSourceBoxIterator * This,
             /* [out] */ IBMDSwitcherSuperSourceBox **box);
@@ -18616,18 +19741,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixEffectBlockIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixEffectBlockIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixEffectBlockIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixEffectBlockIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlockIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMixEffectBlockIterator * This,
             /* [out] */ IBMDSwitcherMixEffectBlock **mixEffectBlock);
@@ -18696,18 +19825,22 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKeyIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKeyIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKeyIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKeyIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKeyIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherDownstreamKeyIterator * This,
             /* [out] */ IBMDSwitcherDownstreamKey **downstreamKey);
@@ -18776,18 +19909,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherKeyIterator * This,
             /* [out] */ IBMDSwitcherKey **key);
@@ -18856,18 +19993,22 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPlayerIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPlayerIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPlayerIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPlayerIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPlayerIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMediaPlayerIterator * This,
             /* [out] */ IBMDSwitcherMediaPlayer **mediaPlayer);
@@ -18936,18 +20077,22 @@ EXTERN_C const IID IID_IBMDSwitcherMultiViewIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiViewIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiViewIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiViewIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiViewIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMultiViewIterator * This,
             /* [out] */ IBMDSwitcherMultiView **multiView);
@@ -19016,18 +20161,22 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMonitorOutputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMonitorOutputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMonitorOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMonitorOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMonitorOutputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherAudioMonitorOutputIterator * This,
             /* [out] */ IBMDSwitcherAudioMonitorOutput **audioMonitorOutput);
@@ -19096,18 +20245,22 @@ EXTERN_C const IID IID_IBMDSwitcherAudioHeadphoneOutputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioHeadphoneOutputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioHeadphoneOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioHeadphoneOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioHeadphoneOutputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherAudioHeadphoneOutputIterator * This,
             /* [out] */ IBMDSwitcherAudioHeadphoneOutput **audioHeadphoneOutput);
@@ -19180,22 +20333,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherAudioInputIterator * This,
             /* [out] */ IBMDSwitcherAudioInput **audioInput);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherAudioInputIterator * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
@@ -19268,18 +20426,22 @@ EXTERN_C const IID IID_IBMDSwitcherSerialPortIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSerialPortIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSerialPortIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSerialPortIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPortIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherSerialPortIterator * This,
             /* [out] */ IBMDSwitcherSerialPort **serialPort);
@@ -19352,22 +20514,27 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherHyperDeckIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherHyperDeckIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherHyperDeckIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherHyperDeckIterator * This,
             /* [out] */ IBMDSwitcherHyperDeck **hyperDeck);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherHyperDeckIterator * This,
             /* [in] */ BMDSwitcherHyperDeckId hyperDeckId,
@@ -19440,18 +20607,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixMinusOutputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixMinusOutputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixMinusOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixMinusOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMixMinusOutputIterator * This,
             /* [out] */ IBMDSwitcherMixMinusOutput **mixMinusOutput);
@@ -19524,22 +20695,27 @@ EXTERN_C const IID IID_IBMDSwitcherTalkbackIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkbackIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkbackIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkbackIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkbackIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherTalkbackIterator * This,
             /* [out] */ IBMDSwitcherTalkback **talkback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkbackIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherTalkbackIterator * This,
             /* [in] */ BMDSwitcherTalkbackId talkbackId,
@@ -19613,18 +20789,22 @@ EXTERN_C const IID IID_IBMDSwitcherCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherCallback * This,
             /* [in] */ BMDSwitcherEventType eventType,
@@ -19812,92 +20992,112 @@ EXTERN_C const IID IID_IBMDSwitcher;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, DoesVideoModeChangeRequireReconfiguration)
         HRESULT ( STDMETHODCALLTYPE *DoesVideoModeChangeRequireReconfiguration )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *required);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, Get3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Get3GSDIOutputLevel )( 
             IBMDSwitcher * This,
             /* [out] */ BMDSwitcher3GSDIOutputLevel *outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, Set3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Set3GSDIOutputLevel )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcher3GSDIOutputLevel outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCode )( 
             IBMDSwitcher * This,
             /* [out] */ unsigned char *hours,
@@ -19906,6 +21106,7 @@ EXTERN_C const IID IID_IBMDSwitcher;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCode )( 
             IBMDSwitcher * This,
             /* [in] */ unsigned char hours,
@@ -19913,69 +21114,86 @@ EXTERN_C const IID IID_IBMDSwitcher;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, RequestTimeCode)
         HRESULT ( STDMETHODCALLTYPE *RequestTimeCode )( 
             IBMDSwitcher * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetTimeCodeLocked)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeLocked )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *timeCodeLocked);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetTimeCodeExternal)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeExternal )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *timeCodeExternal);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetTimeCodeMode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeMode )( 
             IBMDSwitcher * This,
             /* [out] */ BMDSwitcherTimeCodeMode *timeCodeMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetTimeCodeMode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCodeMode )( 
             IBMDSwitcher * This,
             /* [in] */ BMDSwitcherTimeCodeMode timeCodeMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetAreOutputsConfigurable)
         HRESULT ( STDMETHODCALLTYPE *GetAreOutputsConfigurable )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *configurable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *GetSuperSourceCascade )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *SetSuperSourceCascade )( 
             IBMDSwitcher * This,
             /* [in] */ BOOL cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SuspendStreaming)
         HRESULT ( STDMETHODCALLTYPE *SuspendStreaming )( 
             IBMDSwitcher * This,
             /* [in] */ unsigned int durationMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, AllowStreamingToResume)
         HRESULT ( STDMETHODCALLTYPE *AllowStreamingToResume )( 
             IBMDSwitcher * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, DoesSupportAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportAutoVideoMode )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetAutoVideoMode )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, GetAutoVideoModeDetected)
         HRESULT ( STDMETHODCALLTYPE *GetAutoVideoModeDetected )( 
             IBMDSwitcher * This,
             /* [out] */ BOOL *detected);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, SetAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetAutoVideoMode )( 
             IBMDSwitcher * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -20148,18 +21366,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery * This,
             /* [in] */ BSTR deviceAddress,
@@ -20238,30 +21460,38 @@ EXTERN_C const IID IID_IBMDSwitcherFrame;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFrame * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFrame * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFrame * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFrame, GetWidth)
         int ( STDMETHODCALLTYPE *GetWidth )( 
             IBMDSwitcherFrame * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFrame, GetHeight)
         int ( STDMETHODCALLTYPE *GetHeight )( 
             IBMDSwitcherFrame * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFrame, GetRowBytes)
         int ( STDMETHODCALLTYPE *GetRowBytes )( 
             IBMDSwitcherFrame * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFrame, GetPixelFormat)
         BMDSwitcherPixelFormat ( STDMETHODCALLTYPE *GetPixelFormat )( 
             IBMDSwitcherFrame * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFrame, GetBytes)
         HRESULT ( STDMETHODCALLTYPE *GetBytes )( 
             IBMDSwitcherFrame * This,
             /* [out] */ void **buffer);
@@ -20344,21 +21574,26 @@ EXTERN_C const IID IID_IBMDSwitcherAudio;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudio * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudio * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudio * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudio, GetSize)
         int ( STDMETHODCALLTYPE *GetSize )( 
             IBMDSwitcherAudio * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudio, GetBytes)
         HRESULT ( STDMETHODCALLTYPE *GetBytes )( 
             IBMDSwitcherAudio * This,
             /* [out] */ void **buffer);
@@ -20429,18 +21664,22 @@ EXTERN_C const IID IID_IBMDSwitcherLockCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherLockCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherLockCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherLockCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherLockCallback, Obtained)
         HRESULT ( STDMETHODCALLTYPE *Obtained )( 
             IBMDSwitcherLockCallback * This);
         
@@ -20510,18 +21749,22 @@ EXTERN_C const IID IID_IBMDSwitcherStillsCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStillsCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStillsCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStillsCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStillsCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherStillsCallback * This,
             /* [in] */ BMDSwitcherMediaPoolEventType eventType,
@@ -20636,75 +21879,92 @@ EXTERN_C const IID IID_IBMDSwitcherStills;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStills * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStills * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStills * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, GetCount)
         HRESULT ( STDMETHODCALLTYPE *GetCount )( 
             IBMDSwitcherStills * This,
             /* [out] */ unsigned int *count);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, IsValid)
         HRESULT ( STDMETHODCALLTYPE *IsValid )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, SetName)
         HRESULT ( STDMETHODCALLTYPE *SetName )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, GetHash)
         HRESULT ( STDMETHODCALLTYPE *GetHash )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index,
             /* [out] */ BMDSwitcherHash *hash);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, SetInvalid)
         HRESULT ( STDMETHODCALLTYPE *SetInvalid )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, Lock)
         HRESULT ( STDMETHODCALLTYPE *Lock )( 
             IBMDSwitcherStills * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, Unlock)
         HRESULT ( STDMETHODCALLTYPE *Unlock )( 
             IBMDSwitcherStills * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, Upload)
         HRESULT ( STDMETHODCALLTYPE *Upload )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index,
             /* [in] */ BSTR name,
             /* [in] */ IBMDSwitcherFrame *frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, Download)
         HRESULT ( STDMETHODCALLTYPE *Download )( 
             IBMDSwitcherStills * This,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, CancelTransfer)
         HRESULT ( STDMETHODCALLTYPE *CancelTransfer )( 
             IBMDSwitcherStills * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, GetProgress)
         HRESULT ( STDMETHODCALLTYPE *GetProgress )( 
             IBMDSwitcherStills * This,
             /* [out] */ double *progress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStills * This,
             /* [in] */ IBMDSwitcherStillsCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStills * This,
             /* [in] */ IBMDSwitcherStillsCallback *callback);
@@ -20816,18 +22076,22 @@ EXTERN_C const IID IID_IBMDSwitcherClipCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherClipCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherClipCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherClipCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClipCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherClipCallback * This,
             /* [in] */ BMDSwitcherMediaPoolEventType eventType,
@@ -20973,115 +22237,143 @@ EXTERN_C const IID IID_IBMDSwitcherClip;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherClip * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherClip * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherClip * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetIndex)
         HRESULT ( STDMETHODCALLTYPE *GetIndex )( 
             IBMDSwitcherClip * This,
             /* [out] */ unsigned int *index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, IsValid)
         HRESULT ( STDMETHODCALLTYPE *IsValid )( 
             IBMDSwitcherClip * This,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherClip * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, SetName)
         HRESULT ( STDMETHODCALLTYPE *SetName )( 
             IBMDSwitcherClip * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, SetValid)
         HRESULT ( STDMETHODCALLTYPE *SetValid )( 
             IBMDSwitcherClip * This,
             /* [in] */ BSTR name,
             /* [in] */ unsigned int frameCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, SetInvalid)
         HRESULT ( STDMETHODCALLTYPE *SetInvalid )( 
             IBMDSwitcherClip * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetFrameCount)
         HRESULT ( STDMETHODCALLTYPE *GetFrameCount )( 
             IBMDSwitcherClip * This,
             /* [out] */ unsigned int *frameCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetMaxFrameCount)
         HRESULT ( STDMETHODCALLTYPE *GetMaxFrameCount )( 
             IBMDSwitcherClip * This,
             /* [out] */ unsigned int *maxFrameCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, IsFrameValid)
         HRESULT ( STDMETHODCALLTYPE *IsFrameValid )( 
             IBMDSwitcherClip * This,
             /* [in] */ unsigned int frameIndex,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetFrameHash)
         HRESULT ( STDMETHODCALLTYPE *GetFrameHash )( 
             IBMDSwitcherClip * This,
             /* [in] */ unsigned int frameIndex,
             /* [out] */ BMDSwitcherHash *hash);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, IsAudioValid)
         HRESULT ( STDMETHODCALLTYPE *IsAudioValid )( 
             IBMDSwitcherClip * This,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetAudioName)
         HRESULT ( STDMETHODCALLTYPE *GetAudioName )( 
             IBMDSwitcherClip * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, SetAudioName)
         HRESULT ( STDMETHODCALLTYPE *SetAudioName )( 
             IBMDSwitcherClip * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetAudioHash)
         HRESULT ( STDMETHODCALLTYPE *GetAudioHash )( 
             IBMDSwitcherClip * This,
             /* [out] */ BMDSwitcherHash *hash);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, SetAudioInvalid)
         HRESULT ( STDMETHODCALLTYPE *SetAudioInvalid )( 
             IBMDSwitcherClip * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, Lock)
         HRESULT ( STDMETHODCALLTYPE *Lock )( 
             IBMDSwitcherClip * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, Unlock)
         HRESULT ( STDMETHODCALLTYPE *Unlock )( 
             IBMDSwitcherClip * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, UploadFrame)
         HRESULT ( STDMETHODCALLTYPE *UploadFrame )( 
             IBMDSwitcherClip * This,
             /* [in] */ unsigned int frameIndex,
             /* [in] */ IBMDSwitcherFrame *frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, DownloadFrame)
         HRESULT ( STDMETHODCALLTYPE *DownloadFrame )( 
             IBMDSwitcherClip * This,
             /* [in] */ unsigned int frameIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, UploadAudio)
         HRESULT ( STDMETHODCALLTYPE *UploadAudio )( 
             IBMDSwitcherClip * This,
             /* [in] */ BSTR name,
             /* [in] */ IBMDSwitcherAudio *audio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, DownloadAudio)
         HRESULT ( STDMETHODCALLTYPE *DownloadAudio )( 
             IBMDSwitcherClip * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, CancelTransfer)
         HRESULT ( STDMETHODCALLTYPE *CancelTransfer )( 
             IBMDSwitcherClip * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, GetProgress)
         HRESULT ( STDMETHODCALLTYPE *GetProgress )( 
             IBMDSwitcherClip * This,
             /* [out] */ double *progress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherClip * This,
             /* [in] */ IBMDSwitcherClipCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherClip * This,
             /* [in] */ IBMDSwitcherClipCallback *callback);
@@ -21223,21 +22515,26 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPoolCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPoolCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPoolCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPoolCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPoolCallback, ClipFrameMaxCountsChanged)
         HRESULT ( STDMETHODCALLTYPE *ClipFrameMaxCountsChanged )( 
             IBMDSwitcherMediaPoolCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPoolCallback, FrameTotalForClipsChanged)
         HRESULT ( STDMETHODCALLTYPE *FrameTotalForClipsChanged )( 
             IBMDSwitcherMediaPoolCallback * This);
         
@@ -21348,31 +22645,38 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPool;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPool * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPool * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, GetStills)
         HRESULT ( STDMETHODCALLTYPE *GetStills )( 
             IBMDSwitcherMediaPool * This,
             /* [out] */ IBMDSwitcherStills **stills);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ unsigned int clipIndex,
             /* [out] */ IBMDSwitcherClip **clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, GetClipCount)
         HRESULT ( STDMETHODCALLTYPE *GetClipCount )( 
             IBMDSwitcherMediaPool * This,
             /* [out] */ unsigned int *clipCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, CreateFrame)
         HRESULT ( STDMETHODCALLTYPE *CreateFrame )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ BMDSwitcherPixelFormat pixelFormat,
@@ -21380,37 +22684,45 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPool;
             /* [in] */ unsigned int height,
             /* [out] */ IBMDSwitcherFrame **frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, CreateAudio)
         HRESULT ( STDMETHODCALLTYPE *CreateAudio )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ unsigned int sizeBytes,
             /* [out] */ IBMDSwitcherAudio **audio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, GetFrameTotalForClips)
         HRESULT ( STDMETHODCALLTYPE *GetFrameTotalForClips )( 
             IBMDSwitcherMediaPool * This,
             /* [out] */ unsigned int *total);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, GetClipMaxFrameCounts)
         HRESULT ( STDMETHODCALLTYPE *GetClipMaxFrameCounts )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ unsigned int clipCount,
             /* [out] */ unsigned int *clipMaxFrameCounts);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, SetClipMaxFrameCounts)
         HRESULT ( STDMETHODCALLTYPE *SetClipMaxFrameCounts )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ unsigned int clipCount,
             /* [in] */ const unsigned int *clipMaxFrameCounts);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, Clear)
         HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IBMDSwitcherMediaPool * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, DoesVideoModeChangeClearMediaPool)
         HRESULT ( STDMETHODCALLTYPE *DoesVideoModeChangeClearMediaPool )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *clear);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ IBMDSwitcherMediaPoolCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMediaPool * This,
             /* [in] */ IBMDSwitcherMediaPoolCallback *callback);
@@ -21520,29 +22832,36 @@ EXTERN_C const IID IID_IBMDSwitcherStillCapture;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStillCapture * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStillCapture * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStillCapture * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStillCapture, IsAvailable)
         HRESULT ( STDMETHODCALLTYPE *IsAvailable )( 
             IBMDSwitcherStillCapture * This,
             /* [out] */ BOOL *available);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStillCapture, CaptureStill)
         HRESULT ( STDMETHODCALLTYPE *CaptureStill )( 
             IBMDSwitcherStillCapture * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStillCapture, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStillCapture * This,
             /* [in] */ IBMDSwitcherStillCaptureCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStillCapture, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStillCapture * This,
             /* [in] */ IBMDSwitcherStillCaptureCallback *callback);
@@ -21620,18 +22939,22 @@ EXTERN_C const IID IID_IBMDSwitcherStillCaptureCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStillCaptureCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStillCaptureCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStillCaptureCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStillCaptureCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherStillCaptureCallback * This,
             /* [in] */ BMDSwitcherStillCaptureEventType eventType);
@@ -21703,22 +23026,27 @@ EXTERN_C const IID IID_IBMDSwitcherSaveRecall;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSaveRecall * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSaveRecall * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSaveRecall * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSaveRecall, Save)
         HRESULT ( STDMETHODCALLTYPE *Save )( 
             IBMDSwitcherSaveRecall * This,
             /* [in] */ BMDSwitcherSaveRecallType type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSaveRecall, Clear)
         HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IBMDSwitcherSaveRecall * This,
             /* [in] */ BMDSwitcherSaveRecallType type);
@@ -21794,22 +23122,27 @@ EXTERN_C const IID IID_IBMDSwitcherRecordDiskIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordDiskIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordDiskIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordDiskIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDiskIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherRecordDiskIterator * This,
             /* [out] */ IBMDSwitcherRecordDisk **recordDisk);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDiskIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherRecordDiskIterator * This,
             /* [in] */ BMDSwitcherRecordDiskId diskId,
@@ -21897,38 +23230,47 @@ EXTERN_C const IID IID_IBMDSwitcherRecordDisk;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordDisk * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordDisk * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordDisk * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherRecordDisk * This,
             /* [out] */ BMDSwitcherRecordDiskId *diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk, GetVolumeName)
         HRESULT ( STDMETHODCALLTYPE *GetVolumeName )( 
             IBMDSwitcherRecordDisk * This,
             /* [out] */ BSTR *volumeName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk, GetRecordingTimeAvailable)
         HRESULT ( STDMETHODCALLTYPE *GetRecordingTimeAvailable )( 
             IBMDSwitcherRecordDisk * This,
             /* [out] */ unsigned int *recordingTimeAvailable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherRecordDisk * This,
             /* [out] */ BMDSwitcherRecordDiskStatus *diskStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRecordDisk * This,
             /* [in] */ IBMDSwitcherRecordDiskCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRecordDisk * This,
             /* [in] */ IBMDSwitcherRecordDiskCallback *callback);
@@ -22013,18 +23355,22 @@ EXTERN_C const IID IID_IBMDSwitcherRecordDiskCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordDiskCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordDiskCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordDiskCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDiskCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherRecordDiskCallback * This,
             /* [in] */ BMDSwitcherRecordDiskEventType eventType,
@@ -22164,89 +23510,111 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAV;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordAV * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordAV * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, StartRecording)
         HRESULT ( STDMETHODCALLTYPE *StartRecording )( 
             IBMDSwitcherRecordAV * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, StopRecording)
         HRESULT ( STDMETHODCALLTYPE *StopRecording )( 
             IBMDSwitcherRecordAV * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, SwitchDisk)
         HRESULT ( STDMETHODCALLTYPE *SwitchDisk )( 
             IBMDSwitcherRecordAV * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, IsRecording)
         HRESULT ( STDMETHODCALLTYPE *IsRecording )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ BOOL *recording);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ BMDSwitcherRecordAVState *state,
             /* [out] */ BMDSwitcherRecordAVError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, SetFilename)
         HRESULT ( STDMETHODCALLTYPE *SetFilename )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ BSTR filename);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetFilename)
         HRESULT ( STDMETHODCALLTYPE *GetFilename )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ BSTR *filename);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, SetRecordInAllCameras)
         HRESULT ( STDMETHODCALLTYPE *SetRecordInAllCameras )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ BOOL recordInAllCameras);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetRecordInAllCameras)
         HRESULT ( STDMETHODCALLTYPE *GetRecordInAllCameras )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ BOOL *recordInAllCameras);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, DoesSupportISORecording)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportISORecording )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ BOOL *supportsISORecording);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, SetRecordAllISOInputs)
         HRESULT ( STDMETHODCALLTYPE *SetRecordAllISOInputs )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ BOOL recordAllISOInputs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetRecordAllISOInputs)
         HRESULT ( STDMETHODCALLTYPE *GetRecordAllISOInputs )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ BOOL *recordAllISOInputs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetWorkingSetLimit)
         HRESULT ( STDMETHODCALLTYPE *GetWorkingSetLimit )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ unsigned int *workingSetLimit);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, SetWorkingSetDisk)
         HRESULT ( STDMETHODCALLTYPE *SetWorkingSetDisk )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [in] */ BMDSwitcherRecordDiskId diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetWorkingSetDisk)
         HRESULT ( STDMETHODCALLTYPE *GetWorkingSetDisk )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [out] */ BMDSwitcherRecordDiskId *diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetActiveDiskIndex)
         HRESULT ( STDMETHODCALLTYPE *GetActiveDiskIndex )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ unsigned int *workingSetIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherRecordAV * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ unsigned long long *duration);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetTimecode)
         HRESULT ( STDMETHODCALLTYPE *GetTimecode )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ unsigned char *hours,
@@ -22255,19 +23623,23 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAV;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, GetTotalRecordingTimeAvailable)
         HRESULT ( STDMETHODCALLTYPE *GetTotalRecordingTimeAvailable )( 
             IBMDSwitcherRecordAV * This,
             /* [out] */ unsigned int *totalRecordingTimeAvailable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ IBMDSwitcherRecordAVCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRecordAV * This,
             /* [in] */ IBMDSwitcherRecordAVCallback *callback);
@@ -22414,32 +23786,39 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAVCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordAVCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordAVCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordAVCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAVCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherRecordAVCallback * This,
             /* [in] */ BMDSwitcherRecordAVEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAVCallback, NotifyWorkingSetChange)
         HRESULT ( STDMETHODCALLTYPE *NotifyWorkingSetChange )( 
             IBMDSwitcherRecordAVCallback * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [in] */ BMDSwitcherRecordDiskId diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAVCallback, NotifyDiskAvailability)
         HRESULT ( STDMETHODCALLTYPE *NotifyDiskAvailability )( 
             IBMDSwitcherRecordAVCallback * This,
             /* [in] */ BMDSwitcherRecordDiskAvailabilityEventType eventType,
             /* [in] */ BMDSwitcherRecordDiskId diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAVCallback, NotifyStatus)
         HRESULT ( STDMETHODCALLTYPE *NotifyStatus )( 
             IBMDSwitcherRecordAVCallback * This,
             /* [in] */ BMDSwitcherRecordAVState stateType,
@@ -22598,84 +23977,104 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStreamRTMP * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStreamRTMP * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, StartStreaming)
         HRESULT ( STDMETHODCALLTYPE *StartStreaming )( 
             IBMDSwitcherStreamRTMP * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, StopStreaming)
         HRESULT ( STDMETHODCALLTYPE *StopStreaming )( 
             IBMDSwitcherStreamRTMP * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, IsStreaming)
         HRESULT ( STDMETHODCALLTYPE *IsStreaming )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BOOL *streaming);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BMDSwitcherStreamRTMPState *state,
             /* [out] */ BMDSwitcherStreamRTMPError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetServiceName)
         HRESULT ( STDMETHODCALLTYPE *SetServiceName )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ BSTR serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetServiceName)
         HRESULT ( STDMETHODCALLTYPE *GetServiceName )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BSTR *serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetUrl)
         HRESULT ( STDMETHODCALLTYPE *SetUrl )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetUrl)
         HRESULT ( STDMETHODCALLTYPE *GetUrl )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BSTR *url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetKey)
         HRESULT ( STDMETHODCALLTYPE *SetKey )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetKey)
         HRESULT ( STDMETHODCALLTYPE *GetKey )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BSTR *key);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetVideoBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetVideoBitrates )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetVideoBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetVideoBitrates )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetAudioBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetAudioBitrates )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetAudioBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetAudioBitrates )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherStreamRTMP * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ unsigned long long *duration);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetTimecode)
         HRESULT ( STDMETHODCALLTYPE *GetTimecode )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ unsigned char *hours,
@@ -22684,36 +24083,44 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetEncodingBitrate)
         HRESULT ( STDMETHODCALLTYPE *GetEncodingBitrate )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ unsigned int *encodingBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetCacheUsed)
         HRESULT ( STDMETHODCALLTYPE *GetCacheUsed )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ double *cacheUsed);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetAuthentication)
         HRESULT ( STDMETHODCALLTYPE *SetAuthentication )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ BSTR username,
             /* [in] */ BSTR password);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetAuthentication)
         HRESULT ( STDMETHODCALLTYPE *GetAuthentication )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BSTR *username,
             /* [out] */ BSTR *password);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, SetLowLatency)
         HRESULT ( STDMETHODCALLTYPE *SetLowLatency )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ BOOL lowLatency);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, GetLowLatency)
         HRESULT ( STDMETHODCALLTYPE *GetLowLatency )( 
             IBMDSwitcherStreamRTMP * This,
             /* [out] */ BOOL *lowLatency);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStreamRTMP * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
@@ -22858,22 +24265,27 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMPCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStreamRTMPCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStreamRTMPCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStreamRTMPCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMPCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherStreamRTMPCallback * This,
             /* [in] */ BMDSwitcherStreamRTMPEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMPCallback, NotifyStatus)
         HRESULT ( STDMETHODCALLTYPE *NotifyStatus )( 
             IBMDSwitcherStreamRTMPCallback * This,
             /* [in] */ BMDSwitcherStreamRTMPState stateType,
@@ -22987,72 +24399,89 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSourceConfiguration;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSourceConfiguration * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSourceConfiguration * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, AddExternalSource)
         HRESULT ( STDMETHODCALLTYPE *AddExternalSource )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ BSTR key,
             /* [in] */ BSTR name,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, RemoveExternalSource)
         HRESULT ( STDMETHODCALLTYPE *RemoveExternalSource )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ unsigned int sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, GetDiscoverable)
         HRESULT ( STDMETHODCALLTYPE *GetDiscoverable )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [out] */ BOOL *discoverable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, SetDiscoverable)
         HRESULT ( STDMETHODCALLTYPE *SetDiscoverable )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ BOOL discoverable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, ForceInternetProbe)
         HRESULT ( STDMETHODCALLTYPE *ForceInternetProbe )( 
             IBMDSwitcherRemoteSourceConfiguration * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, GetInternetAddress)
         HRESULT ( STDMETHODCALLTYPE *GetInternetAddress )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [out] */ BSTR *internetAddress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, GetInternetPort)
         HRESULT ( STDMETHODCALLTYPE *GetInternetPort )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [out] */ unsigned short *internetPort);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, SetInternetAddress)
         HRESULT ( STDMETHODCALLTYPE *SetInternetAddress )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ BSTR internetAddress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, SetInternetPort)
         HRESULT ( STDMETHODCALLTYPE *SetInternetPort )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ unsigned short internetPort);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, GetInternetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetInternetStatus )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [out] */ BMDSwitcherRemoteSourceInternetStatusType *internetStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, GetPortStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPortStatus )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [out] */ BMDSwitcherRemoteSourcePortStatusType *portStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ IBMDSwitcherRemoteSourceConfigurationCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfiguration, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRemoteSourceConfiguration * This,
             /* [in] */ IBMDSwitcherRemoteSourceConfigurationCallback *callback);
@@ -23164,23 +24593,28 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSourceConfigurationCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSourceConfigurationCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSourceConfigurationCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSourceConfigurationCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfigurationCallback, NotifySource)
         HRESULT ( STDMETHODCALLTYPE *NotifySource )( 
             IBMDSwitcherRemoteSourceConfigurationCallback * This,
             /* [in] */ BMDSwitcherRemoteSourceConfigurationSourceEventType sourceEventType,
             /* [in] */ unsigned int sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceConfigurationCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherRemoteSourceConfigurationCallback * This,
             /* [in] */ BMDSwitcherRemoteSourceConfigurationEventType eventType);
@@ -23284,61 +24718,76 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSource;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSource * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSource * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSource * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, GetSourceId)
         HRESULT ( STDMETHODCALLTYPE *GetSourceId )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ unsigned int *sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, IsLinked)
         HRESULT ( STDMETHODCALLTYPE *IsLinked )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ BOOL *linked);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, GetLinkedInput)
         HRESULT ( STDMETHODCALLTYPE *GetLinkedInput )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, SetLinkedInput)
         HRESULT ( STDMETHODCALLTYPE *SetLinkedInput )( 
             IBMDSwitcherRemoteSource * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, UnlinkInput)
         HRESULT ( STDMETHODCALLTYPE *UnlinkInput )( 
             IBMDSwitcherRemoteSource * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, GetModelName)
         HRESULT ( STDMETHODCALLTYPE *GetModelName )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ BSTR *model);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherRemoteSource * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, GetConnected)
         HRESULT ( STDMETHODCALLTYPE *GetConnected )( 
             IBMDSwitcherRemoteSource * This,
             /* [out] */ BOOL *connected);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRemoteSource * This,
             /* [in] */ IBMDSwitcherRemoteSourceCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSource, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRemoteSource * This,
             /* [in] */ IBMDSwitcherRemoteSourceCallback *callback);
@@ -23440,18 +24889,22 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSourceCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSourceCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherRemoteSourceCallback * This,
             /* [in] */ BMDSwitcherRemoteSourceEventType eventType);
@@ -23520,18 +24973,22 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSourceIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSourceIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSourceIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSourceIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherRemoteSourceIterator * This,
             /* [out] */ IBMDSwitcherRemoteSource **remoteSource);
@@ -23631,60 +25088,75 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSourceExternal;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSourceExternal * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSourceExternal * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, GetSourceId)
         HRESULT ( STDMETHODCALLTYPE *GetSourceId )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [out] */ unsigned int *sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, GetKey)
         HRESULT ( STDMETHODCALLTYPE *GetKey )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [out] */ BSTR *key);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, SetKey)
         HRESULT ( STDMETHODCALLTYPE *SetKey )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [in] */ BSTR key);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, GenerateKey)
         HRESULT ( STDMETHODCALLTYPE *GenerateKey )( 
             IBMDSwitcherRemoteSourceExternal * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, SetName)
         HRESULT ( STDMETHODCALLTYPE *SetName )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, RequestStreamingXML)
         HRESULT ( STDMETHODCALLTYPE *RequestStreamingXML )( 
             IBMDSwitcherRemoteSourceExternal * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, GetStreamingXML)
         HRESULT ( STDMETHODCALLTYPE *GetStreamingXML )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [out] */ BSTR *xml);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [in] */ IBMDSwitcherRemoteSourceExternalCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternal, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRemoteSourceExternal * This,
             /* [in] */ IBMDSwitcherRemoteSourceExternalCallback *callback);
@@ -23786,18 +25258,22 @@ EXTERN_C const IID IID_IBMDSwitcherRemoteSourceExternalCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRemoteSourceExternalCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRemoteSourceExternalCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRemoteSourceExternalCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRemoteSourceExternalCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherRemoteSourceExternalCallback * This,
             /* [in] */ BMDSwitcherRemoteSourceExternalEventType eventType);
@@ -23868,18 +25344,22 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControlParameterIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCameraControlParameterIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCameraControlParameterIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCameraControlParameterIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControlParameterIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherCameraControlParameterIterator * This,
             /* [out] */ unsigned int *destinationDevice,
@@ -23953,18 +25433,22 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControlCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCameraControlCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCameraControlCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCameraControlCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControlCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherCameraControlCallback * This,
             /* [in] */ BMDSwitcherCameraControlEventType eventType,
@@ -24206,31 +25690,38 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCameraControl * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCameraControl * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetPeriodicFlushInterval)
         HRESULT ( STDMETHODCALLTYPE *GetPeriodicFlushInterval )( 
             IBMDSwitcherCameraControl * This,
             /* [out] */ unsigned int *intervalMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetPeriodicFlushInterval)
         HRESULT ( STDMETHODCALLTYPE *SetPeriodicFlushInterval )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int intervalMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetParameterInfo)
         HRESULT ( STDMETHODCALLTYPE *GetParameterInfo )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24239,6 +25730,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out] */ BMDSwitcherCameraControlParameterType *type,
             /* [out] */ unsigned int *count);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetParameterPeriodicFlushEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetParameterPeriodicFlushEnabled )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24246,6 +25738,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int parameter,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetParameterPeriodicFlushEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetParameterPeriodicFlushEnabled )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24253,6 +25746,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int parameter,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetFlags)
         HRESULT ( STDMETHODCALLTYPE *SetFlags )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24261,6 +25755,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const BOOL *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, ToggleFlags)
         HRESULT ( STDMETHODCALLTYPE *ToggleFlags )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24269,6 +25764,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const BOOL *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetFlags)
         HRESULT ( STDMETHODCALLTYPE *GetFlags )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24277,6 +25773,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out][in] */ unsigned int *count,
             /* [out] */ BOOL *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetInt8s)
         HRESULT ( STDMETHODCALLTYPE *SetInt8s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24285,6 +25782,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const signed char *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, OffsetInt8s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt8s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24293,6 +25791,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const signed char *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetInt8s)
         HRESULT ( STDMETHODCALLTYPE *GetInt8s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24301,6 +25800,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out][in] */ unsigned int *count,
             /* [out] */ signed char *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetInt16s)
         HRESULT ( STDMETHODCALLTYPE *SetInt16s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24309,6 +25809,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const short *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, OffsetInt16s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt16s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24317,6 +25818,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const short *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetInt16s)
         HRESULT ( STDMETHODCALLTYPE *GetInt16s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24325,6 +25827,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out][in] */ unsigned int *count,
             /* [out] */ short *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetInt32s)
         HRESULT ( STDMETHODCALLTYPE *SetInt32s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24333,6 +25836,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const int *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, OffsetInt32s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt32s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24341,6 +25845,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const int *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetInt32s)
         HRESULT ( STDMETHODCALLTYPE *GetInt32s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24349,6 +25854,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out][in] */ unsigned int *count,
             /* [out] */ int *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetInt64s)
         HRESULT ( STDMETHODCALLTYPE *SetInt64s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24357,6 +25863,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const long long *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, OffsetInt64s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt64s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24365,6 +25872,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const long long *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetInt64s)
         HRESULT ( STDMETHODCALLTYPE *GetInt64s )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24373,6 +25881,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out][in] */ unsigned int *count,
             /* [out] */ long long *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetString)
         HRESULT ( STDMETHODCALLTYPE *SetString )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24380,6 +25889,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int parameter,
             /* [in] */ BSTR value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetString)
         HRESULT ( STDMETHODCALLTYPE *GetString )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24387,6 +25897,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int parameter,
             /* [out] */ BSTR *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, OffsetFloats)
         HRESULT ( STDMETHODCALLTYPE *OffsetFloats )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24395,6 +25906,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const double *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, SetFloats)
         HRESULT ( STDMETHODCALLTYPE *SetFloats )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24403,6 +25915,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [in] */ unsigned int count,
             /* [in] */ const double *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, GetFloats)
         HRESULT ( STDMETHODCALLTYPE *GetFloats )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ unsigned int destinationDevice,
@@ -24411,10 +25924,12 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl;
             /* [out][in] */ unsigned int *count,
             /* [out] */ double *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ IBMDSwitcherCameraControlCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherCameraControl * This,
             /* [in] */ IBMDSwitcherCameraControlCallback *callback);
@@ -24566,21 +26081,26 @@ EXTERN_C const IID IID_IBMDSwitcherMacro;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMacro * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMacro * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMacro * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacro, GetSize)
         int ( STDMETHODCALLTYPE *GetSize )( 
             IBMDSwitcherMacro * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacro, GetBytes)
         HRESULT ( STDMETHODCALLTYPE *GetBytes )( 
             IBMDSwitcherMacro * This,
             /* [out] */ void **buffer);
@@ -24657,25 +26177,31 @@ EXTERN_C const IID IID_IBMDSwitcherTransferMacro;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransferMacro * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransferMacro * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransferMacro * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransferMacro, Cancel)
         HRESULT ( STDMETHODCALLTYPE *Cancel )( 
             IBMDSwitcherTransferMacro * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransferMacro, GetProgress)
         HRESULT ( STDMETHODCALLTYPE *GetProgress )( 
             IBMDSwitcherTransferMacro * This,
             /* [out] */ double *progress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransferMacro, GetMacro)
         HRESULT ( STDMETHODCALLTYPE *GetMacro )( 
             IBMDSwitcherTransferMacro * This,
             /* [out] */ IBMDSwitcherMacro **macro);
@@ -24752,18 +26278,22 @@ EXTERN_C const IID IID_IBMDSwitcherMacroPoolCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMacroPoolCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMacroPoolCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMacroPoolCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPoolCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherMacroPoolCallback * This,
             /* [in] */ BMDSwitcherMacroPoolEventType eventType,
@@ -24882,61 +26412,74 @@ EXTERN_C const IID IID_IBMDSwitcherMacroPool;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMacroPool * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMacroPool * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, GetMaxCount)
         HRESULT ( STDMETHODCALLTYPE *GetMaxCount )( 
             IBMDSwitcherMacroPool * This,
             /* [out] */ unsigned int *maxCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, Delete)
         HRESULT ( STDMETHODCALLTYPE *Delete )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, IsValid)
         HRESULT ( STDMETHODCALLTYPE *IsValid )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, HasUnsupportedOps)
         HRESULT ( STDMETHODCALLTYPE *HasUnsupportedOps )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [out] */ BOOL *hasUnsupportedOps);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, SetName)
         HRESULT ( STDMETHODCALLTYPE *SetName )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, GetDescription)
         HRESULT ( STDMETHODCALLTYPE *GetDescription )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [out] */ BSTR *description);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, SetDescription)
         HRESULT ( STDMETHODCALLTYPE *SetDescription )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [in] */ BSTR description);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, CreateMacro)
         HRESULT ( STDMETHODCALLTYPE *CreateMacro )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int sizeBytes,
             /* [out] */ IBMDSwitcherMacro **macro);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, Upload)
         HRESULT ( STDMETHODCALLTYPE *Upload )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
@@ -24945,15 +26488,18 @@ EXTERN_C const IID IID_IBMDSwitcherMacroPool;
             /* [in] */ IBMDSwitcherMacro *macro,
             /* [out] */ IBMDSwitcherTransferMacro **macroTransfer);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, Download)
         HRESULT ( STDMETHODCALLTYPE *Download )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ unsigned int index,
             /* [out] */ IBMDSwitcherTransferMacro **macroTransfer);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ IBMDSwitcherMacroPoolCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroPool, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMacroPool * This,
             /* [in] */ IBMDSwitcherMacroPoolCallback *callback);
@@ -25058,18 +26604,22 @@ EXTERN_C const IID IID_IBMDSwitcherMacroControlCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMacroControlCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMacroControlCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMacroControlCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControlCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherMacroControlCallback * This,
             /* [in] */ BMDSwitcherMacroControlEventType eventType);
@@ -25175,67 +26725,83 @@ EXTERN_C const IID IID_IBMDSwitcherMacroControl;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMacroControl * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMacroControl * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, Run)
         HRESULT ( STDMETHODCALLTYPE *Run )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, GetLoop)
         HRESULT ( STDMETHODCALLTYPE *GetLoop )( 
             IBMDSwitcherMacroControl * This,
             /* [out] */ BOOL *loop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, SetLoop)
         HRESULT ( STDMETHODCALLTYPE *SetLoop )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ BOOL loop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, ResumeRunning)
         HRESULT ( STDMETHODCALLTYPE *ResumeRunning )( 
             IBMDSwitcherMacroControl * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, StopRunning)
         HRESULT ( STDMETHODCALLTYPE *StopRunning )( 
             IBMDSwitcherMacroControl * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, Record)
         HRESULT ( STDMETHODCALLTYPE *Record )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ unsigned int index,
             /* [in] */ BSTR name,
             /* [in] */ BSTR description);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, RecordUserWait)
         HRESULT ( STDMETHODCALLTYPE *RecordUserWait )( 
             IBMDSwitcherMacroControl * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, RecordPause)
         HRESULT ( STDMETHODCALLTYPE *RecordPause )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, StopRecording)
         HRESULT ( STDMETHODCALLTYPE *StopRecording )( 
             IBMDSwitcherMacroControl * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, GetRunStatus)
         HRESULT ( STDMETHODCALLTYPE *GetRunStatus )( 
             IBMDSwitcherMacroControl * This,
             /* [out] */ BMDSwitcherMacroRunStatus *status,
             /* [out] */ BOOL *loop,
             /* [out] */ unsigned int *index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, GetRecordStatus)
         HRESULT ( STDMETHODCALLTYPE *GetRecordStatus )( 
             IBMDSwitcherMacroControl * This,
             /* [out] */ BMDSwitcherMacroRecordStatus *status,
             /* [out] */ unsigned int *index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ IBMDSwitcherMacroControlCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMacroControl, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMacroControl * This,
             /* [in] */ IBMDSwitcherMacroControlCallback *callback);
@@ -25340,18 +26906,22 @@ EXTERN_C const IID IID_IBMDSwitcherSerialPortCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSerialPortCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSerialPortCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSerialPortCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPortCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherSerialPortCallback * This,
             /* [in] */ BMDSwitcherSerialPortEventType eventType);
@@ -25433,35 +27003,43 @@ EXTERN_C const IID IID_IBMDSwitcherSerialPort;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherSerialPort * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherSerialPort * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherSerialPort * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPort, SetFunction)
         HRESULT ( STDMETHODCALLTYPE *SetFunction )( 
             IBMDSwitcherSerialPort * This,
             /* [in] */ BMDSwitcherSerialPortFunction function);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPort, GetFunction)
         HRESULT ( STDMETHODCALLTYPE *GetFunction )( 
             IBMDSwitcherSerialPort * This,
             /* [out] */ BMDSwitcherSerialPortFunction *function);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPort, DoesSupportFunction)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportFunction )( 
             IBMDSwitcherSerialPort * This,
             /* [in] */ BMDSwitcherSerialPortFunction function,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPort, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherSerialPort * This,
             /* [in] */ IBMDSwitcherSerialPortCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherSerialPort, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherSerialPort * This,
             /* [in] */ IBMDSwitcherSerialPortCallback *callback);
@@ -25543,18 +27121,22 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckClipCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherHyperDeckClipCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherHyperDeckClipCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherHyperDeckClipCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClipCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherHyperDeckClipCallback * This,
             /* [in] */ BMDSwitcherHyperDeckClipEventType eventType,
@@ -25657,34 +27239,42 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckClip;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherHyperDeckClip * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherHyperDeckClip * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, IsValid)
         HRESULT ( STDMETHODCALLTYPE *IsValid )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, IsInfoAvailable)
         HRESULT ( STDMETHODCALLTYPE *IsInfoAvailable )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ BOOL *infoAvailable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ BMDSwitcherHyperDeckClipId *clipId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ unsigned short *hours,
@@ -25692,6 +27282,7 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckClip;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, GetTimelineStart)
         HRESULT ( STDMETHODCALLTYPE *GetTimelineStart )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ unsigned short *hours,
@@ -25699,6 +27290,7 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckClip;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, GetTimelineEnd)
         HRESULT ( STDMETHODCALLTYPE *GetTimelineEnd )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [out] */ unsigned short *hours,
@@ -25706,10 +27298,12 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckClip;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [in] */ IBMDSwitcherHyperDeckClipCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClip, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherHyperDeckClip * This,
             /* [in] */ IBMDSwitcherHyperDeckClipCallback *callback);
@@ -25806,22 +27400,27 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckClipIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherHyperDeckClipIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherHyperDeckClipIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherHyperDeckClipIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClipIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherHyperDeckClipIterator * This,
             /* [out] */ IBMDSwitcherHyperDeckClip **clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckClipIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherHyperDeckClipIterator * This,
             /* [in] */ BMDSwitcherHyperDeckClipId clipId,
@@ -25897,22 +27496,27 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeckCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherHyperDeckCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherHyperDeckCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherHyperDeckCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherHyperDeckCallback * This,
             /* [in] */ BMDSwitcherHyperDeckEventType eventType);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeckCallback, NotifyError)
         HRESULT ( STDMETHODCALLTYPE *NotifyError )( 
             IBMDSwitcherHyperDeckCallback * This,
             /* [in] */ BMDSwitcherHyperDeckErrorType errorType);
@@ -26116,89 +27720,110 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeck;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherHyperDeck * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherHyperDeck * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BMDSwitcherHyperDeckId *hyperDeckId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetConnectionStatus)
         HRESULT ( STDMETHODCALLTYPE *GetConnectionStatus )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BMDSwitcherHyperDeckConnectionStatus *status);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, IsRemoteAccessEnabled)
         HRESULT ( STDMETHODCALLTYPE *IsRemoteAccessEnabled )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetStorageMediaCount)
         HRESULT ( STDMETHODCALLTYPE *GetStorageMediaCount )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned int *count);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetStorageMediaState)
         HRESULT ( STDMETHODCALLTYPE *GetStorageMediaState )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ unsigned int storageMediaId,
             /* [out] */ BMDSwitcherHyperDeckStorageMediaState *state);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetActiveStorageMedia)
         HRESULT ( STDMETHODCALLTYPE *GetActiveStorageMedia )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ int *index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetActiveStorageMedia)
         HRESULT ( STDMETHODCALLTYPE *SetActiveStorageMedia )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetClipCount)
         HRESULT ( STDMETHODCALLTYPE *GetClipCount )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned int *count);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetSwitcherInput)
         HRESULT ( STDMETHODCALLTYPE *GetSwitcherInput )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BMDSwitcherInputId *inputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetSwitcherInput)
         HRESULT ( STDMETHODCALLTYPE *SetSwitcherInput )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ BMDSwitcherInputId inputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetFrameRate)
         HRESULT ( STDMETHODCALLTYPE *GetFrameRate )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned int *frameRate,
             /* [out] */ unsigned int *timeScale);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, IsInterlacedVideo)
         HRESULT ( STDMETHODCALLTYPE *IsInterlacedVideo )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BOOL *isInterlaced);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, IsDropFrameTimeCode)
         HRESULT ( STDMETHODCALLTYPE *IsDropFrameTimeCode )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BOOL *isDropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetPlayerState)
         HRESULT ( STDMETHODCALLTYPE *GetPlayerState )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BMDSwitcherHyperDeckPlayerState *state);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetCurrentClip)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentClip )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BMDSwitcherHyperDeckClipId *clipId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetCurrentClip)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentClip )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ BMDSwitcherHyperDeckClipId clipId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetCurrentClipTime)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentClipTime )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned short *hours,
@@ -26206,6 +27831,7 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeck;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetCurrentClipTime)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentClipTime )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ unsigned short hours,
@@ -26213,6 +27839,7 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeck;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetCurrentTimelineTime)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentTimelineTime )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned short *hours,
@@ -26220,6 +27847,7 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeck;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetCurrentTimelineTime)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentTimelineTime )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ unsigned short hours,
@@ -26227,6 +27855,7 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeck;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetEstimatedRecordTimeRemaining)
         HRESULT ( STDMETHODCALLTYPE *GetEstimatedRecordTimeRemaining )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned short *hours,
@@ -26234,71 +27863,89 @@ EXTERN_C const IID IID_IBMDSwitcherHyperDeck;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, Play)
         HRESULT ( STDMETHODCALLTYPE *Play )( 
             IBMDSwitcherHyperDeck * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, Record)
         HRESULT ( STDMETHODCALLTYPE *Record )( 
             IBMDSwitcherHyperDeck * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, Stop)
         HRESULT ( STDMETHODCALLTYPE *Stop )( 
             IBMDSwitcherHyperDeck * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, Shuttle)
         HRESULT ( STDMETHODCALLTYPE *Shuttle )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ int speedPercent);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetShuttleSpeed)
         HRESULT ( STDMETHODCALLTYPE *GetShuttleSpeed )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ int *speedPercent);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, Jog)
         HRESULT ( STDMETHODCALLTYPE *Jog )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ int frameDelta);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetLoopedPlayback)
         HRESULT ( STDMETHODCALLTYPE *GetLoopedPlayback )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BOOL *loop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetLoopedPlayback)
         HRESULT ( STDMETHODCALLTYPE *SetLoopedPlayback )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ BOOL loop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetSingleClipPlayback)
         HRESULT ( STDMETHODCALLTYPE *GetSingleClipPlayback )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BOOL *single);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetSingleClipPlayback)
         HRESULT ( STDMETHODCALLTYPE *SetSingleClipPlayback )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ BOOL single);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetAutoRollOnTake)
         HRESULT ( STDMETHODCALLTYPE *GetAutoRollOnTake )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ BOOL *autoRollOnTake);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetAutoRollOnTake)
         HRESULT ( STDMETHODCALLTYPE *SetAutoRollOnTake )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ BOOL autoRollOnTake);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetAutoRollOnTakeFrameDelay)
         HRESULT ( STDMETHODCALLTYPE *GetAutoRollOnTakeFrameDelay )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned short *frameDelay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetAutoRollOnTakeFrameDelay)
         HRESULT ( STDMETHODCALLTYPE *SetAutoRollOnTakeFrameDelay )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ unsigned short frameDelay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, GetNetworkAddress)
         HRESULT ( STDMETHODCALLTYPE *GetNetworkAddress )( 
             IBMDSwitcherHyperDeck * This,
             /* [out] */ unsigned int *address);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, SetNetworkAddress)
         HRESULT ( STDMETHODCALLTYPE *SetNetworkAddress )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ unsigned int address);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ IBMDSwitcherHyperDeckCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherHyperDeck, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherHyperDeck * This,
             /* [in] */ IBMDSwitcherHyperDeckCallback *callback);
@@ -26502,42 +28149,52 @@ EXTERN_C const IID IID_IBMDSwitcherMixMinusOutput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixMinusOutput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixMinusOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, GetAvailableAudioModes)
         HRESULT ( STDMETHODCALLTYPE *GetAvailableAudioModes )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [out] */ BMDSwitcherMixMinusOutputAudioMode *audioModes);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, GetAudioMode)
         HRESULT ( STDMETHODCALLTYPE *GetAudioMode )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [out] */ BMDSwitcherMixMinusOutputAudioMode *audioMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, SetAudioMode)
         HRESULT ( STDMETHODCALLTYPE *SetAudioMode )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [in] */ BMDSwitcherMixMinusOutputAudioMode audioMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, HasMinusAudioInputId)
         HRESULT ( STDMETHODCALLTYPE *HasMinusAudioInputId )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [out] */ BOOL *hasMinusAudioInputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, GetMinusAudioInputId)
         HRESULT ( STDMETHODCALLTYPE *GetMinusAudioInputId )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [out] */ BMDSwitcherAudioInputId *audioInputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [in] */ IBMDSwitcherMixMinusOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMixMinusOutput * This,
             /* [in] */ IBMDSwitcherMixMinusOutputCallback *callback);
@@ -26624,18 +28281,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixMinusOutputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixMinusOutputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixMinusOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixMinusOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherMixMinusOutputCallback * This,
             /* [in] */ BMDSwitcherMixMinusOutputEventType eventType);
@@ -26704,18 +28365,22 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInputXLRCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInputXLRCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInputXLRCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInputXLRCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputXLRCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioInputXLRCallback * This,
             /* [in] */ BMDSwitcherAudioInputXLREventType eventType);
@@ -26796,34 +28461,42 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInputXLR;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInputXLR * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInputXLR * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInputXLR * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputXLR, HasRCAToXLR)
         HRESULT ( STDMETHODCALLTYPE *HasRCAToXLR )( 
             IBMDSwitcherAudioInputXLR * This,
             /* [out] */ BOOL *hasRcaToXlr);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputXLR, GetRCAToXLREnabled)
         HRESULT ( STDMETHODCALLTYPE *GetRCAToXLREnabled )( 
             IBMDSwitcherAudioInputXLR * This,
             /* [out] */ BOOL *rcaToXlrEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputXLR, SetRCAToXLREnabled)
         HRESULT ( STDMETHODCALLTYPE *SetRCAToXLREnabled )( 
             IBMDSwitcherAudioInputXLR * This,
             /* [in] */ BOOL rcaToXlrEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputXLR, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioInputXLR * This,
             /* [in] */ IBMDSwitcherAudioInputXLRCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputXLR, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioInputXLR * This,
             /* [in] */ IBMDSwitcherAudioInputXLRCallback *callback);
@@ -26904,18 +28577,22 @@ EXTERN_C const IID IID_IBMDSwitcherDisplayClockCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDisplayClockCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDisplayClockCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDisplayClockCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClockCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherDisplayClockCallback * This,
             /* [in] */ BMDSwitcherDisplayClockEventType eventType);
@@ -27061,66 +28738,82 @@ EXTERN_C const IID IID_IBMDSwitcherDisplayClock;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDisplayClock * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDisplayClock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetEnabled )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetEnabled )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetOpacity )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ unsigned short opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetOpacity )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ unsigned short *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetSize)
         HRESULT ( STDMETHODCALLTYPE *SetSize )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ unsigned short size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetSize)
         HRESULT ( STDMETHODCALLTYPE *GetSize )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ unsigned short *size);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ double positionX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ double *positionX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ double positionY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ double *positionY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetAutoHide)
         HRESULT ( STDMETHODCALLTYPE *SetAutoHide )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ BOOL autoHide);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetAutoHide)
         HRESULT ( STDMETHODCALLTYPE *GetAutoHide )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ BOOL *autoHide);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetStartFrom)
         HRESULT ( STDMETHODCALLTYPE *SetStartFrom )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ unsigned char hours,
@@ -27128,10 +28821,12 @@ EXTERN_C const IID IID_IBMDSwitcherDisplayClock;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetStartFromFrames)
         HRESULT ( STDMETHODCALLTYPE *SetStartFromFrames )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetStartFrom)
         HRESULT ( STDMETHODCALLTYPE *GetStartFrom )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ unsigned char *hours,
@@ -27139,18 +28834,22 @@ EXTERN_C const IID IID_IBMDSwitcherDisplayClock;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, SetClockMode)
         HRESULT ( STDMETHODCALLTYPE *SetClockMode )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ BMDSwitcherDisplayClockMode clockMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetClockMode)
         HRESULT ( STDMETHODCALLTYPE *GetClockMode )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ BMDSwitcherDisplayClockMode *clockMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetClockState)
         HRESULT ( STDMETHODCALLTYPE *GetClockState )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ BMDSwitcherDisplayClockState *state);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, GetClockTime)
         HRESULT ( STDMETHODCALLTYPE *GetClockTime )( 
             IBMDSwitcherDisplayClock * This,
             /* [out] */ unsigned char *hours,
@@ -27158,22 +28857,28 @@ EXTERN_C const IID IID_IBMDSwitcherDisplayClock;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, Start)
         HRESULT ( STDMETHODCALLTYPE *Start )( 
             IBMDSwitcherDisplayClock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, Stop)
         HRESULT ( STDMETHODCALLTYPE *Stop )( 
             IBMDSwitcherDisplayClock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, Reset)
         HRESULT ( STDMETHODCALLTYPE *Reset )( 
             IBMDSwitcherDisplayClock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, RequestTime)
         HRESULT ( STDMETHODCALLTYPE *RequestTime )( 
             IBMDSwitcherDisplayClock * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ IBMDSwitcherDisplayClockCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDisplayClock, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherDisplayClock * This,
             /* [in] */ IBMDSwitcherDisplayClockCallback *callback);
@@ -27314,18 +29019,22 @@ EXTERN_C const IID IID_IBMDSwitcherAudioRoutingSourceCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioRoutingSourceCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioRoutingSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioRoutingSourceCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSourceCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioRoutingSourceCallback * This,
             /* [in] */ BMDSwitcherAudioRoutingSourceEventType eventType);
@@ -27421,54 +29130,67 @@ EXTERN_C const IID IID_IBMDSwitcherAudioRoutingSource;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioRoutingSource * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioRoutingSource * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BMDSwitcherAudioRoutingSourceId *id);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetAudioInputId)
         HRESULT ( STDMETHODCALLTYPE *GetAudioInputId )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BMDSwitcherAudioInputId *id);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetChannelPair)
         HRESULT ( STDMETHODCALLTYPE *GetChannelPair )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BMDSwitcherAudioChannelPair *pair);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, SetName)
         HRESULT ( STDMETHODCALLTYPE *SetName )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetIsNameDefault)
         HRESULT ( STDMETHODCALLTYPE *GetIsNameDefault )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BOOL *nameDefault);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetExternalPortType )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BMDSwitcherExternalPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, GetInternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetInternalPortType )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [out] */ BMDSwitcherAudioInternalPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [in] */ IBMDSwitcherAudioRoutingSourceCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSource, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioRoutingSource * This,
             /* [in] */ IBMDSwitcherAudioRoutingSourceCallback *callback);
@@ -27568,22 +29290,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioRoutingSourceIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioRoutingSourceIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioRoutingSourceIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioRoutingSourceIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSourceIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherAudioRoutingSourceIterator * This,
             /* [out] */ IBMDSwitcherAudioRoutingSource **input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingSourceIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherAudioRoutingSourceIterator * This,
             /* [in] */ BMDSwitcherAudioRoutingSourceId id,
@@ -27656,18 +29383,22 @@ EXTERN_C const IID IID_IBMDSwitcherAudioRoutingOutputCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioRoutingOutputCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioRoutingOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioRoutingOutputCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutputCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherAudioRoutingOutputCallback * This,
             /* [in] */ BMDSwitcherAudioRoutingOutputEventType eventType);
@@ -27769,62 +29500,77 @@ EXTERN_C const IID IID_IBMDSwitcherAudioRoutingOutput;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioRoutingOutput * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioRoutingOutput * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BMDSwitcherAudioRoutingOutputId *id);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetAudioOutputId)
         HRESULT ( STDMETHODCALLTYPE *GetAudioOutputId )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BMDSwitcherAudioOutputId *id);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetChannelPair)
         HRESULT ( STDMETHODCALLTYPE *GetChannelPair )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BMDSwitcherAudioChannelPair *pair);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, SetSource)
         HRESULT ( STDMETHODCALLTYPE *SetSource )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [in] */ BMDSwitcherAudioRoutingSourceId sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetSource)
         HRESULT ( STDMETHODCALLTYPE *GetSource )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BMDSwitcherAudioRoutingSourceId *sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, SetName)
         HRESULT ( STDMETHODCALLTYPE *SetName )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetIsNameDefault)
         HRESULT ( STDMETHODCALLTYPE *GetIsNameDefault )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BOOL *nameDefault);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetExternalPortType )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BMDSwitcherExternalPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, GetInternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetInternalPortType )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [out] */ BMDSwitcherAudioInternalPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [in] */ IBMDSwitcherAudioRoutingOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutput, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioRoutingOutput * This,
             /* [in] */ IBMDSwitcherAudioRoutingOutputCallback *callback);
@@ -27930,22 +29676,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioRoutingOutputIterator;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioRoutingOutputIterator * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioRoutingOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioRoutingOutputIterator * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutputIterator, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherAudioRoutingOutputIterator * This,
             /* [out] */ IBMDSwitcherAudioRoutingOutput **input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioRoutingOutputIterator, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherAudioRoutingOutputIterator * This,
             /* [in] */ BMDSwitcherAudioRoutingOutputId id,
@@ -28018,18 +29769,22 @@ EXTERN_C const IID IID_IBMDSwitcherIdentityInformationCallback;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherIdentityInformationCallback * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherIdentityInformationCallback * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherIdentityInformationCallback * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformationCallback, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherIdentityInformationCallback * This,
             /* [in] */ BMDSwitcherIdentityInformationEventType eventType);
@@ -28113,38 +29868,47 @@ EXTERN_C const IID IID_IBMDSwitcherIdentityInformation;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherIdentityInformation * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherIdentityInformation * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherIdentityInformation * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformation, GetUniqueId)
         HRESULT ( STDMETHODCALLTYPE *GetUniqueId )( 
             IBMDSwitcherIdentityInformation * This,
             /* [out] */ BSTR *uniqueId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformation, GetIpAddress)
         HRESULT ( STDMETHODCALLTYPE *GetIpAddress )( 
             IBMDSwitcherIdentityInformation * This,
             /* [out] */ BSTR *ipAddress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformation, GetMdnsName)
         HRESULT ( STDMETHODCALLTYPE *GetMdnsName )( 
             IBMDSwitcherIdentityInformation * This,
             /* [out] */ BSTR *mdnsName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformation, GetDeviceName)
         HRESULT ( STDMETHODCALLTYPE *GetDeviceName )( 
             IBMDSwitcherIdentityInformation * This,
             /* [out] */ BSTR *deviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformation, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherIdentityInformation * This,
             /* [in] */ IBMDSwitcherIdentityInformationCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherIdentityInformation, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherIdentityInformation * This,
             /* [in] */ IBMDSwitcherIdentityInformationCallback *callback);
@@ -28307,113 +30071,141 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyParameters_v3_5;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetFly)
         HRESULT ( STDMETHODCALLTYPE *GetFly )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ BOOL *isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetFly)
         HRESULT ( STDMETHODCALLTYPE *SetFly )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ BOOL isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetCanFly)
         HRESULT ( STDMETHODCALLTYPE *GetCanFly )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ BOOL *canFly);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, ResetRotation)
         HRESULT ( STDMETHODCALLTYPE *ResetRotation )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, ResetDVE)
         HRESULT ( STDMETHODCALLTYPE *ResetDVE )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, ResetDVEFull)
         HRESULT ( STDMETHODCALLTYPE *ResetDVEFull )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, IsKeyFrameStored)
         HRESULT ( STDMETHODCALLTYPE *IsKeyFrameStored )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ BOOL *stored);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, StoreAsKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *StoreAsKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, RunToKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *RunToKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, IsAtKeyFrames)
         HRESULT ( STDMETHODCALLTYPE *IsAtKeyFrames )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ BMDSwitcherFlyKeyFrame *keyFrames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, IsRunning)
         HRESULT ( STDMETHODCALLTYPE *IsRunning )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [out] */ BOOL *isRunning,
             /* [out] */ BMDSwitcherFlyKeyFrame *destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v3_5, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyParameters_v3_5 * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
@@ -28593,66 +30385,80 @@ EXTERN_C const IID IID_IBMDSwitcher_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ IBMDSwitcherCallback_v4_0 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ IBMDSwitcherCallback_v4_0 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, SetFlag)
         HRESULT ( STDMETHODCALLTYPE *SetFlag )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [in] */ BOOL value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, GetFlag)
         HRESULT ( STDMETHODCALLTYPE *GetFlag )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, SetInt)
         HRESULT ( STDMETHODCALLTYPE *SetInt )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [in] */ long long value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, GetInt)
         HRESULT ( STDMETHODCALLTYPE *GetInt )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [out] */ long long *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, SetFloat)
         HRESULT ( STDMETHODCALLTYPE *SetFloat )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [in] */ double value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, GetFloat)
         HRESULT ( STDMETHODCALLTYPE *GetFloat )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [out] */ double *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, SetString)
         HRESULT ( STDMETHODCALLTYPE *SetString )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
             /* [in] */ BSTR value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v4_0, GetString)
         HRESULT ( STDMETHODCALLTYPE *GetString )( 
             IBMDSwitcher_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId,
@@ -28754,18 +30560,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v4_0, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v4_0 * This,
             /* [in] */ BSTR deviceAddress,
@@ -28838,22 +30648,27 @@ EXTERN_C const IID IID_IBMDSwitcherCallback_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCallback_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCallback_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCallback_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCallback_v4_0, PropertyChanged)
         HRESULT ( STDMETHODCALLTYPE *PropertyChanged )( 
             IBMDSwitcherCallback_v4_0 * This,
             /* [in] */ BMDSwitcherPropertyId_v4_0 propertyId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCallback_v4_0, Disconnected)
         HRESULT ( STDMETHODCALLTYPE *Disconnected )( 
             IBMDSwitcherCallback_v4_0 * This);
         
@@ -28964,70 +30779,86 @@ EXTERN_C const IID IID_IBMDSwitcherStills_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStills_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStills_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, GetCount)
         HRESULT ( STDMETHODCALLTYPE *GetCount )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [out] */ unsigned int *count);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, IsValid)
         HRESULT ( STDMETHODCALLTYPE *IsValid )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ unsigned int index,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ unsigned int index,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, GetHash)
         HRESULT ( STDMETHODCALLTYPE *GetHash )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ unsigned int index,
             /* [out] */ BMDSwitcherHash *hash);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, SetInvalid)
         HRESULT ( STDMETHODCALLTYPE *SetInvalid )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, Lock)
         HRESULT ( STDMETHODCALLTYPE *Lock )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, Unlock)
         HRESULT ( STDMETHODCALLTYPE *Unlock )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, Upload)
         HRESULT ( STDMETHODCALLTYPE *Upload )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ unsigned int index,
             /* [in] */ BSTR name,
             /* [in] */ IBMDSwitcherFrame *frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, Download)
         HRESULT ( STDMETHODCALLTYPE *Download )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ unsigned int index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, CancelTransfer)
         HRESULT ( STDMETHODCALLTYPE *CancelTransfer )( 
             IBMDSwitcherStills_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, GetProgress)
         HRESULT ( STDMETHODCALLTYPE *GetProgress )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [out] */ double *progress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ IBMDSwitcherStillsCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStills_v4_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStills_v4_0 * This,
             /* [in] */ IBMDSwitcherStillsCallback *callback);
@@ -29199,107 +31030,133 @@ EXTERN_C const IID IID_IBMDSwitcherClip_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherClip_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherClip_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetIndex)
         HRESULT ( STDMETHODCALLTYPE *GetIndex )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ unsigned int *index);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, IsValid)
         HRESULT ( STDMETHODCALLTYPE *IsValid )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetName)
         HRESULT ( STDMETHODCALLTYPE *GetName )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, SetValid)
         HRESULT ( STDMETHODCALLTYPE *SetValid )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ BSTR name,
             /* [in] */ unsigned int frameCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, SetInvalid)
         HRESULT ( STDMETHODCALLTYPE *SetInvalid )( 
             IBMDSwitcherClip_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetFrameCount)
         HRESULT ( STDMETHODCALLTYPE *GetFrameCount )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ unsigned int *frameCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetMaxFrameCount)
         HRESULT ( STDMETHODCALLTYPE *GetMaxFrameCount )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ unsigned int *maxFrameCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, IsFrameValid)
         HRESULT ( STDMETHODCALLTYPE *IsFrameValid )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ unsigned int frameIndex,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetFrameHash)
         HRESULT ( STDMETHODCALLTYPE *GetFrameHash )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ unsigned int frameIndex,
             /* [out] */ BMDSwitcherHash *hash);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, IsAudioValid)
         HRESULT ( STDMETHODCALLTYPE *IsAudioValid )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ BOOL *valid);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetAudioName)
         HRESULT ( STDMETHODCALLTYPE *GetAudioName )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetAudioHash)
         HRESULT ( STDMETHODCALLTYPE *GetAudioHash )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ BMDSwitcherHash *hash);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, SetAudioInvalid)
         HRESULT ( STDMETHODCALLTYPE *SetAudioInvalid )( 
             IBMDSwitcherClip_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, Lock)
         HRESULT ( STDMETHODCALLTYPE *Lock )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, Unlock)
         HRESULT ( STDMETHODCALLTYPE *Unlock )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ IBMDSwitcherLockCallback *lockCallback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, UploadFrame)
         HRESULT ( STDMETHODCALLTYPE *UploadFrame )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ unsigned int frameIndex,
             /* [in] */ IBMDSwitcherFrame *frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, DownloadFrame)
         HRESULT ( STDMETHODCALLTYPE *DownloadFrame )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ unsigned int frameIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, UploadAudio)
         HRESULT ( STDMETHODCALLTYPE *UploadAudio )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ BSTR name,
             /* [in] */ IBMDSwitcherAudio *audio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, DownloadAudio)
         HRESULT ( STDMETHODCALLTYPE *DownloadAudio )( 
             IBMDSwitcherClip_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, CancelTransfer)
         HRESULT ( STDMETHODCALLTYPE *CancelTransfer )( 
             IBMDSwitcherClip_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, GetProgress)
         HRESULT ( STDMETHODCALLTYPE *GetProgress )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [out] */ double *progress);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ IBMDSwitcherClipCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherClip_v4_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherClip_v4_0 * This,
             /* [in] */ IBMDSwitcherClipCallback *callback);
@@ -29468,31 +31325,38 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPool_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPool_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPool_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, GetStills)
         HRESULT ( STDMETHODCALLTYPE *GetStills )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [out] */ IBMDSwitcherStills_v4_0 **stills);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ unsigned int clipIndex,
             /* [out] */ IBMDSwitcherClip_v4_0 **clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, GetClipCount)
         HRESULT ( STDMETHODCALLTYPE *GetClipCount )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [out] */ unsigned int *clipCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, CreateFrame)
         HRESULT ( STDMETHODCALLTYPE *CreateFrame )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ BMDSwitcherPixelFormat pixelFormat,
@@ -29500,29 +31364,35 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPool_v4_0;
             /* [in] */ unsigned int height,
             /* [out] */ IBMDSwitcherFrame **frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, CreateAudio)
         HRESULT ( STDMETHODCALLTYPE *CreateAudio )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ unsigned int sizeBytes,
             /* [out] */ IBMDSwitcherAudio **audio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, GetFrameTotalForClips)
         HRESULT ( STDMETHODCALLTYPE *GetFrameTotalForClips )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [out] */ unsigned int *total);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, GetClipMaxFrameCounts)
         HRESULT ( STDMETHODCALLTYPE *GetClipMaxFrameCounts )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ unsigned int clipCount,
             /* [out] */ unsigned int *clipMaxFrameCounts);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, SetClipMaxFrameCounts)
         HRESULT ( STDMETHODCALLTYPE *SetClipMaxFrameCounts )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ unsigned int clipCount,
             /* [in] */ const unsigned int *clipMaxFrameCounts);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ IBMDSwitcherMediaPoolCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v4_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMediaPool_v4_0 * This,
             /* [in] */ IBMDSwitcherMediaPoolCallback *callback);
@@ -29650,61 +31520,76 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInput_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInput_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInput_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, GetType)
         HRESULT ( STDMETHODCALLTYPE *GetType )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [out] */ BMDSwitcherAudioInputType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, GetMixOption)
         HRESULT ( STDMETHODCALLTYPE *GetMixOption )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [out] */ BMDSwitcherAudioMixOption *mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, SetMixOption)
         HRESULT ( STDMETHODCALLTYPE *SetMixOption )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [in] */ BMDSwitcherAudioMixOption mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, GetBalance)
         HRESULT ( STDMETHODCALLTYPE *GetBalance )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [out] */ double *balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, SetBalance)
         HRESULT ( STDMETHODCALLTYPE *SetBalance )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [in] */ double balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, IsMixedIn)
         HRESULT ( STDMETHODCALLTYPE *IsMixedIn )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [out] */ BOOL *mixedIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, GetAudioInputId)
         HRESULT ( STDMETHODCALLTYPE *GetAudioInputId )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [out] */ BMDSwitcherAudioInputId *audioInputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, ResetLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetLevelNotificationPeaks )( 
             IBMDSwitcherAudioInput_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [in] */ IBMDSwitcherAudioInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInput_v4_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioInput_v4_0 * This,
             /* [in] */ IBMDSwitcherAudioInputCallback *callback);
@@ -29810,22 +31695,27 @@ EXTERN_C const IID IID_IBMDSwitcherAudioInputIterator_v4_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioInputIterator_v4_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioInputIterator_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioInputIterator_v4_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputIterator_v4_0, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherAudioInputIterator_v4_0 * This,
             /* [out] */ IBMDSwitcherAudioInput_v4_0 **audioInput);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioInputIterator_v4_0, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherAudioInputIterator_v4_0 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
@@ -29981,118 +31871,147 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionDVEParameters_v4_1_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetLogoRate)
         HRESULT ( STDMETHODCALLTYPE *GetLogoRate )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetLogoRate)
         HRESULT ( STDMETHODCALLTYPE *SetLogoRate )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetReverse)
         HRESULT ( STDMETHODCALLTYPE *GetReverse )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BOOL *reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetReverse)
         HRESULT ( STDMETHODCALLTYPE *SetReverse )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BOOL reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *GetFlipFlop )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BOOL *flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *SetFlipFlop )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BOOL flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetStyle)
         HRESULT ( STDMETHODCALLTYPE *GetStyle )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BMDSwitcherDVETransitionStyle *style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetStyle)
         HRESULT ( STDMETHODCALLTYPE *SetStyle )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BMDSwitcherDVETransitionStyle style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetEnableKey)
         HRESULT ( STDMETHODCALLTYPE *GetEnableKey )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BOOL *enableKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetEnableKey)
         HRESULT ( STDMETHODCALLTYPE *SetEnableKey )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BOOL enableKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ IBMDSwitcherTransitionDVEParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v4_1_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionDVEParameters_v4_1_3 * This,
             /* [in] */ IBMDSwitcherTransitionDVEParametersCallback *callback);
@@ -30301,105 +32220,131 @@ EXTERN_C const IID IID_IBMDSwitcherKey_v4_1_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetType)
         HRESULT ( STDMETHODCALLTYPE *GetType )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherKeyType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetType)
         HRESULT ( STDMETHODCALLTYPE *SetType )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ BMDSwitcherKeyType type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetOnAir)
         HRESULT ( STDMETHODCALLTYPE *GetOnAir )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BOOL *onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetOnAir)
         HRESULT ( STDMETHODCALLTYPE *SetOnAir )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ BOOL onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, CanBeDVEKey)
         HRESULT ( STDMETHODCALLTYPE *CanBeDVEKey )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BOOL *canDVE);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, GetTransitionSelectionMask)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionSelectionMask )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherTransitionSelection *selectionMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ IBMDSwitcherKeyCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v4_1_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKey_v4_1_3 * This,
             /* [in] */ IBMDSwitcherKeyCallback *callback);
@@ -30534,18 +32479,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyIterator_v4_1_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyIterator_v4_1_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyIterator_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyIterator_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyIterator_v4_1_3, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherKeyIterator_v4_1_3 * This,
             /* [out] */ IBMDSwitcherKey_v4_1_3 **key);
@@ -30744,190 +32693,237 @@ EXTERN_C const IID IID_IBMDSwitcherInputSuperSource_v4_1_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetArtOption)
         HRESULT ( STDMETHODCALLTYPE *GetArtOption )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BMDSwitcherSuperSourceArtOption *artOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetArtOption)
         HRESULT ( STDMETHODCALLTYPE *SetArtOption )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BMDSwitcherSuperSourceArtOption artOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetBorderEnabled )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetBorderEnabled )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevel )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ BMDSwitcherBorderBevelOption *bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevel )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ BMDSwitcherBorderBevelOption bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *softnessOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double softnessOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *softnessIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double softnessIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *bevelSoftness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double bevelSoftness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceDirection )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceDirection )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, GetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceAltitude )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, SetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceAltitude )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ IBMDSwitcherInputSuperSourceCallback_v7_5_2 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ IBMDSwitcherInputSuperSourceCallback_v7_5_2 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v4_1_3, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherInputSuperSource_v4_1_3 * This,
             /* [in] */ REFIID iid,
@@ -31229,156 +33225,195 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKey_v4_1_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetTie)
         HRESULT ( STDMETHODCALLTYPE *GetTie )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *tie);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetTie)
         HRESULT ( STDMETHODCALLTYPE *SetTie )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BOOL tie);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetOnAir)
         HRESULT ( STDMETHODCALLTYPE *GetOnAir )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetOnAir)
         HRESULT ( STDMETHODCALLTYPE *SetOnAir )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BOOL onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, PerformAutoTransition)
         HRESULT ( STDMETHODCALLTYPE *PerformAutoTransition )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, IsTransitioning)
         HRESULT ( STDMETHODCALLTYPE *IsTransitioning )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *isTransitioning);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, IsAutoTransitioning)
         HRESULT ( STDMETHODCALLTYPE *IsAutoTransitioning )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *isAutoTransitioning);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetFramesRemaining)
         HRESULT ( STDMETHODCALLTYPE *GetFramesRemaining )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ unsigned int *framesRemaining);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ IBMDSwitcherDownstreamKeyCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v4_1_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherDownstreamKey_v4_1_3 * This,
             /* [in] */ IBMDSwitcherDownstreamKeyCallback *callback);
@@ -31552,18 +33587,22 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKeyIterator_v4_1_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKeyIterator_v4_1_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKeyIterator_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKeyIterator_v4_1_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKeyIterator_v4_1_3, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherDownstreamKeyIterator_v4_1_3 * This,
             /* [out] */ IBMDSwitcherDownstreamKey_v4_1_3 **downstreamKey);
@@ -31632,18 +33671,22 @@ EXTERN_C const IID IID_IBMDSwitcherInputSuperSourceCallback_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputSuperSourceCallback_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputSuperSourceCallback_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputSuperSourceCallback_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSourceCallback_v7_5_2, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherInputSuperSourceCallback_v7_5_2 * This,
             /* [in] */ BMDSwitcherInputSuperSourceEventType_v7_5_2 eventType);
@@ -31738,52 +33781,65 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMixer_v6_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMixer_v6_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMixer_v6_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, GetProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutGain )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, SetProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutGain )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, GetProgramOutBalance)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutBalance )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [out] */ double *balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, SetProgramOutBalance)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutBalance )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ double balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, SetAllLevelNotificationsEnable)
         HRESULT ( STDMETHODCALLTYPE *SetAllLevelNotificationsEnable )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ BOOL enable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, ResetProgramOutLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetProgramOutLevelNotificationPeaks )( 
             IBMDSwitcherAudioMixer_v6_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, ResetAllLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetAllLevelNotificationPeaks )( 
             IBMDSwitcherAudioMixer_v6_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ IBMDSwitcherAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ IBMDSwitcherAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v6_0, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherAudioMixer_v6_0 * This,
             /* [in] */ REFIID iid,
@@ -31880,18 +33936,22 @@ EXTERN_C const IID IID_IBMDSwitcherCallback_v6_4_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCallback_v6_4_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCallback_v6_4_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCallback_v6_4_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCallback_v6_4_1, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherCallback_v6_4_1 * This,
             /* [in] */ BMDSwitcherEventType_v6_4_1 eventType);
@@ -31989,56 +34049,69 @@ EXTERN_C const IID IID_IBMDSwitcher_v6_4_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v6_4_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v6_4_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, GetDownConverterMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConverterMode )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [out] */ BMDSwitcherDownConverterMode_v6_4_1 *downConverterMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, SetDownConverterMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConverterMode )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ BMDSwitcherDownConverterMode_v6_4_1 downConverterMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ IBMDSwitcherCallback_v6_4_1 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_4_1, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v6_4_1 * This,
             /* [in] */ IBMDSwitcherCallback_v6_4_1 *callback);
@@ -32136,18 +34209,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v6_4_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v6_4_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v6_4_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v6_4_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v6_4_1, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v6_4_1 * This,
             /* [in] */ BSTR deviceAddress,
@@ -32226,18 +34303,22 @@ EXTERN_C const IID IID_IBMDSwitcherInputCallback_v6_5_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputCallback_v6_5_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputCallback_v6_5_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputCallback_v6_5_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputCallback_v6_5_1, PropertyChanged)
         HRESULT ( STDMETHODCALLTYPE *PropertyChanged )( 
             IBMDSwitcherInputCallback_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId);
@@ -32344,66 +34425,80 @@ EXTERN_C const IID IID_IBMDSwitcherInput_v6_5_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInput_v6_5_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInput_v6_5_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ IBMDSwitcherInputCallback_v6_5_1 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ IBMDSwitcherInputCallback_v6_5_1 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, SetFlag)
         HRESULT ( STDMETHODCALLTYPE *SetFlag )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [in] */ BOOL value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, GetFlag)
         HRESULT ( STDMETHODCALLTYPE *GetFlag )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, SetInt)
         HRESULT ( STDMETHODCALLTYPE *SetInt )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [in] */ long long value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, GetInt)
         HRESULT ( STDMETHODCALLTYPE *GetInt )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [out] */ long long *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, SetFloat)
         HRESULT ( STDMETHODCALLTYPE *SetFloat )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [in] */ double value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, GetFloat)
         HRESULT ( STDMETHODCALLTYPE *GetFloat )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [out] */ double *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, SetString)
         HRESULT ( STDMETHODCALLTYPE *SetString )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [in] */ BSTR value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, GetString)
         HRESULT ( STDMETHODCALLTYPE *GetString )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputPropertyId_v6_5_1 propertyId,
             /* [out] */ BSTR *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_5_1, GetInputId)
         HRESULT ( STDMETHODCALLTYPE *GetInputId )( 
             IBMDSwitcherInput_v6_5_1 * This,
             /* [out] */ BMDSwitcherInputId *inputId);
@@ -32506,22 +34601,27 @@ EXTERN_C const IID IID_IBMDSwitcherInputIterator_v6_5_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputIterator_v6_5_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputIterator_v6_5_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputIterator_v6_5_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator_v6_5_1, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherInputIterator_v6_5_1 * This,
             /* [out] */ IBMDSwitcherInput_v6_5_1 **input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator_v6_5_1, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherInputIterator_v6_5_1 * This,
             /* [in] */ BMDSwitcherInputId inputId,
@@ -32723,190 +34823,237 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyKeyFrameParameters_v6_7;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetBorderOpacity )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetBorderOpacity )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceDirection )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceDirection )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceAltitude )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceAltitude )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ IBMDSwitcherKeyFlyKeyFrameParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_7, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 * This,
             /* [in] */ IBMDSwitcherKeyFlyKeyFrameParametersCallback *callback);
@@ -33182,122 +35329,152 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyParameters_v6_7;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetFly)
         HRESULT ( STDMETHODCALLTYPE *GetFly )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ BOOL *isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetFly)
         HRESULT ( STDMETHODCALLTYPE *SetFly )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ BOOL isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetCanFly)
         HRESULT ( STDMETHODCALLTYPE *GetCanFly )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ BOOL *canFly);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, ResetRotation)
         HRESULT ( STDMETHODCALLTYPE *ResetRotation )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, ResetDVE)
         HRESULT ( STDMETHODCALLTYPE *ResetDVE )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, ResetDVEFull)
         HRESULT ( STDMETHODCALLTYPE *ResetDVEFull )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, IsKeyFrameStored)
         HRESULT ( STDMETHODCALLTYPE *IsKeyFrameStored )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ BOOL *stored);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, StoreAsKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *StoreAsKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, ClearKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *ClearKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, RunToKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *RunToKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, IsAtKeyFrames)
         HRESULT ( STDMETHODCALLTYPE *IsAtKeyFrames )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ BMDSwitcherFlyKeyFrame *keyFrames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, GetKeyFrameParameters)
         HRESULT ( STDMETHODCALLTYPE *GetKeyFrameParameters )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ IBMDSwitcherKeyFlyKeyFrameParameters_v6_7 **keyFrameParameters);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, IsRunning)
         HRESULT ( STDMETHODCALLTYPE *IsRunning )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [out] */ BOOL *isRunning,
             /* [out] */ BMDSwitcherFlyKeyFrame *destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_7, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyParameters_v6_7 * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
@@ -33525,126 +35702,157 @@ EXTERN_C const IID IID_IBMDSwitcherTransitionDVEParameters_v6_7;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetLogoRate)
         HRESULT ( STDMETHODCALLTYPE *GetLogoRate )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetLogoRate)
         HRESULT ( STDMETHODCALLTYPE *SetLogoRate )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetReverse)
         HRESULT ( STDMETHODCALLTYPE *GetReverse )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BOOL *reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetReverse)
         HRESULT ( STDMETHODCALLTYPE *SetReverse )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BOOL reverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *GetFlipFlop )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BOOL *flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetFlipFlop)
         HRESULT ( STDMETHODCALLTYPE *SetFlipFlop )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BOOL flipflop);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetStyle)
         HRESULT ( STDMETHODCALLTYPE *GetStyle )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BMDSwitcherDVETransitionStyle *style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetStyle)
         HRESULT ( STDMETHODCALLTYPE *SetStyle )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BMDSwitcherDVETransitionStyle style);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetEnableKey)
         HRESULT ( STDMETHODCALLTYPE *GetEnableKey )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BOOL *enableKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetEnableKey)
         HRESULT ( STDMETHODCALLTYPE *SetEnableKey )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BOOL enableKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ IBMDSwitcherTransitionDVEParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTransitionDVEParameters_v6_7, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTransitionDVEParameters_v6_7 * This,
             /* [in] */ IBMDSwitcherTransitionDVEParametersCallback *callback);
@@ -33849,88 +36057,107 @@ EXTERN_C const IID IID_IBMDSwitcher_v6_7;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v6_7 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher_v6_7 * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v6_7 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v6_7, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v6_7 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -34046,18 +36273,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v6_7;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v6_7 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v6_7 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v6_7, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v6_7 * This,
             /* [in] */ BSTR deviceAddress,
@@ -34162,52 +36393,64 @@ EXTERN_C const IID IID_IBMDSwitcherMultiView_v6_8;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiView_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiView_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, GetLayout)
         HRESULT ( STDMETHODCALLTYPE *GetLayout )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [out] */ BMDSwitcherMultiViewLayout *layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, SetLayout)
         HRESULT ( STDMETHODCALLTYPE *SetLayout )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [in] */ BMDSwitcherMultiViewLayout layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, GetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *GetWindowInput )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, SetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *SetWindowInput )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [in] */ unsigned int window,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, GetWindowCount)
         HRESULT ( STDMETHODCALLTYPE *GetWindowCount )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [out] */ unsigned int *windowCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, CanRouteInputs)
         HRESULT ( STDMETHODCALLTYPE *CanRouteInputs )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [out] */ BOOL *canRoute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v6_8, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMultiView_v6_8 * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
@@ -34300,18 +36543,22 @@ EXTERN_C const IID IID_IBMDSwitcherMultiViewIterator_v6_8;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiViewIterator_v6_8 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiViewIterator_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiViewIterator_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiViewIterator_v6_8, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMultiViewIterator_v6_8 * This,
             /* [out] */ IBMDSwitcherMultiView_v6_8 **multiView);
@@ -34421,73 +36668,91 @@ EXTERN_C const IID IID_IBMDSwitcherInput_v6_8;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInput_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInput_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetPortType)
         HRESULT ( STDMETHODCALLTYPE *GetPortType )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BMDSwitcherPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetInputAvailability)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailability )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BMDSwitcherInputAvailability *availability);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, SetShortName)
         HRESULT ( STDMETHODCALLTYPE *SetShortName )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetShortName)
         HRESULT ( STDMETHODCALLTYPE *GetShortName )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, SetLongName)
         HRESULT ( STDMETHODCALLTYPE *SetLongName )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetLongName)
         HRESULT ( STDMETHODCALLTYPE *GetLongName )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, ResetNames)
         HRESULT ( STDMETHODCALLTYPE *ResetNames )( 
             IBMDSwitcherInput_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, IsProgramTallied)
         HRESULT ( STDMETHODCALLTYPE *IsProgramTallied )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BOOL *isTallied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, IsPreviewTallied)
         HRESULT ( STDMETHODCALLTYPE *IsPreviewTallied )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BOOL *isTallied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetAvailableExternalPortTypes)
         HRESULT ( STDMETHODCALLTYPE *GetAvailableExternalPortTypes )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BMDSwitcherExternalPortType *types);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, SetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentExternalPortType )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [in] */ BMDSwitcherExternalPortType value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentExternalPortType )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BMDSwitcherExternalPortType *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, GetInputId)
         HRESULT ( STDMETHODCALLTYPE *GetInputId )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [out] */ BMDSwitcherInputId *inputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [in] */ IBMDSwitcherInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v6_8, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInput_v6_8 * This,
             /* [in] */ IBMDSwitcherInputCallback *callback);
@@ -34602,22 +36867,27 @@ EXTERN_C const IID IID_IBMDSwitcherInputIterator_v6_8;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputIterator_v6_8 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputIterator_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputIterator_v6_8 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator_v6_8, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherInputIterator_v6_8 * This,
             /* [out] */ IBMDSwitcherInput_v6_8 **input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator_v6_8, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherInputIterator_v6_8 * This,
             /* [in] */ BMDSwitcherInputId inputId,
@@ -34822,194 +37092,242 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyKeyFrameParameters_v6_9;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetCanRotate)
         HRESULT ( STDMETHODCALLTYPE *GetCanRotate )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ BOOL *canRotate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double softOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double softIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double bevelSoft);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetBorderOpacity )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetBorderOpacity )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceDirection )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceDirection )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceAltitude )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceAltitude )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ IBMDSwitcherKeyFlyKeyFrameParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyKeyFrameParameters_v6_9, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 * This,
             /* [in] */ IBMDSwitcherKeyFlyKeyFrameParametersCallback *callback);
@@ -35291,126 +37609,157 @@ EXTERN_C const IID IID_IBMDSwitcherKeyFlyParameters_v6_9;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetFly)
         HRESULT ( STDMETHODCALLTYPE *GetFly )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ BOOL *isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetFly)
         HRESULT ( STDMETHODCALLTYPE *SetFly )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ BOOL isFlyKey);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetCanFly)
         HRESULT ( STDMETHODCALLTYPE *GetCanFly )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ BOOL *canFly);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetSizeX)
         HRESULT ( STDMETHODCALLTYPE *GetSizeX )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ double *multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetSizeX)
         HRESULT ( STDMETHODCALLTYPE *SetSizeX )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ double multiplierX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetSizeY)
         HRESULT ( STDMETHODCALLTYPE *GetSizeY )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ double *multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetSizeY)
         HRESULT ( STDMETHODCALLTYPE *SetSizeY )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ double multiplierY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetPositionX)
         HRESULT ( STDMETHODCALLTYPE *GetPositionX )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ double *offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetPositionX)
         HRESULT ( STDMETHODCALLTYPE *SetPositionX )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ double offsetX);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetPositionY)
         HRESULT ( STDMETHODCALLTYPE *GetPositionY )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ double *offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetPositionY)
         HRESULT ( STDMETHODCALLTYPE *SetPositionY )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ double offsetY);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetRotation)
         HRESULT ( STDMETHODCALLTYPE *GetRotation )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, SetRotation)
         HRESULT ( STDMETHODCALLTYPE *SetRotation )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetCanRotate)
         HRESULT ( STDMETHODCALLTYPE *GetCanRotate )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ BOOL *canRotate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, ResetRotation)
         HRESULT ( STDMETHODCALLTYPE *ResetRotation )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, ResetDVE)
         HRESULT ( STDMETHODCALLTYPE *ResetDVE )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, ResetDVEFull)
         HRESULT ( STDMETHODCALLTYPE *ResetDVEFull )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, IsKeyFrameStored)
         HRESULT ( STDMETHODCALLTYPE *IsKeyFrameStored )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ BOOL *stored);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, StoreAsKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *StoreAsKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, ClearKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *ClearKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, RunToKeyFrame)
         HRESULT ( STDMETHODCALLTYPE *RunToKeyFrame )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, IsAtKeyFrames)
         HRESULT ( STDMETHODCALLTYPE *IsAtKeyFrames )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ BMDSwitcherFlyKeyFrame *keyFrames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, GetKeyFrameParameters)
         HRESULT ( STDMETHODCALLTYPE *GetKeyFrameParameters )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ BMDSwitcherFlyKeyFrame keyFrame,
             /* [out] */ IBMDSwitcherKeyFlyKeyFrameParameters_v6_9 **keyFrameParameters);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, IsRunning)
         HRESULT ( STDMETHODCALLTYPE *IsRunning )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [out] */ BOOL *isRunning,
             /* [out] */ BMDSwitcherFlyKeyFrame *destination);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyFlyParameters_v6_9, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKeyFlyParameters_v6_9 * This,
             /* [in] */ IBMDSwitcherKeyFlyParametersCallback *callback);
@@ -35560,18 +37909,22 @@ EXTERN_C const IID IID_IBMDSwitcherTalkbackCallback_v6_9;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkbackCallback_v6_9 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkbackCallback_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkbackCallback_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkbackCallback_v6_9, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherTalkbackCallback_v6_9 * This,
             /* [in] */ BMDSwitcherTalkbackEventType eventType);
@@ -35649,30 +38002,37 @@ EXTERN_C const IID IID_IBMDSwitcherTalkback_v6_9;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkback_v6_9 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkback_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkback_v6_9 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v6_9, GetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetMuteSDI )( 
             IBMDSwitcherTalkback_v6_9 * This,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v6_9, SetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetMuteSDI )( 
             IBMDSwitcherTalkback_v6_9 * This,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v6_9, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTalkback_v6_9 * This,
             /* [in] */ IBMDSwitcherTalkbackCallback_v6_9 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v6_9, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTalkback_v6_9 * This,
             /* [in] */ IBMDSwitcherTalkbackCallback_v6_9 *callback);
@@ -35908,31 +38268,38 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherCameraControl_v7_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherCameraControl_v7_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetPeriodicFlushInterval)
         HRESULT ( STDMETHODCALLTYPE *GetPeriodicFlushInterval )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [out] */ unsigned int *intervalMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetPeriodicFlushInterval)
         HRESULT ( STDMETHODCALLTYPE *SetPeriodicFlushInterval )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int intervalMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetParameterInfo)
         HRESULT ( STDMETHODCALLTYPE *GetParameterInfo )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35941,6 +38308,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out] */ BMDSwitcherCameraControlParameterType *type,
             /* [out] */ unsigned int *count);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetParameterPeriodicFlushEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetParameterPeriodicFlushEnabled )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35948,6 +38316,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int parameter,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetParameterPeriodicFlushEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetParameterPeriodicFlushEnabled )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35955,6 +38324,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int parameter,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetFlags)
         HRESULT ( STDMETHODCALLTYPE *SetFlags )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35963,6 +38333,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const BOOL *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, ToggleFlags)
         HRESULT ( STDMETHODCALLTYPE *ToggleFlags )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35971,6 +38342,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const BOOL *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetFlags)
         HRESULT ( STDMETHODCALLTYPE *GetFlags )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35979,6 +38351,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out][in] */ unsigned int *count,
             /* [out] */ BOOL *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetBytes)
         HRESULT ( STDMETHODCALLTYPE *SetBytes )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35987,6 +38360,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const signed char *bytes);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, OffsetBytes)
         HRESULT ( STDMETHODCALLTYPE *OffsetBytes )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -35995,6 +38369,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const signed char *bytes);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetBytes)
         HRESULT ( STDMETHODCALLTYPE *GetBytes )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36003,6 +38378,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out][in] */ unsigned int *count,
             /* [out] */ signed char *bytes);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetInt16s)
         HRESULT ( STDMETHODCALLTYPE *SetInt16s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36011,6 +38387,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const short *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, OffsetInt16s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt16s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36019,6 +38396,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const short *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetInt16s)
         HRESULT ( STDMETHODCALLTYPE *GetInt16s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36027,6 +38405,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out][in] */ unsigned int *count,
             /* [out] */ short *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetInt32s)
         HRESULT ( STDMETHODCALLTYPE *SetInt32s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36035,6 +38414,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const int *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, OffsetInt32s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt32s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36043,6 +38423,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const int *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetInt32s)
         HRESULT ( STDMETHODCALLTYPE *GetInt32s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36051,6 +38432,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out][in] */ unsigned int *count,
             /* [out] */ int *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetInt64s)
         HRESULT ( STDMETHODCALLTYPE *SetInt64s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36059,6 +38441,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const long long *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, OffsetInt64s)
         HRESULT ( STDMETHODCALLTYPE *OffsetInt64s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36067,6 +38450,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const long long *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetInt64s)
         HRESULT ( STDMETHODCALLTYPE *GetInt64s )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36075,6 +38459,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out][in] */ unsigned int *count,
             /* [out] */ long long *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, OffsetFloats)
         HRESULT ( STDMETHODCALLTYPE *OffsetFloats )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36083,6 +38468,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const double *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, SetFloats)
         HRESULT ( STDMETHODCALLTYPE *SetFloats )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36091,6 +38477,7 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [in] */ unsigned int count,
             /* [in] */ const double *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, GetFloats)
         HRESULT ( STDMETHODCALLTYPE *GetFloats )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ unsigned int destinationDevice,
@@ -36099,10 +38486,12 @@ EXTERN_C const IID IID_IBMDSwitcherCameraControl_v7_0_3;
             /* [out][in] */ unsigned int *count,
             /* [out] */ double *values);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ IBMDSwitcherCameraControlCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherCameraControl_v7_0_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherCameraControl_v7_0_3 * This,
             /* [in] */ IBMDSwitcherCameraControlCallback *callback);
@@ -36278,60 +38667,75 @@ EXTERN_C const IID IID_IBMDSwitcherAudioMixer_v7_1_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, GetProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutGain )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, SetProgramOutGain)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutGain )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, GetProgramOutBalance)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutBalance )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [out] */ double *balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, SetProgramOutBalance)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutBalance )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ double balance);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, GetProgramOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *GetProgramOutFollowFadeToBlack )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [out] */ BOOL *follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, SetProgramOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *SetProgramOutFollowFadeToBlack )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ BOOL follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, SetAllLevelNotificationsEnable)
         HRESULT ( STDMETHODCALLTYPE *SetAllLevelNotificationsEnable )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ BOOL enable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, ResetProgramOutLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetProgramOutLevelNotificationPeaks )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, ResetAllLevelNotificationPeaks)
         HRESULT ( STDMETHODCALLTYPE *ResetAllLevelNotificationPeaks )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ IBMDSwitcherAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ IBMDSwitcherAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherAudioMixer_v7_1_2, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherAudioMixer_v7_1_2 * This,
             /* [in] */ REFIID iid,
@@ -36505,113 +38909,141 @@ EXTERN_C const IID IID_IBMDSwitcherKey_v7_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKey_v7_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKey_v7_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetType)
         HRESULT ( STDMETHODCALLTYPE *GetType )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BMDSwitcherKeyType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetType)
         HRESULT ( STDMETHODCALLTYPE *SetType )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ BMDSwitcherKeyType type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetOnAir)
         HRESULT ( STDMETHODCALLTYPE *GetOnAir )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BOOL *onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetOnAir)
         HRESULT ( STDMETHODCALLTYPE *SetOnAir )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ BOOL onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, CanBeDVEKey)
         HRESULT ( STDMETHODCALLTYPE *CanBeDVEKey )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BOOL *canDVE);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherKey_v7_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, GetTransitionSelectionMask)
         HRESULT ( STDMETHODCALLTYPE *GetTransitionSelectionMask )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [out] */ BMDSwitcherTransitionSelection *selectionMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ IBMDSwitcherKeyCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKey_v7_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherKey_v7_2 * This,
             /* [in] */ IBMDSwitcherKeyCallback *callback);
@@ -36752,18 +39184,22 @@ EXTERN_C const IID IID_IBMDSwitcherKeyIterator_v7_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherKeyIterator_v7_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherKeyIterator_v7_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherKeyIterator_v7_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherKeyIterator_v7_2, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherKeyIterator_v7_2 * This,
             /* [out] */ IBMDSwitcherKey_v7_2 **key);
@@ -36832,18 +39268,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixEffectBlockCallback_v7_5;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixEffectBlockCallback_v7_5 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixEffectBlockCallback_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixEffectBlockCallback_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlockCallback_v7_5, PropertyChanged)
         HRESULT ( STDMETHODCALLTYPE *PropertyChanged )( 
             IBMDSwitcherMixEffectBlockCallback_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId);
@@ -36957,77 +39397,94 @@ EXTERN_C const IID IID_IBMDSwitcherMixEffectBlock_v7_5;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ IBMDSwitcherMixEffectBlockCallback_v7_5 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ IBMDSwitcherMixEffectBlockCallback_v7_5 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, SetFlag)
         HRESULT ( STDMETHODCALLTYPE *SetFlag )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [in] */ BOOL value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, GetFlag)
         HRESULT ( STDMETHODCALLTYPE *GetFlag )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [out] */ BOOL *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, SetInt)
         HRESULT ( STDMETHODCALLTYPE *SetInt )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [in] */ long long value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, GetInt)
         HRESULT ( STDMETHODCALLTYPE *GetInt )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [out] */ long long *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, SetFloat)
         HRESULT ( STDMETHODCALLTYPE *SetFloat )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [in] */ double value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, GetFloat)
         HRESULT ( STDMETHODCALLTYPE *GetFloat )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [out] */ double *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, SetString)
         HRESULT ( STDMETHODCALLTYPE *SetString )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [in] */ BSTR value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, GetString)
         HRESULT ( STDMETHODCALLTYPE *GetString )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This,
             /* [in] */ BMDSwitcherMixEffectBlockPropertyId_v7_5 propertyId,
             /* [out] */ BSTR *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, PerformAutoTransition)
         HRESULT ( STDMETHODCALLTYPE *PerformAutoTransition )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, PerformCut)
         HRESULT ( STDMETHODCALLTYPE *PerformCut )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlock_v7_5, PerformFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *PerformFadeToBlack )( 
             IBMDSwitcherMixEffectBlock_v7_5 * This);
         
@@ -37134,18 +39591,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixEffectBlockIterator_v7_5;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixEffectBlockIterator_v7_5 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixEffectBlockIterator_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixEffectBlockIterator_v7_5 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixEffectBlockIterator_v7_5, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMixEffectBlockIterator_v7_5 * This,
             /* [out] */ IBMDSwitcherMixEffectBlock_v7_5 **mixEffectBlock);
@@ -37279,103 +39740,127 @@ EXTERN_C const IID IID_IBMDSwitcherMultiView_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiView_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiView_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetLayout)
         HRESULT ( STDMETHODCALLTYPE *GetLayout )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BMDSwitcherMultiViewLayout_v7_5_2 *layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SetLayout)
         HRESULT ( STDMETHODCALLTYPE *SetLayout )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ BMDSwitcherMultiViewLayout_v7_5_2 layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *GetWindowInput )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *SetWindowInput )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ unsigned int window,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetWindowCount)
         HRESULT ( STDMETHODCALLTYPE *GetWindowCount )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ unsigned int *windowCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, CanRouteInputs)
         HRESULT ( STDMETHODCALLTYPE *CanRouteInputs )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BOOL *canRoute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SupportsVuMeters)
         HRESULT ( STDMETHODCALLTYPE *SupportsVuMeters )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BOOL *supportsVuMeters);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, CurrentInputSupportsVuMeter)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsVuMeter )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *supportsVuMeter);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetVuMeterEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetVuMeterEnabled )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SetVuMeterEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetVuMeterEnabled )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ unsigned int window,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetVuMeterOpacity )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SetVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetVuMeterOpacity )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, CanToggleSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *CanToggleSafeAreaEnabled )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BOOL *canToggleSafeAreaEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetSafeAreaEnabled )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SetSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetSafeAreaEnabled )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SupportsProgramPreviewSwap)
         HRESULT ( STDMETHODCALLTYPE *SupportsProgramPreviewSwap )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BOOL *supportsProgramPreviewSwap);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, GetProgramPreviewSwapped)
         HRESULT ( STDMETHODCALLTYPE *GetProgramPreviewSwapped )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [out] */ BOOL *swapped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, SetProgramPreviewSwapped)
         HRESULT ( STDMETHODCALLTYPE *SetProgramPreviewSwapped )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ BOOL swapped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v7_5_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMultiView_v7_5_2 * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
@@ -37504,18 +39989,22 @@ EXTERN_C const IID IID_IBMDSwitcherMultiViewIterator_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiViewIterator_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiViewIterator_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiViewIterator_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiViewIterator_v7_5_2, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMultiViewIterator_v7_5_2 * This,
             /* [out] */ IBMDSwitcherMultiView_v7_5_2 **multiView);
@@ -37717,194 +40206,242 @@ EXTERN_C const IID IID_IBMDSwitcherInputSuperSource_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BMDSwitcherInputAvailability *mask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetArtOption)
         HRESULT ( STDMETHODCALLTYPE *GetArtOption )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BMDSwitcherSuperSourceArtOption *artOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetArtOption)
         HRESULT ( STDMETHODCALLTYPE *SetArtOption )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BMDSwitcherSuperSourceArtOption artOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetBorderEnabled )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetBorderEnabled )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevel )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ BMDSwitcherBorderBevelOption *bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderBevel)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevel )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ BMDSwitcherBorderBevelOption bevelOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthOut )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderWidthOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthOut )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double widthOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderWidthIn )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderWidthIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderWidthIn )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double widthIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessOut )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *softnessOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderSoftnessOut)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessOut )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double softnessOut);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSoftnessIn )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *softnessIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderSoftnessIn)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSoftnessIn )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double softnessIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelSoftness )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *bevelSoftness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderBevelSoftness)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelSoftness )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double bevelSoftness);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *GetBorderBevelPosition )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderBevelPosition)
         HRESULT ( STDMETHODCALLTYPE *SetBorderBevelPosition )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double bevelPosition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *GetBorderHue )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderHue)
         HRESULT ( STDMETHODCALLTYPE *SetBorderHue )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double hue);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *GetBorderSaturation )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderSaturation)
         HRESULT ( STDMETHODCALLTYPE *SetBorderSaturation )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double sat);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLuma )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderLuma)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLuma )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double luma);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceDirection )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderLightSourceDirection)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceDirection )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double degrees);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, GetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *GetBorderLightSourceAltitude )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [out] */ double *altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, SetBorderLightSourceAltitude)
         HRESULT ( STDMETHODCALLTYPE *SetBorderLightSourceAltitude )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ double altitude);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ IBMDSwitcherInputSuperSourceCallback_v7_5_2 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ IBMDSwitcherInputSuperSourceCallback_v7_5_2 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputSuperSource_v7_5_2, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherInputSuperSource_v7_5_2 * This,
             /* [in] */ REFIID iid,
@@ -38167,96 +40704,117 @@ EXTERN_C const IID IID_IBMDSwitcher_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, Get3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Get3GSDIOutputLevel )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [out] */ BMDSwitcher3GSDIOutputLevel *outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, Set3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Set3GSDIOutputLevel )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ BMDSwitcher3GSDIOutputLevel outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v7_5_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v7_5_2 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -38378,18 +40936,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v7_5_2, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v7_5_2 * This,
             /* [in] */ BSTR deviceAddress,
@@ -38485,50 +41047,61 @@ EXTERN_C const IID IID_IBMDSwitcherTalkback_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkback_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkback_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, GetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetMuteSDI )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, SetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetMuteSDI )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, InputCanMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *InputCanMuteSDI )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *canMuteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, CurrentInputSupportsMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsMuteSDI )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *supportsMuteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, GetInputMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetInputMuteSDI )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, SetInputMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetInputMuteSDI )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ IBMDSwitcherTalkbackCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v7_5_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTalkback_v7_5_2 * This,
             /* [in] */ IBMDSwitcherTalkbackCallback *callback);
@@ -38630,34 +41203,42 @@ EXTERN_C const IID IID_IBMDSwitcherMixMinusOutput_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput_v7_5_2, GetAudioMode)
         HRESULT ( STDMETHODCALLTYPE *GetAudioMode )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This,
             /* [out] */ BMDSwitcherMixMinusOutputAudioMode_v7_5_2 *audioMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput_v7_5_2, SetAudioMode)
         HRESULT ( STDMETHODCALLTYPE *SetAudioMode )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This,
             /* [in] */ BMDSwitcherMixMinusOutputAudioMode_v7_5_2 audioMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput_v7_5_2, GetMinusAudioInputId)
         HRESULT ( STDMETHODCALLTYPE *GetMinusAudioInputId )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This,
             /* [out] */ BMDSwitcherAudioInputId *audioInputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput_v7_5_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This,
             /* [in] */ IBMDSwitcherMixMinusOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutput_v7_5_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMixMinusOutput_v7_5_2 * This,
             /* [in] */ IBMDSwitcherMixMinusOutputCallback *callback);
@@ -38738,18 +41319,22 @@ EXTERN_C const IID IID_IBMDSwitcherMixMinusOutputIterator_v7_5_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMixMinusOutputIterator_v7_5_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMixMinusOutputIterator_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMixMinusOutputIterator_v7_5_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMixMinusOutputIterator_v7_5_2, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMixMinusOutputIterator_v7_5_2 * This,
             /* [out] */ IBMDSwitcherMixMinusOutput_v7_5_2 **mixMinusOutput);
@@ -38917,92 +41502,112 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, DoesVideoModeChangeRequireReconfiguration)
         HRESULT ( STDMETHODCALLTYPE *DoesVideoModeChangeRequireReconfiguration )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *required);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, Get3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Get3GSDIOutputLevel )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BMDSwitcher3GSDIOutputLevel *outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, Set3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Set3GSDIOutputLevel )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BMDSwitcher3GSDIOutputLevel outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCode )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ unsigned char *hours,
@@ -39010,6 +41615,7 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_0;
             /* [out] */ unsigned char *seconds,
             /* [out] */ unsigned char *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, SetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCode )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ unsigned char hours,
@@ -39017,34 +41623,42 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_0;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, RequestTimeCode)
         HRESULT ( STDMETHODCALLTYPE *RequestTimeCode )( 
             IBMDSwitcher_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetTimeCodeLocked)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeLocked )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BOOL *timeCodeLocked);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetAreOutputsConfigurable)
         HRESULT ( STDMETHODCALLTYPE *GetAreOutputsConfigurable )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BOOL *configurable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, GetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *GetSuperSourceCascade )( 
             IBMDSwitcher_v8_0 * This,
             /* [out] */ BOOL *cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, SetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *SetSuperSourceCascade )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ BOOL cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v8_0 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -39190,18 +41804,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v8_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v8_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v8_0, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v8_0 * This,
             /* [in] */ BSTR deviceAddress,
@@ -39378,160 +41996,200 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKey_v8_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKey_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKey_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetInputCut)
         HRESULT ( STDMETHODCALLTYPE *GetInputCut )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetInputCut)
         HRESULT ( STDMETHODCALLTYPE *SetInputCut )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetInputFill)
         HRESULT ( STDMETHODCALLTYPE *GetInputFill )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetInputFill)
         HRESULT ( STDMETHODCALLTYPE *SetInputFill )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetCutInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetCutInputAvailabilityMask )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetFillInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetFillInputAvailabilityMask )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetTie)
         HRESULT ( STDMETHODCALLTYPE *GetTie )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *tie);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetTie)
         HRESULT ( STDMETHODCALLTYPE *SetTie )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BOOL tie);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetRate)
         HRESULT ( STDMETHODCALLTYPE *GetRate )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ unsigned int *frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetRate)
         HRESULT ( STDMETHODCALLTYPE *SetRate )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ unsigned int frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetOnAir)
         HRESULT ( STDMETHODCALLTYPE *GetOnAir )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetOnAir)
         HRESULT ( STDMETHODCALLTYPE *SetOnAir )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BOOL onAir);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, PerformAutoTransition)
         HRESULT ( STDMETHODCALLTYPE *PerformAutoTransition )( 
             IBMDSwitcherDownstreamKey_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, IsTransitioning)
         HRESULT ( STDMETHODCALLTYPE *IsTransitioning )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *isTransitioning);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, IsAutoTransitioning)
         HRESULT ( STDMETHODCALLTYPE *IsAutoTransitioning )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *isAutoTransitioning);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetFramesRemaining)
         HRESULT ( STDMETHODCALLTYPE *GetFramesRemaining )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ unsigned int *framesRemaining);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *GetPreMultiplied )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetPreMultiplied)
         HRESULT ( STDMETHODCALLTYPE *SetPreMultiplied )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BOOL preMultiplied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ double *clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetClip)
         HRESULT ( STDMETHODCALLTYPE *SetClip )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ double clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetInverse)
         HRESULT ( STDMETHODCALLTYPE *GetInverse )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetInverse)
         HRESULT ( STDMETHODCALLTYPE *SetInverse )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BOOL inverse);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetMasked)
         HRESULT ( STDMETHODCALLTYPE *GetMasked )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ BOOL *maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetMasked)
         HRESULT ( STDMETHODCALLTYPE *SetMasked )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ BOOL maskEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *GetMaskTop )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ double *top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetMaskTop)
         HRESULT ( STDMETHODCALLTYPE *SetMaskTop )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ double top);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *GetMaskBottom )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ double *bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetMaskBottom)
         HRESULT ( STDMETHODCALLTYPE *SetMaskBottom )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ double bottom);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *GetMaskLeft )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ double *left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetMaskLeft)
         HRESULT ( STDMETHODCALLTYPE *SetMaskLeft )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ double left);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, GetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *GetMaskRight )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [out] */ double *right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, SetMaskRight)
         HRESULT ( STDMETHODCALLTYPE *SetMaskRight )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ double right);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, ResetMask)
         HRESULT ( STDMETHODCALLTYPE *ResetMask )( 
             IBMDSwitcherDownstreamKey_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ IBMDSwitcherDownstreamKeyCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKey_v8_0, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherDownstreamKey_v8_0 * This,
             /* [in] */ IBMDSwitcherDownstreamKeyCallback *callback);
@@ -39708,18 +42366,22 @@ EXTERN_C const IID IID_IBMDSwitcherDownstreamKeyIterator_v8_0;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDownstreamKeyIterator_v8_0 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDownstreamKeyIterator_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDownstreamKeyIterator_v8_0 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDownstreamKeyIterator_v8_0, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherDownstreamKeyIterator_v8_0 * This,
             /* [out] */ IBMDSwitcherDownstreamKey_v8_0 **downstreamKey);
@@ -39888,92 +42550,112 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_0_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v8_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v8_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, DoesVideoModeChangeRequireReconfiguration)
         HRESULT ( STDMETHODCALLTYPE *DoesVideoModeChangeRequireReconfiguration )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *required);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, Get3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Get3GSDIOutputLevel )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BMDSwitcher3GSDIOutputLevel *outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, Set3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Set3GSDIOutputLevel )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BMDSwitcher3GSDIOutputLevel outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ unsigned char *hours,
@@ -39982,6 +42664,7 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_0_3;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, SetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCode )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ unsigned char hours,
@@ -39989,34 +42672,42 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_0_3;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, RequestTimeCode)
         HRESULT ( STDMETHODCALLTYPE *RequestTimeCode )( 
             IBMDSwitcher_v8_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetTimeCodeLocked)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeLocked )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BOOL *timeCodeLocked);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetAreOutputsConfigurable)
         HRESULT ( STDMETHODCALLTYPE *GetAreOutputsConfigurable )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BOOL *configurable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, GetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *GetSuperSourceCascade )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [out] */ BOOL *cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, SetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *SetSuperSourceCascade )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ BOOL cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_0_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v8_0_3 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -40162,18 +42853,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v8_0_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v8_0_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v8_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v8_0_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v8_0_3, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v8_0_3 * This,
             /* [in] */ BSTR deviceAddress,
@@ -40252,18 +42947,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioInputXLRCallback_v8_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioInputXLRCallback_v8_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioInputXLRCallback_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioInputXLRCallback_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputXLRCallback_v8_1, Notify)
         HRESULT ( STDMETHODCALLTYPE *Notify )( 
             IBMDSwitcherFairlightAudioInputXLRCallback_v8_1 * This,
             /* [in] */ BMDSwitcherFairlightAudioInputXLREventType_v8_1 eventType);
@@ -40344,34 +43043,42 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioInputXLR_v8_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputXLR_v8_1, HasRCAToXLR)
         HRESULT ( STDMETHODCALLTYPE *HasRCAToXLR )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This,
             /* [out] */ BOOL *hasRcaToXlr);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputXLR_v8_1, GetRCAToXLREnabled)
         HRESULT ( STDMETHODCALLTYPE *GetRCAToXLREnabled )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This,
             /* [out] */ BOOL *rcaToXlrEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputXLR_v8_1, SetRCAToXLREnabled)
         HRESULT ( STDMETHODCALLTYPE *SetRCAToXLREnabled )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This,
             /* [in] */ BOOL rcaToXlrEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputXLR_v8_1, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This,
             /* [in] */ IBMDSwitcherFairlightAudioInputXLRCallback_v8_1 *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioInputXLR_v8_1, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioInputXLR_v8_1 * This,
             /* [in] */ IBMDSwitcherFairlightAudioInputXLRCallback_v8_1 *callback);
@@ -40488,31 +43195,38 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPool_v8_1;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMediaPool_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMediaPool_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, GetStills)
         HRESULT ( STDMETHODCALLTYPE *GetStills )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [out] */ IBMDSwitcherStills **stills);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, GetClip)
         HRESULT ( STDMETHODCALLTYPE *GetClip )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ unsigned int clipIndex,
             /* [out] */ IBMDSwitcherClip **clip);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, GetClipCount)
         HRESULT ( STDMETHODCALLTYPE *GetClipCount )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [out] */ unsigned int *clipCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, CreateFrame)
         HRESULT ( STDMETHODCALLTYPE *CreateFrame )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ BMDSwitcherPixelFormat pixelFormat,
@@ -40520,32 +43234,39 @@ EXTERN_C const IID IID_IBMDSwitcherMediaPool_v8_1;
             /* [in] */ unsigned int height,
             /* [out] */ IBMDSwitcherFrame **frame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, CreateAudio)
         HRESULT ( STDMETHODCALLTYPE *CreateAudio )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ unsigned int sizeBytes,
             /* [out] */ IBMDSwitcherAudio **audio);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, GetFrameTotalForClips)
         HRESULT ( STDMETHODCALLTYPE *GetFrameTotalForClips )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [out] */ unsigned int *total);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, GetClipMaxFrameCounts)
         HRESULT ( STDMETHODCALLTYPE *GetClipMaxFrameCounts )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ unsigned int clipCount,
             /* [out] */ unsigned int *clipMaxFrameCounts);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, SetClipMaxFrameCounts)
         HRESULT ( STDMETHODCALLTYPE *SetClipMaxFrameCounts )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ unsigned int clipCount,
             /* [in] */ const unsigned int *clipMaxFrameCounts);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, Clear)
         HRESULT ( STDMETHODCALLTYPE *Clear )( 
             IBMDSwitcherMediaPool_v8_1 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ IBMDSwitcherMediaPoolCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMediaPool_v8_1, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMediaPool_v8_1 * This,
             /* [in] */ IBMDSwitcherMediaPoolCallback *callback);
@@ -40753,92 +43474,112 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_1_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, DoesVideoModeChangeRequireReconfiguration)
         HRESULT ( STDMETHODCALLTYPE *DoesVideoModeChangeRequireReconfiguration )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *required);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, Get3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Get3GSDIOutputLevel )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BMDSwitcher3GSDIOutputLevel *outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, Set3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Set3GSDIOutputLevel )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BMDSwitcher3GSDIOutputLevel outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ unsigned char *hours,
@@ -40847,6 +43588,7 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_1_2;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ unsigned char hours,
@@ -40854,57 +43596,71 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_1_2;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, RequestTimeCode)
         HRESULT ( STDMETHODCALLTYPE *RequestTimeCode )( 
             IBMDSwitcher_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetTimeCodeLocked)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeLocked )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BOOL *timeCodeLocked);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetAreOutputsConfigurable)
         HRESULT ( STDMETHODCALLTYPE *GetAreOutputsConfigurable )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BOOL *configurable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *GetSuperSourceCascade )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BOOL *cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *SetSuperSourceCascade )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BOOL cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SuspendStreaming)
         HRESULT ( STDMETHODCALLTYPE *SuspendStreaming )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ unsigned int durationMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, AllowStreamingToResume)
         HRESULT ( STDMETHODCALLTYPE *AllowStreamingToResume )( 
             IBMDSwitcher_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, DoesSupportAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportAutoVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetAutoVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, GetAutoVideoModeDetected)
         HRESULT ( STDMETHODCALLTYPE *GetAutoVideoModeDetected )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [out] */ BOOL *detected);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, SetAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetAutoVideoMode )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_1_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v8_1_2 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -41068,18 +43824,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v8_1_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v8_1_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v8_1_2, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v8_1_2 * This,
             /* [in] */ BSTR deviceAddress,
@@ -41224,114 +43984,140 @@ EXTERN_C const IID IID_IBMDSwitcherMultiView_v8_1_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiView_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiView_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetLayout)
         HRESULT ( STDMETHODCALLTYPE *GetLayout )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BMDSwitcherMultiViewLayout *layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SetLayout)
         HRESULT ( STDMETHODCALLTYPE *SetLayout )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ BMDSwitcherMultiViewLayout layout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SupportsQuadrantLayout)
         HRESULT ( STDMETHODCALLTYPE *SupportsQuadrantLayout )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BOOL *supportsQuadrantLayout);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *GetWindowInput )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BMDSwitcherInputId *input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SetWindowInput)
         HRESULT ( STDMETHODCALLTYPE *SetWindowInput )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [in] */ BMDSwitcherInputId input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetWindowCount)
         HRESULT ( STDMETHODCALLTYPE *GetWindowCount )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ unsigned int *windowCount);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetInputAvailabilityMask)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailabilityMask )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BMDSwitcherInputAvailability *availabilityMask);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, CanRouteInputs)
         HRESULT ( STDMETHODCALLTYPE *CanRouteInputs )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BOOL *canRoute);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SupportsVuMeters)
         HRESULT ( STDMETHODCALLTYPE *SupportsVuMeters )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BOOL *supportsVuMeters);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, CurrentInputSupportsVuMeter)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsVuMeter )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *supportsVuMeter);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetVuMeterEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetVuMeterEnabled )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SetVuMeterEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetVuMeterEnabled )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *GetVuMeterOpacity )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ double *opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SetVuMeterOpacity)
         HRESULT ( STDMETHODCALLTYPE *SetVuMeterOpacity )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ double opacity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, CanToggleSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *CanToggleSafeAreaEnabled )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BOOL *canToggleSafeAreaEnabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, CurrentInputSupportsSafeArea)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsSafeArea )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *supportsSafeArea);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *GetSafeAreaEnabled )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SetSafeAreaEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetSafeAreaEnabled )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ unsigned int window,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SupportsProgramPreviewSwap)
         HRESULT ( STDMETHODCALLTYPE *SupportsProgramPreviewSwap )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BOOL *supportsProgramPreviewSwap);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, GetProgramPreviewSwapped)
         HRESULT ( STDMETHODCALLTYPE *GetProgramPreviewSwapped )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [out] */ BOOL *swapped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, SetProgramPreviewSwapped)
         HRESULT ( STDMETHODCALLTYPE *SetProgramPreviewSwapped )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ BOOL swapped);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiView_v8_1_2, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherMultiView_v8_1_2 * This,
             /* [in] */ IBMDSwitcherMultiViewCallback *callback);
@@ -41466,18 +44252,22 @@ EXTERN_C const IID IID_IBMDSwitcherMultiViewIterator_v8_1_2;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherMultiViewIterator_v8_1_2 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherMultiViewIterator_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherMultiViewIterator_v8_1_2 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherMultiViewIterator_v8_1_2, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherMultiViewIterator_v8_1_2 * This,
             /* [out] */ IBMDSwitcherMultiView_v8_1_2 **multiView);
@@ -41612,73 +44402,91 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAV_v8_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordAV_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordAV_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, StartRecording)
         HRESULT ( STDMETHODCALLTYPE *StartRecording )( 
             IBMDSwitcherRecordAV_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, StopRecording)
         HRESULT ( STDMETHODCALLTYPE *StopRecording )( 
             IBMDSwitcherRecordAV_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, SwitchDisk)
         HRESULT ( STDMETHODCALLTYPE *SwitchDisk )( 
             IBMDSwitcherRecordAV_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, IsRecording)
         HRESULT ( STDMETHODCALLTYPE *IsRecording )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ BOOL *recording);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ BMDSwitcherRecordAVState *state,
             /* [out] */ BMDSwitcherRecordAVError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, SetFilename)
         HRESULT ( STDMETHODCALLTYPE *SetFilename )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ BSTR filename);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetFilename)
         HRESULT ( STDMETHODCALLTYPE *GetFilename )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ BSTR *filename);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, SetRecordInAllCameras)
         HRESULT ( STDMETHODCALLTYPE *SetRecordInAllCameras )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ BOOL recordInAllCameras);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetRecordInAllCameras)
         HRESULT ( STDMETHODCALLTYPE *GetRecordInAllCameras )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ BOOL *recordInAllCameras);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetWorkingSetLimit)
         HRESULT ( STDMETHODCALLTYPE *GetWorkingSetLimit )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ unsigned int *workingSetLimit);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, SetWorkingSetDisk)
         HRESULT ( STDMETHODCALLTYPE *SetWorkingSetDisk )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [in] */ BMDSwitcherRecordDiskId diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetWorkingSetDisk)
         HRESULT ( STDMETHODCALLTYPE *GetWorkingSetDisk )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [in] */ BMDSwitcherRecordDiskId *diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetActiveDiskIndex)
         HRESULT ( STDMETHODCALLTYPE *GetActiveDiskIndex )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ unsigned int *workingSetIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherRecordAV_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ unsigned char *hours,
@@ -41687,19 +44495,23 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAV_v8_3;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, GetTotalRecordingTimeAvailable)
         HRESULT ( STDMETHODCALLTYPE *GetTotalRecordingTimeAvailable )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [out] */ unsigned int *totalRecordingTimeAvailable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ IBMDSwitcherRecordAVCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRecordAV_v8_3 * This,
             /* [in] */ IBMDSwitcherRecordAVCallback *callback);
@@ -41826,22 +44638,27 @@ EXTERN_C const IID IID_IBMDSwitcherRecordDiskIterator_v8_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordDiskIterator_v8_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordDiskIterator_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordDiskIterator_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDiskIterator_v8_3, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherRecordDiskIterator_v8_3 * This,
             /* [out] */ IBMDSwitcherRecordDisk_v8_3 **recordDisk);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDiskIterator_v8_3, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherRecordDiskIterator_v8_3 * This,
             /* [in] */ BMDSwitcherRecordDiskId diskId,
@@ -41931,41 +44748,51 @@ EXTERN_C const IID IID_IBMDSwitcherRecordDisk_v8_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordDisk_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordDisk_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [out] */ BMDSwitcherRecordDiskId *diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, GetVolumeName)
         HRESULT ( STDMETHODCALLTYPE *GetVolumeName )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [out] */ BSTR *volumeName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, GetRecordingTimeAvailable)
         HRESULT ( STDMETHODCALLTYPE *GetRecordingTimeAvailable )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [out] */ unsigned int *recordingTimeAvailable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [out] */ BMDSwitcherRecordDiskStatus *diskStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, RequestRecordingTimeAvailable)
         HRESULT ( STDMETHODCALLTYPE *RequestRecordingTimeAvailable )( 
             IBMDSwitcherRecordDisk_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [in] */ IBMDSwitcherRecordDiskCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordDisk_v8_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRecordDisk_v8_3 * This,
             /* [in] */ IBMDSwitcherRecordDiskCallback *callback);
@@ -42107,70 +44934,87 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP_v8_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStreamRTMP_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStreamRTMP_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, StartStreaming)
         HRESULT ( STDMETHODCALLTYPE *StartStreaming )( 
             IBMDSwitcherStreamRTMP_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, StopStreaming)
         HRESULT ( STDMETHODCALLTYPE *StopStreaming )( 
             IBMDSwitcherStreamRTMP_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, IsStreaming)
         HRESULT ( STDMETHODCALLTYPE *IsStreaming )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ BOOL *streaming);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ BMDSwitcherStreamRTMPState *state,
             /* [out] */ BMDSwitcherStreamRTMPError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, SetServiceName)
         HRESULT ( STDMETHODCALLTYPE *SetServiceName )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ BSTR serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetServiceName)
         HRESULT ( STDMETHODCALLTYPE *GetServiceName )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ BSTR *serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, SetUrl)
         HRESULT ( STDMETHODCALLTYPE *SetUrl )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetUrl)
         HRESULT ( STDMETHODCALLTYPE *GetUrl )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ BSTR *url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, SetKey)
         HRESULT ( STDMETHODCALLTYPE *SetKey )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetKey)
         HRESULT ( STDMETHODCALLTYPE *GetKey )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ BSTR *key);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, SetBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetBitrates )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetBitrates )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherStreamRTMP_v8_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ unsigned char *hours,
@@ -42179,18 +45023,22 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP_v8_3;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetEncodingBitrate)
         HRESULT ( STDMETHODCALLTYPE *GetEncodingBitrate )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ unsigned int *encodingBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, GetCacheUsed)
         HRESULT ( STDMETHODCALLTYPE *GetCacheUsed )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [out] */ double *cacheUsed);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStreamRTMP_v8_3 * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
@@ -42381,80 +45229,99 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP_v8_4;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStreamRTMP_v8_4 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStreamRTMP_v8_4 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, StartStreaming)
         HRESULT ( STDMETHODCALLTYPE *StartStreaming )( 
             IBMDSwitcherStreamRTMP_v8_4 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, StopStreaming)
         HRESULT ( STDMETHODCALLTYPE *StopStreaming )( 
             IBMDSwitcherStreamRTMP_v8_4 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, IsStreaming)
         HRESULT ( STDMETHODCALLTYPE *IsStreaming )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ BOOL *streaming);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ BMDSwitcherStreamRTMPState *state,
             /* [out] */ BMDSwitcherStreamRTMPError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, SetServiceName)
         HRESULT ( STDMETHODCALLTYPE *SetServiceName )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ BSTR serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetServiceName)
         HRESULT ( STDMETHODCALLTYPE *GetServiceName )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ BSTR *serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, SetUrl)
         HRESULT ( STDMETHODCALLTYPE *SetUrl )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetUrl)
         HRESULT ( STDMETHODCALLTYPE *GetUrl )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ BSTR *url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, SetKey)
         HRESULT ( STDMETHODCALLTYPE *SetKey )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetKey)
         HRESULT ( STDMETHODCALLTYPE *GetKey )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ BSTR *key);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, SetVideoBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetVideoBitrates )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetVideoBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetVideoBitrates )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, SetAudioBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetAudioBitrates )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetAudioBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetAudioBitrates )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherStreamRTMP_v8_4 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ unsigned char *hours,
@@ -42463,28 +45330,34 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP_v8_4;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetEncodingBitrate)
         HRESULT ( STDMETHODCALLTYPE *GetEncodingBitrate )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ unsigned int *encodingBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetCacheUsed)
         HRESULT ( STDMETHODCALLTYPE *GetCacheUsed )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ double *cacheUsed);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, SetAuthentication)
         HRESULT ( STDMETHODCALLTYPE *SetAuthentication )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ BSTR username,
             /* [in] */ BSTR password);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, GetAuthentication)
         HRESULT ( STDMETHODCALLTYPE *GetAuthentication )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [out] */ BSTR *username,
             /* [out] */ BSTR *password);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_4, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStreamRTMP_v8_4 * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
@@ -42643,54 +45516,67 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, GetGain)
         HRESULT ( STDMETHODCALLTYPE *GetGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, SetGain)
         HRESULT ( STDMETHODCALLTYPE *SetGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, GetInputMasterOutGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputMasterOutGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, SetInputMasterOutGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputMasterOutGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, GetInputTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputTalkbackGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, SetInputTalkbackGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputTalkbackGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, GetInputSidetoneGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputSidetoneGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [out] */ double *decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, SetInputSidetoneGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputSidetoneGain )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ double decibel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ IBMDSwitcherFairlightAudioHeadphoneOutputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 * This,
             /* [in] */ IBMDSwitcherFairlightAudioHeadphoneOutputCallback *callback);
@@ -42786,18 +45672,22 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioHeadphoneOutputIterator_v8_5_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator_v8_5_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioHeadphoneOutputIterator_v8_5_3, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioHeadphoneOutputIterator_v8_5_3 * This,
             /* [out] */ IBMDSwitcherFairlightAudioHeadphoneOutput_v8_5_3 **audioHeadphoneOutput);
@@ -42933,85 +45823,106 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAV_v8_5_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherRecordAV_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherRecordAV_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, StartRecording)
         HRESULT ( STDMETHODCALLTYPE *StartRecording )( 
             IBMDSwitcherRecordAV_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, StopRecording)
         HRESULT ( STDMETHODCALLTYPE *StopRecording )( 
             IBMDSwitcherRecordAV_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, SwitchDisk)
         HRESULT ( STDMETHODCALLTYPE *SwitchDisk )( 
             IBMDSwitcherRecordAV_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, IsRecording)
         HRESULT ( STDMETHODCALLTYPE *IsRecording )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ BOOL *recording);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ BMDSwitcherRecordAVState *state,
             /* [out] */ BMDSwitcherRecordAVError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, SetFilename)
         HRESULT ( STDMETHODCALLTYPE *SetFilename )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ BSTR filename);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetFilename)
         HRESULT ( STDMETHODCALLTYPE *GetFilename )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ BSTR *filename);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, SetRecordInAllCameras)
         HRESULT ( STDMETHODCALLTYPE *SetRecordInAllCameras )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ BOOL recordInAllCameras);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetRecordInAllCameras)
         HRESULT ( STDMETHODCALLTYPE *GetRecordInAllCameras )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ BOOL *recordInAllCameras);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, DoesSupportISORecording)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportISORecording )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ BOOL *supportsISORecording);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, SetRecordAllISOInputs)
         HRESULT ( STDMETHODCALLTYPE *SetRecordAllISOInputs )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ BOOL recordAllISOInputs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetRecordAllISOInputs)
         HRESULT ( STDMETHODCALLTYPE *GetRecordAllISOInputs )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ BOOL *recordAllISOInputs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetWorkingSetLimit)
         HRESULT ( STDMETHODCALLTYPE *GetWorkingSetLimit )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ unsigned int *workingSetLimit);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, SetWorkingSetDisk)
         HRESULT ( STDMETHODCALLTYPE *SetWorkingSetDisk )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [in] */ BMDSwitcherRecordDiskId diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetWorkingSetDisk)
         HRESULT ( STDMETHODCALLTYPE *GetWorkingSetDisk )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ unsigned int workingSetIndex,
             /* [out] */ BMDSwitcherRecordDiskId *diskId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetActiveDiskIndex)
         HRESULT ( STDMETHODCALLTYPE *GetActiveDiskIndex )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ unsigned int *workingSetIndex);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherRecordAV_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ unsigned char *hours,
@@ -43020,19 +45931,23 @@ EXTERN_C const IID IID_IBMDSwitcherRecordAV_v8_5_3;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, GetTotalRecordingTimeAvailable)
         HRESULT ( STDMETHODCALLTYPE *GetTotalRecordingTimeAvailable )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [out] */ unsigned int *totalRecordingTimeAvailable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ IBMDSwitcherRecordAVCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherRecordAV_v8_5_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherRecordAV_v8_5_3 * This,
             /* [in] */ IBMDSwitcherRecordAVCallback *callback);
@@ -43241,80 +46156,99 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP_v8_5_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, StartStreaming)
         HRESULT ( STDMETHODCALLTYPE *StartStreaming )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, StopStreaming)
         HRESULT ( STDMETHODCALLTYPE *StopStreaming )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, IsStreaming)
         HRESULT ( STDMETHODCALLTYPE *IsStreaming )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BOOL *streaming);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetStatus)
         HRESULT ( STDMETHODCALLTYPE *GetStatus )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BMDSwitcherStreamRTMPState *state,
             /* [out] */ BMDSwitcherStreamRTMPError *error);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetServiceName)
         HRESULT ( STDMETHODCALLTYPE *SetServiceName )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ BSTR serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetServiceName)
         HRESULT ( STDMETHODCALLTYPE *GetServiceName )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BSTR *serviceName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetUrl)
         HRESULT ( STDMETHODCALLTYPE *SetUrl )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetUrl)
         HRESULT ( STDMETHODCALLTYPE *GetUrl )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BSTR *url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetKey)
         HRESULT ( STDMETHODCALLTYPE *SetKey )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ BSTR url);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetKey)
         HRESULT ( STDMETHODCALLTYPE *GetKey )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BSTR *key);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetVideoBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetVideoBitrates )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetVideoBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetVideoBitrates )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetAudioBitrates)
         HRESULT ( STDMETHODCALLTYPE *SetAudioBitrates )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ unsigned int lowBitrate,
             /* [in] */ unsigned int highBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetAudioBitrates)
         HRESULT ( STDMETHODCALLTYPE *GetAudioBitrates )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ unsigned int *lowBitRate,
             /* [out] */ unsigned int *highBitRate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, RequestDuration)
         HRESULT ( STDMETHODCALLTYPE *RequestDuration )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetDuration)
         HRESULT ( STDMETHODCALLTYPE *GetDuration )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ unsigned char *hours,
@@ -43323,36 +46257,44 @@ EXTERN_C const IID IID_IBMDSwitcherStreamRTMP_v8_5_3;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetEncodingBitrate)
         HRESULT ( STDMETHODCALLTYPE *GetEncodingBitrate )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ unsigned int *encodingBitrate);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetCacheUsed)
         HRESULT ( STDMETHODCALLTYPE *GetCacheUsed )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ double *cacheUsed);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetAuthentication)
         HRESULT ( STDMETHODCALLTYPE *SetAuthentication )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ BSTR username,
             /* [in] */ BSTR password);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetAuthentication)
         HRESULT ( STDMETHODCALLTYPE *GetAuthentication )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BSTR *username,
             /* [out] */ BSTR *password);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, SetLowLatency)
         HRESULT ( STDMETHODCALLTYPE *SetLowLatency )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ BOOL lowLatency);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, GetLowLatency)
         HRESULT ( STDMETHODCALLTYPE *GetLowLatency )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [out] */ BOOL *lowLatency);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherStreamRTMP_v8_5_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherStreamRTMP_v8_5_3 * This,
             /* [in] */ IBMDSwitcherStreamRTMPCallback *callback);
@@ -43502,34 +46444,42 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAnalogAudioInput_v8_5_3;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput_v8_5_3, GetSupportedInputLevels)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedInputLevels )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This,
             /* [out] */ BMDSwitcherFairlightAudioAnalogInputLevel *levels);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput_v8_5_3, GetInputLevel)
         HRESULT ( STDMETHODCALLTYPE *GetInputLevel )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This,
             /* [out] */ BMDSwitcherFairlightAudioAnalogInputLevel *level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput_v8_5_3, SetInputLevel)
         HRESULT ( STDMETHODCALLTYPE *SetInputLevel )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This,
             /* [in] */ BMDSwitcherFairlightAudioAnalogInputLevel level);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput_v8_5_3, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This,
             /* [in] */ IBMDSwitcherFairlightAnalogAudioInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAnalogAudioInput_v8_5_3, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAnalogAudioInput_v8_5_3 * This,
             /* [in] */ IBMDSwitcherFairlightAnalogAudioInputCallback *callback);
@@ -43638,54 +46588,66 @@ EXTERN_C const IID IID_IBMDSwitcherTalkback_v8_6_4;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkback_v8_6_4 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkback_v8_6_4 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [out] */ BMDSwitcherTalkbackId *talkbackId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, GetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetMuteSDI )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, SetMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetMuteSDI )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, InputCanMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *InputCanMuteSDI )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *canMuteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, CurrentInputSupportsMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *CurrentInputSupportsMuteSDI )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *supportsMuteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, GetInputMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *GetInputMuteSDI )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [out] */ BOOL *muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, SetInputMuteSDI)
         HRESULT ( STDMETHODCALLTYPE *SetInputMuteSDI )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ BMDSwitcherAudioInputId audioInputId,
             /* [in] */ BOOL muteSDI);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ IBMDSwitcherTalkbackCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkback_v8_6_4, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherTalkback_v8_6_4 * This,
             /* [in] */ IBMDSwitcherTalkbackCallback *callback);
@@ -43782,22 +46744,27 @@ EXTERN_C const IID IID_IBMDSwitcherTalkbackIterator_v8_6_4;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherTalkbackIterator_v8_6_4 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherTalkbackIterator_v8_6_4 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherTalkbackIterator_v8_6_4 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkbackIterator_v8_6_4, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherTalkbackIterator_v8_6_4 * This,
             /* [out] */ IBMDSwitcherTalkback_v8_6_4 **talkback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherTalkbackIterator_v8_6_4, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherTalkbackIterator_v8_6_4 * This,
             /* [in] */ BMDSwitcherTalkbackId talkbackId,
@@ -43985,92 +46952,112 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcher_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcher_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetProductName)
         HRESULT ( STDMETHODCALLTYPE *GetProductName )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BSTR *productName);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BMDSwitcherVideoMode *videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, DoesSupportVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, DoesVideoModeChangeRequireReconfiguration)
         HRESULT ( STDMETHODCALLTYPE *DoesVideoModeChangeRequireReconfiguration )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode videoMode,
             /* [out] */ BOOL *required);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *GetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BMDSwitcherDownConversionMethod *method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetMethodForDownConvertedSD)
         HRESULT ( STDMETHODCALLTYPE *SetMethodForDownConvertedSD )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherDownConversionMethod method);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, DoesSupportDownConvertedHDVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportDownConvertedHDVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode downConvertedHDVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetMultiViewVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [out] */ BMDSwitcherVideoMode *multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetMultiViewVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, DoesSupportMultiViewVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportMultiViewVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherVideoMode coreVideoMode,
             /* [in] */ BMDSwitcherVideoMode multiviewVideoMode,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, Get3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Get3GSDIOutputLevel )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BMDSwitcher3GSDIOutputLevel *outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, Set3GSDIOutputLevel)
         HRESULT ( STDMETHODCALLTYPE *Set3GSDIOutputLevel )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcher3GSDIOutputLevel outputLevel);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetPowerStatus)
         HRESULT ( STDMETHODCALLTYPE *GetPowerStatus )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BMDSwitcherPowerStatus *powerStatus);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCode )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ unsigned char *hours,
@@ -44079,6 +47066,7 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_10;
             /* [out] */ unsigned char *frames,
             /* [out] */ BOOL *dropFrame);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetTimeCode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ unsigned char hours,
@@ -44086,65 +47074,81 @@ EXTERN_C const IID IID_IBMDSwitcher_v8_10;
             /* [in] */ unsigned char seconds,
             /* [in] */ unsigned char frames);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, RequestTimeCode)
         HRESULT ( STDMETHODCALLTYPE *RequestTimeCode )( 
             IBMDSwitcher_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetTimeCodeLocked)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeLocked )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BOOL *timeCodeLocked);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetTimeCodeMode)
         HRESULT ( STDMETHODCALLTYPE *GetTimeCodeMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BMDSwitcherTimeCodeMode *timeCodeMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetTimeCodeMode)
         HRESULT ( STDMETHODCALLTYPE *SetTimeCodeMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BMDSwitcherTimeCodeMode timeCodeMode);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetAreOutputsConfigurable)
         HRESULT ( STDMETHODCALLTYPE *GetAreOutputsConfigurable )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BOOL *configurable);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *GetSuperSourceCascade )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BOOL *cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetSuperSourceCascade)
         HRESULT ( STDMETHODCALLTYPE *SetSuperSourceCascade )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BOOL cascade);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SuspendStreaming)
         HRESULT ( STDMETHODCALLTYPE *SuspendStreaming )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ unsigned int durationMs);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, AllowStreamingToResume)
         HRESULT ( STDMETHODCALLTYPE *AllowStreamingToResume )( 
             IBMDSwitcher_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, DoesSupportAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *DoesSupportAutoVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BOOL *supported);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *GetAutoVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BOOL *enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, GetAutoVideoModeDetected)
         HRESULT ( STDMETHODCALLTYPE *GetAutoVideoModeDetected )( 
             IBMDSwitcher_v8_10 * This,
             /* [out] */ BOOL *detected);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, SetAutoVideoMode)
         HRESULT ( STDMETHODCALLTYPE *SetAutoVideoMode )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcher_v8_10, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcher_v8_10 * This,
             /* [in] */ IBMDSwitcherCallback *callback);
@@ -44316,22 +47320,27 @@ EXTERN_C const IID IID_IBMDSwitcherInputIterator_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInputIterator_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInputIterator_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInputIterator_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator_v8_10, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherInputIterator_v8_10 * This,
             /* [out] */ IBMDSwitcherInput_v8_10 **input);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInputIterator_v8_10, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherInputIterator_v8_10 * This,
             /* [in] */ BMDSwitcherInputId inputId,
@@ -44448,77 +47457,96 @@ EXTERN_C const IID IID_IBMDSwitcherInput_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherInput_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherInput_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetPortType)
         HRESULT ( STDMETHODCALLTYPE *GetPortType )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BMDSwitcherPortType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetInputAvailability)
         HRESULT ( STDMETHODCALLTYPE *GetInputAvailability )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BMDSwitcherInputAvailability *availability);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, SetShortName)
         HRESULT ( STDMETHODCALLTYPE *SetShortName )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetShortName)
         HRESULT ( STDMETHODCALLTYPE *GetShortName )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, SetLongName)
         HRESULT ( STDMETHODCALLTYPE *SetLongName )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ BSTR name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetLongName)
         HRESULT ( STDMETHODCALLTYPE *GetLongName )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BSTR *name);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, AreNamesDefault)
         HRESULT ( STDMETHODCALLTYPE *AreNamesDefault )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ BOOL *isDefault);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, ResetNames)
         HRESULT ( STDMETHODCALLTYPE *ResetNames )( 
             IBMDSwitcherInput_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, IsProgramTallied)
         HRESULT ( STDMETHODCALLTYPE *IsProgramTallied )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BOOL *isTallied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, IsPreviewTallied)
         HRESULT ( STDMETHODCALLTYPE *IsPreviewTallied )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BOOL *isTallied);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetAvailableExternalPortTypes)
         HRESULT ( STDMETHODCALLTYPE *GetAvailableExternalPortTypes )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BMDSwitcherExternalPortType *types);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, SetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *SetCurrentExternalPortType )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ BMDSwitcherExternalPortType value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetCurrentExternalPortType)
         HRESULT ( STDMETHODCALLTYPE *GetCurrentExternalPortType )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BMDSwitcherExternalPortType *value);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, GetInputId)
         HRESULT ( STDMETHODCALLTYPE *GetInputId )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [out] */ BMDSwitcherInputId *inputId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ IBMDSwitcherInputCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherInput_v8_10, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherInput_v8_10 * This,
             /* [in] */ IBMDSwitcherInputCallback *callback);
@@ -44698,106 +47726,132 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSource_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, IsActive)
         HRESULT ( STDMETHODCALLTYPE *IsActive )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BOOL *active);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetSourceType)
         HRESULT ( STDMETHODCALLTYPE *GetSourceType )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BMDSwitcherFairlightAudioSourceType *type);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetMaxDelayFrames)
         HRESULT ( STDMETHODCALLTYPE *GetMaxDelayFrames )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ unsigned short *maxDelay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetDelayFrames)
         HRESULT ( STDMETHODCALLTYPE *GetDelayFrames )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ unsigned short *delay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, SetDelayFrames)
         HRESULT ( STDMETHODCALLTYPE *SetDelayFrames )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ unsigned short delay);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetInputGain)
         HRESULT ( STDMETHODCALLTYPE *GetInputGain )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, SetInputGain)
         HRESULT ( STDMETHODCALLTYPE *SetInputGain )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, HasStereoSimulation)
         HRESULT ( STDMETHODCALLTYPE *HasStereoSimulation )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BOOL *hasStereoSimulation);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetStereoSimulationIntensity)
         HRESULT ( STDMETHODCALLTYPE *GetStereoSimulationIntensity )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ double *intensity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, SetStereoSimulationIntensity)
         HRESULT ( STDMETHODCALLTYPE *SetStereoSimulationIntensity )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ double intensity);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetEffect)
         HRESULT ( STDMETHODCALLTYPE *GetEffect )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetPan)
         HRESULT ( STDMETHODCALLTYPE *GetPan )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ double *pan);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, SetPan)
         HRESULT ( STDMETHODCALLTYPE *SetPan )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ double pan);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetFaderGain)
         HRESULT ( STDMETHODCALLTYPE *GetFaderGain )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, SetFaderGain)
         HRESULT ( STDMETHODCALLTYPE *SetFaderGain )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetSupportedMixOptions)
         HRESULT ( STDMETHODCALLTYPE *GetSupportedMixOptions )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BMDSwitcherFairlightAudioMixOption *mixOptions);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetMixOption)
         HRESULT ( STDMETHODCALLTYPE *GetMixOption )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BMDSwitcherFairlightAudioMixOption *mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, SetMixOption)
         HRESULT ( STDMETHODCALLTYPE *SetMixOption )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ BMDSwitcherFairlightAudioMixOption mixOption);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, IsMixedIn)
         HRESULT ( STDMETHODCALLTYPE *IsMixedIn )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BOOL *mixedIn);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, ResetOutputPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetOutputPeakLevels )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, GetId)
         HRESULT ( STDMETHODCALLTYPE *GetId )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [out] */ BMDSwitcherFairlightAudioSourceId *sourceId);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ IBMDSwitcherFairlightAudioSourceCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSource_v8_10, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioSource_v8_10 * This,
             /* [in] */ IBMDSwitcherFairlightAudioSourceCallback *callback);
@@ -44936,22 +47990,27 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioSourceIterator_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioSourceIterator_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioSourceIterator_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioSourceIterator_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSourceIterator_v8_10, Next)
         HRESULT ( STDMETHODCALLTYPE *Next )( 
             IBMDSwitcherFairlightAudioSourceIterator_v8_10 * This,
             /* [out] */ IBMDSwitcherFairlightAudioSource_v8_10 **audioSource);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioSourceIterator_v8_10, GetById)
         HRESULT ( STDMETHODCALLTYPE *GetById )( 
             IBMDSwitcherFairlightAudioSourceIterator_v8_10 * This,
             /* [in] */ BMDSwitcherFairlightAudioSourceId audioSourceId,
@@ -45026,18 +48085,22 @@ EXTERN_C const IID IID_IBMDSwitcherDiscovery_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherDiscovery_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherDiscovery_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherDiscovery_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherDiscovery_v8_10, ConnectTo)
         HRESULT ( STDMETHODCALLTYPE *ConnectTo )( 
             IBMDSwitcherDiscovery_v8_10 * This,
             /* [in] */ BSTR deviceAddress,
@@ -45152,66 +48215,82 @@ EXTERN_C const IID IID_IBMDSwitcherFairlightAudioMixer_v8_10;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, GetMasterOutEffect)
         HRESULT ( STDMETHODCALLTYPE *GetMasterOutEffect )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, GetMasterOutFaderGain)
         HRESULT ( STDMETHODCALLTYPE *GetMasterOutFaderGain )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [out] */ double *gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, SetMasterOutFaderGain)
         HRESULT ( STDMETHODCALLTYPE *SetMasterOutFaderGain )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ double gain);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, GetMasterOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *GetMasterOutFollowFadeToBlack )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [out] */ BOOL *follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, SetMasterOutFollowFadeToBlack)
         HRESULT ( STDMETHODCALLTYPE *SetMasterOutFollowFadeToBlack )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ BOOL follow);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, GetAudioFollowVideoCrossfadeTransition)
         HRESULT ( STDMETHODCALLTYPE *GetAudioFollowVideoCrossfadeTransition )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [out] */ BOOL *transition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, SetAudioFollowVideoCrossfadeTransition)
         HRESULT ( STDMETHODCALLTYPE *SetAudioFollowVideoCrossfadeTransition )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ BOOL transition);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, SetAllLevelNotificationsEnabled)
         HRESULT ( STDMETHODCALLTYPE *SetAllLevelNotificationsEnabled )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ BOOL enabled);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, ResetMasterOutPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetMasterOutPeakLevels )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, ResetAllPeakLevels)
         HRESULT ( STDMETHODCALLTYPE *ResetAllPeakLevels )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, CreateIterator)
         HRESULT ( STDMETHODCALLTYPE *CreateIterator )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ REFIID iid,
             /* [out] */ LPVOID *ppv);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, AddCallback)
         HRESULT ( STDMETHODCALLTYPE *AddCallback )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ IBMDSwitcherFairlightAudioMixerCallback *callback);
         
+        DECLSPEC_XFGVIRT(IBMDSwitcherFairlightAudioMixer_v8_10, RemoveCallback)
         HRESULT ( STDMETHODCALLTYPE *RemoveCallback )( 
             IBMDSwitcherFairlightAudioMixer_v8_10 * This,
             /* [in] */ IBMDSwitcherFairlightAudioMixerCallback *callback);
