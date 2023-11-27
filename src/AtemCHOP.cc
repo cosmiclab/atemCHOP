@@ -41,7 +41,7 @@ void AtemCHOP::getGeneralInfo(CHOP_GeneralInfo* ginfo, const OP_Inputs* inputs, 
 
 bool AtemCHOP::getOutputInfo(CHOP_OutputInfo* info, const OP_Inputs* inputs, void* reserved1)
 {
-    if (atem != nullptr && atem->isConnected())
+    if (atem != nullptr && atem->IsConnected())
     {
         setOutputs();
 
@@ -59,7 +59,7 @@ bool AtemCHOP::getOutputInfo(CHOP_OutputInfo* info, const OP_Inputs* inputs, voi
 
 void AtemCHOP::getChannelName(int32_t index, OP_String* name, const OP_Inputs* inputs, void* reserved1)
 {
-    if (atem == nullptr || !atem->isConnected()) return;
+    if (atem == nullptr || !atem->IsConnected()) return;
 
     name->setString(outputs[index].c_str());
 }
@@ -96,12 +96,12 @@ void AtemCHOP::execute(CHOP_Output* output, const OP_Inputs* inputs, void* reser
     executeHandleParameters(inputs);
     executeHandleInputs(inputs); 
 
-    if (atem->isClosed() && reconnectTimer++ > RECONNECT_TIMER)
+    if (atem->IsClosed() && reconnectTimer++ > RECONNECT_TIMER)
     {
         std::string ipAddress = inputs->getParString("Atemip");
         threadedConnect(ipAddress);
     }
-    else if (atem->isConnected())
+    else if (atem->IsConnected())
     {
         UpdateOutputs(output);
     }
@@ -113,13 +113,13 @@ void AtemCHOP::UpdateOutputs(CHOP_Output* output)
 
     for (int mixerEffectId = 0; mixerEffectId < atem->GetMixerEffectCount(); ++mixerEffectId)
     {
-        output->channels[channelIndex++][0] = (float)atem->mixerEffectProgramIds[mixerEffectId];
-        output->channels[channelIndex++][0] = (float)atem->mixerEffectPreviewIds[mixerEffectId];
+        output->channels[channelIndex++][0] = (float)atem->GetMixerEffectProgramId(mixerEffectId);
+        output->channels[channelIndex++][0] = (float)atem->GetMixerEffectPreviewId(mixerEffectId);
     }
 
     for (int downstreamKeyId = 0; downstreamKeyId < atem->GetDownstreamKeyCount(); ++downstreamKeyId)
     {
-        output->channels[channelIndex++][0] = (float)atem->downstreamKeysOnAir[downstreamKeyId];
+        output->channels[channelIndex++][0] = (float)atem->GetDownstreamKeyOnAir(downstreamKeyId);
     }
 }
 
@@ -286,7 +286,7 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
 {
     std::string ip = inputs->getParString("Atemip");
     
-    if (atem->GetIpAddress() != ip || atem->active == -1) 
+    if (atem->GetIpAddress() != ip || atem->IsClosed()) 
     {
         threadedConnect(ip);
     }
@@ -340,7 +340,7 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
     for (int i = 0; i < MAX_DOWN_STREAM_KEYER_COUNT; ++i)
     {
         int downstreamKeyRate = inputs->getParInt(std::string("Dskrate").append(std::to_string(i + 1)).c_str());
-        atem->downstreamKeyRates[i] = downstreamKeyRate;
+        atem->SetDownstreamKeyRate(i, downstreamKeyRate);
     }
 }
 
@@ -357,19 +357,15 @@ void AtemCHOP::executeHandleInputs(const OP_Inputs* inputs) //these remaining fu
             {
                 int index = stoi(cname.substr(4, 1)) - 1;
                 uint16_t source = uint16_t(cinput->getChannelData(j)[0]);
-                //if (atem->nofAuxs > index && atem->caus[index] != source)
-                //{
-                //    atem->changeAuxSource(index, source);
-                //}
             }
 
             if (!strncmp(cname.c_str(), "ddsa", 4))
             {
                 int keyer = stoi(cname.substr(4, 1)) - 1;
                 BOOL flag = cinput->getChannelData(j)[0] >= 1;
-                if (atem->GetDownstreamKeyCount() > keyer && atem->downstreamKeysOnAir[keyer] != flag)
+                if (atem->GetDownstreamKeyCount() > keyer && atem->GetDownstreamKeyOnAir(keyer) != flag)
                 {
-                     if (flag)
+                    if (flag)
                     {
                         atem->PerformDownstreamKeyAutoTransition(keyer);
                     }
