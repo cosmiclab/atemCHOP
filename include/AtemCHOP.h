@@ -17,15 +17,6 @@ private:
 	static const int MAX_DOWN_STREAM_KEYER_COUNT = 2; //""
 	static const int RECONNECT_TIMER = 30; //try to reconnect once every 30 frames
 	
-	struct MixerEffectData {
-		double lastFaderPosition = 0.0;
-		//bool bMirrored = false;
-	} mixerEffectData[MAX_MIXER_EFFECT_COUNT];
-
-	struct DownstreamKeyData {
-		int rate = 60;
-	} downstreamKeyData[MAX_DOWN_STREAM_KEYER_COUNT];
-
 	bool isThreadFinished = true;
 	int meFaderDirections[4] = { 1, 1, 1, 1 };
 	int reconnectTimer = 0;

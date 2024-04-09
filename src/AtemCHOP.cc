@@ -276,8 +276,8 @@ void AtemCHOP::pulsePressed(const char* name, void* reserved1)
     std::string parameterName = std::string(name);
     int effectIndex = -1;
 
-    if      (isNamedParameter(parameterName, "Cut", effectIndex))     { atem->PerformCut(effectIndex-1); }
-    else if (isNamedParameter(parameterName, "Auto", effectIndex))    { atem->PerformAutoTransition(effectIndex-1); }
+    if      (isNamedParameter(parameterName, "Cut", effectIndex))     { atem->PerformMixerEffectCut(effectIndex-1); }
+    else if (isNamedParameter(parameterName, "Auto", effectIndex))    { atem->PerformMixerEffectAutoTransition(effectIndex-1); }
     else if (isNamedParameter(parameterName, "Dskauto", effectIndex)) { atem->PerformDownstreamKeyAutoTransition(effectIndex-1); }
     else if (isNamedParameter(parameterName, "Dskcut", effectIndex))  { atem->ToggleDownstreamKey(effectIndex-1); }
 }
@@ -298,43 +298,15 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
         int programId = inputs->getParInt(std::string("Program").append(indexStr).c_str());
         int previewId = inputs->getParInt(std::string("Preview").append(indexStr).c_str());
         
-        //if (mixerEffectData[i].bMirrored)
-        //{
-        //    atem->SetProgramInput(i, previewId);
-        //    atem->SetPreviewInput(i, programId);
-        //}
-        //else
-        //{
-            atem->SetProgramInput(i, programId);
-            atem->SetPreviewInput(i, previewId);
-        //}
-
+        atem->SetMixerEffectProgramInput(i, programId);
+        atem->SetMixerEffectPreviewInput(i, previewId);
+        
         double faderPosition = inputs->getParDouble(std::string("Fader").append(indexStr).c_str());
-        //bool isMirrored = inputs->getParInt("Fadermirroring");
-
-        if (mixerEffectData[i].lastFaderPosition == faderPosition)
+        
+        if (atem->GetMixerEffectFaderPosition(i) != faderPosition)
         {
-            continue;
+            atem->SetMixerEffectFaderPosition(i, faderPosition);
         }
-
-        //if (isMirrored)
-        //{
-        //    if (mixerEffectData[i].bMirrored)
-        //    {
-        //        faderPosition = 1 - faderPosition;
-        //    }
-
-        //    if (faderPosition == 1.0)
-        //    {
-        //        mixerEffectData[i].bMirrored = !mixerEffectData[i].bMirrored;
-        //        faderPosition = 0;
-        //        atem->SwitchProgramToPreview(i);
-        //    }
-        //}
-
-        //faderPosition = meFaderDirections[i] == 1 || !isMirrored ? faderPosition : faderPosition * meFaderDirections[i] + 1.0;
-        atem->ChangeFaderPosition(i, faderPosition);
-        mixerEffectData[i].lastFaderPosition = faderPosition;
     }
 
     for (int i = 0; i < MAX_DOWN_STREAM_KEYER_COUNT; ++i)

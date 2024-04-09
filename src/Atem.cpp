@@ -86,18 +86,22 @@ void Atem::LoadDownstreamKeys()
     CComPtr<IBMDSwitcherDownstreamKeyIterator> downstreamKeyIterator;
     if (switcher->CreateIterator(IID_IBMDSwitcherDownstreamKeyIterator, (void**)&downstreamKeyIterator) == S_OK)
     {
+        // Load Key
         CComPtr<IBMDSwitcherDownstreamKey> downstreamKey;
         while (downstreamKeyIterator->Next(&downstreamKey) == S_OK)
         {
             downstreamKeys.push_back(std::move(downstreamKey));
         }
     
+        // Load Key Settings
         size_t downstreamKeyCount = downstreamKeys.size();
         downstreamKeysOnAir.assign(downstreamKeyCount, 0);
+        downstreamKeyRates.assign(downstreamKeyCount, 0);
     
         for (size_t downstreamKeyId = 0; downstreamKeyId < downstreamKeyCount; ++downstreamKeyId)
         {
             downstreamKeys[downstreamKeyId]->GetOnAir(&downstreamKeysOnAir[downstreamKeyId]);
+            downstreamKeys[downstreamKeyId]->GetRate(&downstreamKeyRates[downstreamKeyId]);
         }
     }
 }
@@ -151,7 +155,7 @@ void Atem::LoadMixerEffects()
     }
 }
 
-void Atem::ChangeFaderPosition(uint8_t mixerEffectId, double position)
+void Atem::SetMixerEffectFaderPosition(uint8_t mixerEffectId, double position)
 {
     if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size())
     {
@@ -162,7 +166,36 @@ void Atem::ChangeFaderPosition(uint8_t mixerEffectId, double position)
     }
 }
 
-void Atem::PerformAutoTransition(uint8_t mixerEffectId)
+void Atem::SetMixerEffectPreviewInput(uint8_t mixerEffectId, uint16_t sourceId)
+{
+    if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size() && sourceId != mixerEffectPreviewIds[mixerEffectId])
+    {
+        mixerEffectBlocks[mixerEffectId]->SetPreviewInput(sourceId);
+        mixerEffectPreviewIds[mixerEffectId] = sourceId;
+    }
+}
+
+void Atem::SetMixerEffectProgramInput(uint8_t mixerEffectId, uint16_t sourceId)
+{
+    if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size() && sourceId != mixerEffectProgramIds[mixerEffectId])
+    {
+        mixerEffectBlocks[mixerEffectId]->SetProgramInput(sourceId);
+        mixerEffectProgramIds[mixerEffectId] = sourceId;
+    }
+}
+
+void Atem::SwitchMixerEffectProgramToPreview(uint8_t mixerEffectId)
+{
+    // Get current program and preview into opposite cache
+    mixerEffectBlocks[mixerEffectId]->GetProgramInput(&mixerEffectPreviewIds[mixerEffectId]);
+    mixerEffectBlocks[mixerEffectId]->GetPreviewInput(&mixerEffectProgramIds[mixerEffectId]);
+
+    // Set new program and preview
+    mixerEffectBlocks[mixerEffectId]->SetProgramInput(mixerEffectProgramIds[mixerEffectId]);
+    mixerEffectBlocks[mixerEffectId]->SetPreviewInput(mixerEffectPreviewIds[mixerEffectId]);
+}
+
+void Atem::PerformMixerEffectAutoTransition(uint8_t mixerEffectId)
 {
     if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size())
     {
@@ -174,7 +207,7 @@ void Atem::PerformAutoTransition(uint8_t mixerEffectId)
     }
 }
 
-void Atem::PerformCut(uint8_t mixerEffectId)
+void Atem::PerformMixerEffectCut(uint8_t mixerEffectId)
 {
     if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size())
     {
@@ -196,35 +229,6 @@ void Atem::PerformDownstreamKeyAutoTransition(uint8_t downstreamKeyId) // not qu
         downstreamKeys[downstreamKeyId]->GetOnAir(&on);
         downstreamKeysOnAir[downstreamKeyId] = !on;
     }
-}
-
-void Atem::SetPreviewInput(uint8_t mixerEffectId, uint16_t sourceId)
-{
-    if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size() && sourceId != mixerEffectPreviewIds[mixerEffectId])
-    {
-        mixerEffectBlocks[mixerEffectId]->SetPreviewInput(sourceId);
-        mixerEffectPreviewIds[mixerEffectId] = sourceId;
-    }
-}
-
-void Atem::SetProgramInput(uint8_t mixerEffectId, uint16_t sourceId)
-{
-    if (mixerEffectId >= 0 && mixerEffectId < mixerEffectBlocks.size() && sourceId != mixerEffectProgramIds[mixerEffectId])
-    {
-        mixerEffectBlocks[mixerEffectId]->SetProgramInput(sourceId);
-        mixerEffectProgramIds[mixerEffectId] = sourceId;
-    }
-}
-
-void Atem::SwitchProgramToPreview(uint8_t mixerEffectId)
-{
-    // Get current program and preview into opposite cache
-    mixerEffectBlocks[mixerEffectId]->GetProgramInput(&mixerEffectPreviewIds[mixerEffectId]);
-    mixerEffectBlocks[mixerEffectId]->GetPreviewInput(&mixerEffectProgramIds[mixerEffectId]);
-
-    // Set new program and preview
-    mixerEffectBlocks[mixerEffectId]->SetProgramInput(mixerEffectProgramIds[mixerEffectId]);
-    mixerEffectBlocks[mixerEffectId]->SetPreviewInput(mixerEffectPreviewIds[mixerEffectId]);
 }
 
 void Atem::ToggleDownstreamKey(uint8_t downstreamKeyId) // perform a downstream key cut

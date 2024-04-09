@@ -38,7 +38,7 @@ struct Atem {
         std::vector<CComPtr<IBMDSwitcherMixEffectBlock>> mixerEffectBlocks;
                 
         std::vector<BOOL> downstreamKeysOnAir;
-        int downstreamKeyRates[4] = { 60, 60, 60, 60 };
+        std::vector<unsigned int> downstreamKeyRates;
         std::vector<BMDSwitcherInputId> mixerEffectPreviewIds;
         std::vector<BMDSwitcherInputId> mixerEffectProgramIds;
         std::vector<double> mixerEffectTransitionPositions;
@@ -66,19 +66,21 @@ public:
         std::string GetProductName() const   { return productName; }
         size_t GetMixerEffectCount() const   { return mixerEffectBlocks.size(); }
 
-        inline BMDSwitcherInputId GetMixerEffectProgramId(uint8_t mixerEffectId) const { return mixerEffectProgramIds[mixerEffectId]; }
+        inline double GetMixerEffectFaderPosition(uint8_t mixerEffectId) const { return mixerEffectTransitionPositions[mixerEffectId]; }
         inline BMDSwitcherInputId GetMixerEffectPreviewId(uint8_t mixerEffectId) const { return mixerEffectPreviewIds[mixerEffectId]; }
+        inline BMDSwitcherInputId GetMixerEffectProgramId(uint8_t mixerEffectId) const { return mixerEffectProgramIds[mixerEffectId]; }
+        void SetMixerEffectFaderPosition(uint8_t mixerEffectId, double position);
+        void SetMixerEffectPreviewInput(uint8_t mixerEffectId, uint16_t sourceId);
+        void SetMixerEffectProgramInput(uint8_t mixerEffectId, uint16_t sourceId);
+
+        void SwitchMixerEffectProgramToPreview(uint8_t mixerEffectId);
+        void PerformMixerEffectAutoTransition(uint8_t mixerEffectId);
+        void PerformMixerEffectCut(uint8_t mixerEffectId);
+
         inline BOOL GetDownstreamKeyOnAir(uint8_t keyerId) const { return downstreamKeysOnAir[keyerId]; }
         inline double GetDownstreamKeyRate(uint8_t keyerId) const { return downstreamKeyRates[keyerId]; }
-
         inline void SetDownstreamKeyRate(uint8_t keyerId, int rate) { downstreamKeyRates[keyerId] = rate; }
 
-        void ChangeFaderPosition(uint8_t mixerEffectId, double position);
-        void PerformAutoTransition(uint8_t mixerEffectId);
-        void PerformCut(uint8_t mixerEffectId);
         void PerformDownstreamKeyAutoTransition(uint8_t keyerId);
-        void SetPreviewInput(uint8_t mixerEffectId, uint16_t sourceId);
-        void SetProgramInput(uint8_t mixerEffectId, uint16_t sourceId);
-        void SwitchProgramToPreview(uint8_t mixerEffectId);
         void ToggleDownstreamKey(uint8_t keyerId);
 };
