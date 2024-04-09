@@ -1,0 +1,17 @@
+{
+    "Version": 1,
+    "AllowedPlugins": {
+        "066db80a": {
+            "ComputerName": "COSMIC2",
+            "Plugins": {
+                "D:/Git/AtemCHOP/examples/Plugins/AtemCHOP.dll": {
+                    "Hashes": [
+                        "mB7WDEW4bjXTX3SXfwFfZO5Lo5CjhSOP31ugKMdLvx5qyZLOfXMIhpXH7mVeUsjA0OcvUX91fVsm4gPTpZO9fYCKy98gP6w2zizFtfr/1yd7ZyC50SRLBv77qfn6z1ZG"
+                    ],
+                    "AuthorName": "Cosmic Lab",
+                    "AuthorEmail": "staff@cosmiclab.jp"
+                }
+            }
+        }
+    }
+}
