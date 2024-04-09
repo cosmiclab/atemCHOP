@@ -309,7 +309,7 @@ void AtemCHOP::executeHandleParameters(const OP_Inputs* inputs)
         }
     }
 
-    for (int i = 0; i < MAX_DOWN_STREAM_KEYER_COUNT; ++i)
+    for (int i = 0; i < atem->GetDownstreamKeyCount(); ++i)
     {
         int downstreamKeyRate = inputs->getParInt(std::string("Dskrate").append(std::to_string(i + 1)).c_str());
         atem->SetDownstreamKeyRate(i, downstreamKeyRate);
