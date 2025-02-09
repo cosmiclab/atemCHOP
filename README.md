@@ -24,3 +24,7 @@ Some features are still in developmemt and only building for Windows is supporte
 - Cut and auto (with adjustable rate in frames) for up to two DownstreamKeys on the DSK page.
 - See CHOP output values for the program and preview inputs and the DSK status (as 0 or 1).
 - Tries to reconnect periodically when disconnected.
+
+Notes:
+
+- To use this dll you may need to install visual studio with the c++ development module (TODO: figure out exactly why this fixes the problem later (IE. install vs redistributables or something))
